@@ -8,8 +8,6 @@ export default class CleanData {
       episode: data.episode_id,
       scrawl: data.opening_crawl
     }
-    return (
-      openingScrawl
-    )
+    return openingScrawl
   }
 }
