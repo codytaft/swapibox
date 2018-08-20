@@ -24,7 +24,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.crawlingText.title)
     return (
       <div className="App">
         <div>
