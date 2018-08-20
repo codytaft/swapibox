@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { MockData } from '../../data/MockData'
+import CleanData from '../Helper/Helper'
+import Welcome from '../Welcome/Welcome.js'
 
 class App extends Component {
   render() {

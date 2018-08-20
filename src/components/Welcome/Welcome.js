@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
- export const Welcome = ( { crawlingText }) => {
+ const Welcome = ( { crawlingText }) => {
   console.log(crawlingText.title)
   const { episode, title, scrawl } = crawlingText
   return (
