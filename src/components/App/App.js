@@ -1,7 +1,26 @@
 import React, { Component } from 'react';
 import './App.scss';
+import mockData from '../../data/MockData.js'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state={
+      data=[]
+    }
+  }
+
+  componentDidMount = () => {
+    this.playOpeningScrawl()
+  }
+
+  playOpeningScrawl = () => {
+    
+  }
+
+
+
+
   render() {
     return (
       <div className="App">
