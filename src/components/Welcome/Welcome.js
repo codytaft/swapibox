@@ -1,9 +1,10 @@
 import React from 'react';
-import './Welcome.scss';
+import './Welcome.css';
 
  export const Welcome = ( { crawlingText }) => {
   const { episode, title, scrawl } = crawlingText
   return (
+    <div className="fade">
     <section className="star-wars">
       <div className="crawl">
         <div className="title">
@@ -13,5 +14,6 @@ import './Welcome.scss';
         <p>{scrawl}</p>     
       </div>
     </section>
+    </div>
   )
 }

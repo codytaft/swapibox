@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.scss';
+import './App.css';
 import { MockData } from '../../data/MockData'
 import CleanData from '../Helper/Helper'
 import { Welcome } from '../Welcome/Welcome.js'
