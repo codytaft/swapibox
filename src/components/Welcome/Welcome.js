@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
  const Welcome = ( { crawlingText }) => {
-  console.log(crawlingText.title)
   const { episode, title, scrawl } = crawlingText
   return (
     <section className="star-wars">
@@ -16,3 +15,9 @@ import PropTypes from 'prop-types';
     </section>
   )
 }
+
+Welcome.propTypes = {
+  crawlingText: PropTypes.object
+};
+
+export default Welcome;
