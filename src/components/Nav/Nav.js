@@ -1,4 +1,5 @@
 import React, { Componenet } from 'react';
+import './Nav.scss';
 
 class Nav extends Component {
   constructor() {
@@ -8,11 +9,11 @@ class Nav extends Component {
   render() {
     return (
       <div className="nav-wrapper">
-        <div className="top-row">
+        <div className="header-row">
           <h1 className="title-logo">SWAPIBox</h1>
           <button>FavoritesPlaceholder</button>
         </div>
-        <div className="button-wrap">
+        <div className="button-row">
           <button>ButtonPlaceholder</button>
           <button>ButtonPlaceholder</button>
           <button>ButtonPlacedholder</button>
