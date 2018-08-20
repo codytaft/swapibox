@@ -6,7 +6,7 @@ describe('WELCOME', () => {
   it('Should match snapshot', () =>{
     const wrapper = shallow(<Welcome crawlingText={{}} />);
 
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-})
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});
 
