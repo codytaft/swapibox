@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`APP Should match snapshot 1`] = `"<div class=\\"App\\"><div><section class=\\"star-wars\\"><div class=\\"scrawl\\"><div class=\\"title\\"><p></p><h1></h1></div><p></p></div></section></div></div>"`;

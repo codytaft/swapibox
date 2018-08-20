@@ -1,8 +1,10 @@
 import React from 'react';
 import './Welcome.css';
+import PropTypes from 'prop-types';
 
- export const Welcome = ( { crawlingText }) => {
-  const { episode, title, scrawl } = crawlingText
+const Welcome = ( { crawlingText }) => {
+  const { episode, title, scrawl } = crawlingText;
+
   return (
     <div className="fade">
     <section className="star-wars">
@@ -15,5 +17,11 @@ import './Welcome.css';
       </div>
     </section>
     </div>
-  )
-}
+  );
+};
+
+Welcome.propTypes = {
+  crawlingText: PropTypes.object
+};
+
+export default Welcome;
