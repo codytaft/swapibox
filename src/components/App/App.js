@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { MockData } from '../../data/MockData'
+import CleanData from '../Helper/Helper'
+import { Welcome } from '../Welcome/Welcome.js'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state={
+      crawlingText: {},
+      data: []
+    }
+  }
+
+  componentDidMount = () => {
+    this.playOpeningScrawl()
+  }
+
+  playOpeningScrawl = () => {
+    const newScrawl = new CleanData()
+    const crawlingText = newScrawl.getOpeningScrawl(MockData)
+    this.setState( { crawlingText })
+  }
+
   render() {
+    console.log(this.state.crawlingText.title)
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div>
+          <Welcome crawlingText={ this.state.crawlingText }/>
+        </div>
       </div>
     );
   }
