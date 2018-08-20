@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './App.scss';
-import mockData from '../../data/MockData.js'
+import mockData from '../../data/MockData'
+import CleanData from '../Helper/Helper'
 
 class App extends Component {
   constructor() {
     super()
     this.state={
+      crawlingText=[],
       data=[]
     }
   }
@@ -15,7 +17,9 @@ class App extends Component {
   }
 
   playOpeningScrawl = () => {
-    
+    const newScrawl = new CleanData()
+    const crawlingText = newScrawl.getOpeningScrawl(mockData)
+    this.setState( { crawlingText })
   }
 
 
@@ -24,11 +28,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to SWAPIBOX</h1>
-        </header>
-        <p className="App-intro">
-        </p>
+        <div>
+          <Welcome crawlingText={ this.state.crawlingText }/>
+        </div>
       </div>
     );
   }

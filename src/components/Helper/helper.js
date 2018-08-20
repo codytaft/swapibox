@@ -3,6 +3,13 @@ export default class CleanData {
   }
 
   getOpeningScrawl = (data) => {
-    return data.opening_crawl
+    const openingScrawl = {
+      title: data.title,
+      episode: data.episode_id,
+      scrawl: data.opening_crawl
+    }
+    return (
+      openingScrawl
+    )
   }
 }
