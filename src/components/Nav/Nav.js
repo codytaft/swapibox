@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import './Nav.css';
+import Button from '../Button/Button.js'
 
 class Nav extends Component {
   constructor() {
     super()
+    this.state = {
+      favorites: []
+    }
+  }
+
+  handleClick = (e) => {
+    const 
   }
 
   render() {
@@ -12,14 +20,15 @@ class Nav extends Component {
         <div className="header-row">
           <h1 className="title-logo">SWAPI-Box</h1>
           <span className="fav-row">
+            <Button onClick={this.handleClick} favorites={this.state.favorites}/>
             <div className="favorites">FAV PLACEHOLDER</div>
             <div className="fav-counter">0</div>
           </span>
         </div>
         <div className="button-row">
-          <div className="favorites people">PEOPLE</div>
-          <div className="favorites planets">PLANETS</div>
-          <div className="favorites vehicles">VEHICLES</div>
+          <Button onClick={this.handleClick} name='peopleBtn' />
+          <Button onClick={this.handleClick} name='vehiclesBtn'/>
+          <Button onClick={this.handleClick} name='planetsBtn'/>
         </div>
       </div>
     )
