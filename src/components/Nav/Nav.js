@@ -14,9 +14,9 @@ class Nav extends Component {
           <div className="favorites">FAV PLACEHOLDER</div>
         </div>
         <div className="button-row">
-          <button>ButtonPlaceholder</button>
-          <button>ButtonPlaceholder</button>
-          <button>ButtonPlacedholder</button>
+          <div className="favorites people">PEOPLE</div>
+          <div className="favorites planets">PLANETS</div>
+          <div className="favorites vehicles">VEHICLES</div>
         </div>
       </div>
     )
