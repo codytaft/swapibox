@@ -21,3 +21,14 @@
 .title-logo {
   font-size: 3em;
   color: lime; }
+
+.fav-counter {
+  border: 1px solid black;
+  margin-left: .5em;
+  width: 1em; }
+
+.fav-row {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 30%; }

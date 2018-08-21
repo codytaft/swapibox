@@ -11,7 +11,10 @@ class Nav extends Component {
       <div className="nav-wrapper">
         <div className="header-row">
           <h1 className="title-logo">SWAPIBox</h1>
-          <div className="favorites">FAV PLACEHOLDER</div>
+          <span className="fav-row">
+            <div className="favorites">FAV PLACEHOLDER</div>
+            <div className="fav-counter">0</div>
+          </span>
         </div>
         <div className="button-row">
           <div className="favorites people">PEOPLE</div>
