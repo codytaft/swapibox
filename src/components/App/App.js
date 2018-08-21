@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { MockData } from '../../data/MockData'
-import CleanData from '../Helper/Helper'
+import { MockData } from '../../data/MockData';
+import CleanData from '../Helper/Helper';
 import Welcome from '../Welcome/Welcome.js'
 import Nav from '../Nav/Nav';
 
