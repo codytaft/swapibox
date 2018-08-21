@@ -10,7 +10,7 @@ class Nav extends Component {
     return (
       <div className="nav-wrapper">
         <div className="header-row">
-          <h1 className="title-logo">SWAPIBox</h1>
+          <h1 className="title-logo">SWAPI-Box</h1>
           <span className="fav-row">
             <div className="favorites">FAV PLACEHOLDER</div>
             <div className="fav-counter">0</div>
