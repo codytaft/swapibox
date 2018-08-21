@@ -36,11 +36,10 @@ class App extends Component {
   fetchButtonData = (category) => {
     fetch(`https://swapi.co/api/people/`)
     .then(response => response.json())
-    .then(data => this.state.cleanData.getPeople(data))
+    .then(data => this.state.cleanData.getPeople(data.results))
     .then(people => this.setState({ data: people }))
     .catch((error) => console.log(error.message))
-    debugger
-  }
+  };
 
   setFavorites = () => {
 

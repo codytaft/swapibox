@@ -11,10 +11,8 @@ export default class CleanData {
     return openingScrawl
   }
 
-  getPeople = (data) => {
-    const peopleData = {
-      name: data.name
-    }
+  getPeople = (people) => {
+    const peopleData = people.map(person => person.name)
     return peopleData
   }
 }

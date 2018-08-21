@@ -3,15 +3,17 @@ import './Nav.css';
 import Button from '../Button/Button.js'
 
 class Nav extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       favorites: []
     }
   }
 
-  handleClick = (e) => {
-    const 
+  handleClick = (event) => {
+    const { name, value} = event.target;
+    this.props.fetchButtonData()
+    // this.setState({[name]: value})
   }
 
   render() {

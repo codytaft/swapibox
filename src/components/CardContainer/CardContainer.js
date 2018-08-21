@@ -5,4 +5,4 @@ const CardContainer = (data) => {
   
 }
 
-export default CardContainer
+export default CardContainer;
