@@ -12,7 +12,7 @@ class Nav extends Component {
 
   handleClick = (event) => {
     const { name, value} = event.target;
-    this.props.fetchButtonData()
+    this.props.fetchNameData()
     // this.setState({[name]: value})
   }
 
