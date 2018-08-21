@@ -4,13 +4,15 @@ import { MockData } from '../../data/MockData';
 import CleanData from '../Helper/Helper';
 import Welcome from '../Welcome/Welcome.js'
 import Nav from '../Nav/Nav';
+import CardContainer from '../CardContainer/CardContainer';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       crawlingText: {},
-      data: []
+      data: [],
+      cleanData: new CleanData()
     }
   }
 
@@ -23,20 +25,35 @@ class App extends Component {
     fetch(`https://swapi.co/api/films/${randomNumber}/`)
     .then(response => response.json())
     .then(data => this.playOpeningScrawl(data))
-    .catch(() => alert('fucked this data is'))
+    .catch((error) => console.log(error.message))
   }
 
   playOpeningScrawl = (data) => {
-    const newScrawl = new CleanData()
-    const crawlingText = newScrawl.getOpeningScrawl(data)
+    const crawlingText = this.state.cleanData.getOpeningScrawl(data)
     this.setState({ crawlingText })
   }
+
+  fetchButtonData = (category) => {
+    fetch(`https://swapi.co/api/people/`)
+    .then(response => response.json())
+    .then(data => this.state.cleanData.getPeople(data))
+    .then(people => this.setState({ data: people }))
+    .catch((error) => console.log(error.message))
+    debugger
+  }
+
+  setFavorites = () => {
+
+  }
+
   render() {
+    const { data, crawlingText } = this.state
     return (
       <div className="App">
         <div>
-          <Nav />
-          <Welcome crawlingText={this.state.crawlingText} />
+          <Nav fetchButtonData={this.fetchButtonData}/>
+          <Welcome crawlingText={crawlingText} />
+          {/* <CardContainer data={data}/> */}
         </div>
       </div>
     );

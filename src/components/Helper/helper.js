@@ -10,4 +10,11 @@ export default class CleanData {
     }
     return openingScrawl
   }
+
+  getPeople = (data) => {
+    const peopleData = {
+      name: data.name
+    }
+    return peopleData
+  }
 }
