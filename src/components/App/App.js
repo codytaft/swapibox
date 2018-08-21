@@ -33,14 +33,22 @@ class App extends Component {
     this.setState({ crawlingText })
   }
 
-  fetchButtonData = (category) => {
+  fetchNameData = (category) => {
     fetch(`https://swapi.co/api/people/`)
     .then(response => response.json())
-    .then(data => this.state.cleanData.getPeople(data))
+    .then(data => this.state.cleanData.getPeople(data.results))
+    // .then(homeworld => this.getHomeworld(data))
     .then(people => this.setState({ data: people }))
     .catch((error) => console.log(error.message))
-    debugger
-  }
+  };
+
+  // getHomeworld = (peopleData) => {
+  //   const personName = 
+  //   const personWithHome = peopleData.map(person => {
+  //     return {}
+  //   })
+  //   fetch()
+  // }
 
   setFavorites = () => {
 
@@ -51,7 +59,7 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <Nav fetchButtonData={this.fetchButtonData}/>
+          <Nav fetchNameData={this.fetchNameData}/>
           <Welcome crawlingText={crawlingText} />
           {/* <CardContainer data={data}/> */}
         </div>

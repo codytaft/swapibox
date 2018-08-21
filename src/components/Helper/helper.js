@@ -11,10 +11,17 @@ export default class CleanData {
     return openingScrawl
   }
 
-  getPeople = (data) => {
-    const peopleData = {
-      name: data.name
-    }
+  getPeople = (people) => {
+    const peopleData = people.map(person => {
+      return {name: person.name}
+    })
     return peopleData
+  }
+
+  getHomeworld = (world) => {
+    const worldData = world.map(planet => {
+      return {homeworld: planet.name}
+    })
+    return worldData
   }
 }
