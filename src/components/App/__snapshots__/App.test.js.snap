@@ -1,3 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`APP Should match snapshot 1`] = `"<div class=\\"App\\"><div><div class=\\"fade\\"><section class=\\"star-wars\\"><div class=\\"crawl\\"><div class=\\"title\\"><p></p><h1></h1></div><p></p></div></section></div></div></div>"`;
+exports[`APP Should match snapshot 1`] = `"<div class=\\"App\\"><div><div class=\\"nav-wrapper\\"><div class=\\"header-row\\"><h1 class=\\"title-logo\\">SWAPIBox</h1><button>FavoritesPlaceholder</button></div><div class=\\"button-row\\"><button>ButtonPlaceholder</button><button>ButtonPlaceholder</button><button>ButtonPlacedholder</button></div></div><div class=\\"fade\\"><section class=\\"star-wars\\"><div class=\\"crawl\\"><div class=\\"title\\"><p></p><h1></h1></div><p></p></div></section></div></div></div>"`;
+
+exports[`APP Should update state of crawlingText when playOpeningScrawl is invoked 1`] = `
+"<div class=\\"App\\"><div><div class=\\"nav-wrapper\\"><div class=\\"header-row\\"><h1 class=\\"title-logo\\">SWAPIBox</h1><button>FavoritesPlaceholder</button></div><div class=\\"button-row\\"><button>ButtonPlaceholder</button><button>ButtonPlaceholder</button><button>ButtonPlacedholder</button></div></div><div class=\\"fade\\"><section class=\\"star-wars\\"><div class=\\"crawl\\"><div class=\\"title\\"><p>4</p><h1>A New Hope</h1></div><p>It is a period of civil war.
+
+Rebel spaceships, striking
+
+from a hidden base, have won
+
+their first victory against
+
+the evil Galactic Empire.
+
+
+
+During the battle, Rebel
+
+spies managed to steal secret
+plans to the Empire&#x27;s
+
+ultimate weapon, the DEATH
+
+STAR, an armored space
+
+station with enough power
+
+to destroy an entire planet.
+
+
+
+Pursued by the Empire&#x27;s
+
+sinister agents, Princess
+
+Leia races home aboard her
+
+starship, custodian of the
+
+stolen plans that can save her
+
+people and restore
+
+freedom to the galaxy....</p></div></section></div></div></div>"
+`;
