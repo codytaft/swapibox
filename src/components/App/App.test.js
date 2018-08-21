@@ -15,6 +15,7 @@ describe('APP', () => {
   });
 
   it('Should start state crawlingText empty object and data empty array', () => {
-    expect(wrapper.state().data.length).toEqual(0)
+    expect(wrapper.state().data.length).toEqual(0);
+    expect(wrapper.state().crawlingText).toEqual({});
   })
 })
