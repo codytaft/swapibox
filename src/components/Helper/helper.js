@@ -12,7 +12,9 @@ export default class CleanData {
   }
 
   getPeople = (people) => {
-    const peopleData = people.map(person => person.name)
+    const peopleData = people.map(person => {
+      return {name: person.name}
+    })
     return peopleData
   }
 }
