@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Nav.scss';
+import './Nav.css';
 
 class Nav extends Component {
   constructor() {
@@ -10,13 +10,16 @@ class Nav extends Component {
     return (
       <div className="nav-wrapper">
         <div className="header-row">
-          <h1 className="title-logo">SWAPIBox</h1>
-          <button>FavoritesPlaceholder</button>
+          <h1 className="title-logo">SWAPI-Box</h1>
+          <span className="fav-row">
+            <div className="favorites">FAV PLACEHOLDER</div>
+            <div className="fav-counter">0</div>
+          </span>
         </div>
         <div className="button-row">
-          <button>ButtonPlaceholder</button>
-          <button>ButtonPlaceholder</button>
-          <button>ButtonPlacedholder</button>
+          <div className="favorites people">PEOPLE</div>
+          <div className="favorites planets">PLANETS</div>
+          <div className="favorites vehicles">VEHICLES</div>
         </div>
       </div>
     )

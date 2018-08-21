@@ -1,0 +1,40 @@
+.nav-wrapper {
+  background-color: magenta;
+  height: 10em;
+  margin: auto 0;
+  width: 100%;
+}
+
+.header-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 37em;
+  width: 58%;
+}
+
+.button-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 32em;
+  width: 30%;
+}
+
+.title-logo {
+  font-size: 3em;
+  color: lime;
+}
+
+.fav-counter {
+  border: 1px solid black;
+  margin-left: .5em;
+  width: 1em;
+}
+
+.fav-row {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
