@@ -17,4 +17,11 @@ export default class CleanData {
     })
     return peopleData
   }
+
+  getHomeworld = (world) => {
+    const worldData = world.map(planet => {
+      return {homeworld: planet.name}
+    })
+    return worldData
+  }
 }
