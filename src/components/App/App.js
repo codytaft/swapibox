@@ -15,12 +15,20 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.playOpeningScrawl()
+    this.fetchAPI()
+  }
+  
+  fetchAPI = () => {
+    const randomNumber = Math.floor(Math.random() * 6 + 1)
+    fetch(`https://swapi.co/api/films/${randomNumber}/`)
+    .then(response => response.json())
+    .then(data => this.playOpeningScrawl(data))
+    .catch(() => alert('fucked this data is'))
   }
 
-  playOpeningScrawl = () => {
+  playOpeningScrawl = (data) => {
     const newScrawl = new CleanData()
-    const crawlingText = newScrawl.getOpeningScrawl(MockData)
+    const crawlingText = newScrawl.getOpeningScrawl(data)
     this.setState({ crawlingText })
   }
   render() {
