@@ -3,11 +3,12 @@ import './App.css';
 import { MockData } from '../../data/MockData'
 import CleanData from '../Helper/Helper'
 import Welcome from '../Welcome/Welcome.js'
+import Nav from '../Nav/Nav';
 
 class App extends Component {
   constructor() {
     super()
-    this.state={
+    this.state = {
       crawlingText: {},
       data: []
     }
@@ -20,13 +21,14 @@ class App extends Component {
   playOpeningScrawl = () => {
     const newScrawl = new CleanData()
     const crawlingText = newScrawl.getOpeningScrawl(MockData)
-    this.setState( { crawlingText })
+    this.setState({ crawlingText })
   }
   render() {
     return (
       <div className="App">
         <div>
-          <Welcome crawlingText={ this.state.crawlingText }/>
+          <Nav />
+          <Welcome crawlingText={this.state.crawlingText} />
         </div>
       </div>
     );
