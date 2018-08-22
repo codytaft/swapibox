@@ -36,7 +36,7 @@ class App extends Component {
   fetchNameData = (category) => {
     fetch(`https://swapi.co/api/people/`)
     .then(response => response.json())
-    .then(data => this.getHomeworld(data.results))
+    .then(data => this.getSpecies(data.results))
     .then(people => this.setState({ data: people }))
     .catch((error) => console.log(error.message))
   };
@@ -49,6 +49,16 @@ class App extends Component {
     })
   return homeWorld
   }
+  getSpecies = (peopleData) => {
+    const species = peopleData.map(person => {
+      fetch(person.species)
+        .then(response => response.json())
+        .then(data => console.log(data))
+    })
+  return species
+  }
+
+  
 
   setFavorites = () => {
 
