@@ -11,17 +11,37 @@ export default class CleanData {
     return openingScrawl
   }
 
-  getPeople = (people) => {
-    const peopleData = people.map(person => {
-      return {name: person.name}
+  cleanHomeworld = (peopleData) => {
+    const unresolvedPeopleData = peopleData.map(person => {
+      const name = person.name;
+      
+      return fetch(person.homeworld)
+        .then(response => response.json())
+        .then(homeWorld => ({
+          ...person,
+          name, 
+          Homeworld: homeWorld.name,
+          Population: homeWorld.population
+        }))
+      
     })
-    return peopleData
+    return Promise.all(unresolvedPeopleData)
   }
 
-  getHomeworld = (world) => {
-    const worldData = world.map(planet => {
-      return {homeworld: planet.name}
-    })
-    return worldData
-  }
+  cleanSpecies = (peopleData) => {
+    const unresolvedSpeciesData = peopleData.map(person => {
+      const {name, Homeworld, Population} = person;
+
+      return fetch(person.species)
+        .then(response => response.json())
+        .then(species => ({
+          name,
+          Homeworld,
+          Population,
+          Species: species.name,
+          isFavoriteSelected: false
+        }))
+      })
+      return Promise.all(unresolvedSpeciesData);
+    }
 }

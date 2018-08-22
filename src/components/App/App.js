@@ -12,12 +12,14 @@ class App extends Component {
     this.state = {
       crawlingText: {},
       data: [],
+      favorites: [],
       cleanData: new CleanData()
     }
   }
 
   componentDidMount = () => {
     this.fetchAPI()
+    this.fetchNameData()
   }
   
   fetchAPI = () => {
@@ -36,22 +38,26 @@ class App extends Component {
   fetchNameData = (category) => {
     fetch(`https://swapi.co/api/people/`)
     .then(response => response.json())
-    .then(data => this.state.cleanData.getPeople(data.results))
-    // .then(homeworld => this.getHomeworld(data))
-    .then(people => this.setState({ data: people }))
+    .then(data => this.state.cleanData.cleanHomeworld(data.results))
+    .then(peopleData => this.state.cleanData.cleanSpecies(peopleData))
+    .then(species => this.setState({data: species}))
     .catch((error) => console.log(error.message))
   };
 
-  // getHomeworld = (peopleData) => {
-  //   const personName = 
-  //   const personWithHome = peopleData.map(person => {
-  //     return {}
-  //   })
-  //   fetch()
-  // }
 
-  setFavorites = () => {
+  selectFavorite = (name) => {
+    const favorites = this.state.favorites;
+    const isFavorite = favorites.includes(name);
+    const foundCard = favorites.find(card => card.name === name);
 
+    if (isFavorite) {
+      foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected
+    }
+
+  }
+
+  deselectFavorite = (name) => {
+    
   }
 
   render() {
