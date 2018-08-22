@@ -36,19 +36,19 @@ class App extends Component {
   fetchNameData = (category) => {
     fetch(`https://swapi.co/api/people/`)
     .then(response => response.json())
-    .then(data => this.state.cleanData.getPeople(data.results))
-    // .then(homeworld => this.getHomeworld(data))
+    .then(data => this.getHomeworld(data.results))
     .then(people => this.setState({ data: people }))
     .catch((error) => console.log(error.message))
   };
 
-  // getHomeworld = (peopleData) => {
-  //   const personName = 
-  //   const personWithHome = peopleData.map(person => {
-  //     return {}
-  //   })
-  //   fetch()
-  // }
+  getHomeworld = (peopleData) => {
+    const homeWorld = peopleData.map(person => {
+      fetch(person.homeworld)
+        .then(response => response.json())
+        .then(data => console.log(data))
+    })
+  return homeWorld
+  }
 
   setFavorites = () => {
 
