@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { MockData } from '../../data/MockData';
 import CleanData from '../Helper/Helper';
-import { fetchScrawl } from '../../data/FetchApi.js';
+import { fetchScrawl, fetchNameData } from '../../data/FetchApi.js';
 import Welcome from '../Welcome/Welcome.js'
 import Nav from '../Nav/Nav';
 import CardContainer from '../CardContainer/CardContainer';
@@ -20,7 +20,7 @@ class App extends Component {
 
   componentDidMount = () => {
     this.playOpeningScrawl()
-    // this.fetchNameData()
+    this.getNameData()
   }
 
   // fetchAPI = () => {
@@ -31,16 +31,15 @@ class App extends Component {
   //   .catch((error) => console.log(error.message))
   // }
 
-  playOpeningScrawl = async (data) => {
+  playOpeningScrawl = async () => {
     const crawlingText = await fetchScrawl()
     this.setState({ crawlingText })
   }
 
-  // fetchNameData = async (category) => {
-
-  //   .then(species => this.setState({ data: species }))
-  //     .catch((error) => console.log(error.message))
-  // };
+  getNameData = async () => {
+    const data = await fetchNameData()
+    this.setState({ data })
+  };
 
 
   selectFavorite = (name) => {
@@ -63,7 +62,7 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <Nav fetchNameData={this.fetchNameData} />
+          <Nav getNameData={this.getNameData} />
           <Welcome crawlingText={crawlingText} />
           {/* <CardContainer data={data}/> */}
         </div>

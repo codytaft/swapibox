@@ -9,25 +9,26 @@ export const getOpeningScrawl = (data) => {
 }
 
 export const cleanHomeworld = (peopleData) => {
-  const unresolvedPeopleData = peopleData.map(person => {
+  let wholePeople;
+  const unresolvedPeopleData = peopleData.results.map(async person => {
     const name = person.name;
-    
-    return fetch(person.homeworld)
-      .then(response => response.json())
-      .then(homeWorld => ({
-        ...person,
-        name, 
-        Homeworld: homeWorld.name,
-        Population: homeWorld.population
-      }))
-    
+
+    const response = await person.homeworld;
+    console.log(response);
+    const homeWorld = await response.json();
+    return wholePeople = {
+      ...person,
+      name,
+      Homeworld: homeWorld.name,
+      Population: homeWorld.population
+    }
   })
   return Promise.all(unresolvedPeopleData)
 }
 
 export const cleanSpecies = (peopleData) => {
   const unresolvedSpeciesData = peopleData.map(person => {
-    const {name, Homeworld, Population} = person;
+    const { name, Homeworld, Population } = person;
 
     return fetch(person.species)
       .then(response => response.json())
@@ -38,7 +39,7 @@ export const cleanSpecies = (peopleData) => {
         Species: species.name,
         isFavoriteSelected: false
       }))
-    })
-    return Promise.all(unresolvedSpeciesData);
-  }
+  })
+  return Promise.all(unresolvedSpeciesData);
+}
 

@@ -11,8 +11,8 @@ class Nav extends Component {
   }
 
   handleClick = (event) => {
-    const { name, value} = event.target;
-    this.props.fetchNameData()
+    const { name, value } = event.target;
+    this.props.getNameData()
     // this.setState({[name]: value})
   }
 
@@ -22,15 +22,15 @@ class Nav extends Component {
         <div className="header-row">
           <h1 className="title-logo">SWAPI-Box</h1>
           <span className="fav-row">
-            <Button onClick={this.handleClick} favorites={this.state.favorites}/>
+            <Button onClick={this.handleClick} favorites={this.state.favorites} />
             <div className="favorites">FAV PLACEHOLDER</div>
             <div className="fav-counter">0</div>
           </span>
         </div>
         <div className="button-row">
           <Button onClick={this.handleClick} name='peopleBtn' />
-          <Button onClick={this.handleClick} name='vehiclesBtn'/>
-          <Button onClick={this.handleClick} name='planetsBtn'/>
+          <Button onClick={this.handleClick} name='vehiclesBtn' />
+          <Button onClick={this.handleClick} name='planetsBtn' />
         </div>
       </div>
     )

@@ -11,16 +11,19 @@ export const fetchScrawl = async () => {
     return resolvedScrawl = await getOpeningScrawl(data)
 
   } catch (error) {
-
+    console.log(error.message);
   }
-  // return resolvedScrawl
 }
 
-//  export const fetchNameData = async(category) => {
-//    const response = await fetch(`https://swapi.co/api/people/`)
-//    const data = response.json()
-//    const peopleData =  await cleanHomeworld(data.results)
-//    const species = await cleanSpecies(peopleData)
-
-//      .catch((error) => console.log(error.message))
-//  }
+export const fetchNameData = async (category) => {
+  let species
+  try {
+    const response = await fetch(`https://swapi.co/api/people/`)
+    const data = await response.json()
+    const peopleData = await cleanHomeworld(data)
+    console.log(peopleData);
+    return species = await cleanSpecies(peopleData)
+  } catch (error) {
+    console.log(error.message)
+  }
+}
