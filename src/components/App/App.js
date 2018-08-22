@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { MockData } from '../../data/MockData';
 import CleanData from '../Helper/Helper';
+import { fetchScrawl } from '../../data/FetchApi.js';
 import Welcome from '../Welcome/Welcome.js'
 import Nav from '../Nav/Nav';
 import CardContainer from '../CardContainer/CardContainer';
@@ -13,25 +14,25 @@ class App extends Component {
       crawlingText: {},
       data: [],
       favorites: [],
-      cleanData: new CleanData()
+      cleanData: []
     }
   }
 
   componentDidMount = () => {
-    this.fetchAPI()
+    this.playOpeningScrawl()
     this.fetchNameData()
   }
   
-  fetchAPI = () => {
-    const randomNumber = Math.floor(Math.random() * 6 + 1)
-    fetch(`https://swapi.co/api/films/${randomNumber}/`)
-    .then(response => response.json())
-    .then(data => this.playOpeningScrawl(data))
-    .catch((error) => console.log(error.message))
-  }
+  // fetchAPI = () => {
+  //   const randomNumber = Math.floor(Math.random() * 6 + 1)
+  //   fetch(`https://swapi.co/api/films/${randomNumber}/`)
+  //   .then(response => response.json())
+  //   .then(data => this.playOpeningScrawl(data))
+  //   .catch((error) => console.log(error.message))
+  // }
 
-  playOpeningScrawl = (data) => {
-    const crawlingText = this.state.cleanData.getOpeningScrawl(data)
+  playOpeningScrawl = async (data) => {
+    const crawlingText = await fetchScrawl()
     this.setState({ crawlingText })
   }
 
