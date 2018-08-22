@@ -1,3 +1,4 @@
+import { fetchHomeWorld } from "../../data/FetchApi";
 
 export const getOpeningScrawl = (data) => {
   const openingScrawl = {
@@ -14,8 +15,8 @@ export const cleanHomeworld = (peopleData) => {
     const name = person.name;
 
     const response = await person.homeworld;
-    console.log(response);
-    const homeWorld = await response.json();
+    const homeWorld = await fetchHomeWorld(response);
+    console.log(homeWorld);
     return wholePeople = {
       ...person,
       name,

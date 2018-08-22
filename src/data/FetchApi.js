@@ -21,8 +21,18 @@ export const fetchNameData = async (category) => {
     const response = await fetch(`https://swapi.co/api/people/`)
     const data = await response.json()
     const peopleData = await cleanHomeworld(data)
-    console.log(peopleData);
     return species = await cleanSpecies(peopleData)
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
+export const fetchHomeWorld = async (planet) => {
+  let homeworld
+  try {
+    const response = await fetch(planet)
+    const data = await response.json()
+    return homeworld = await data.name
   } catch (error) {
     console.log(error.message)
   }
