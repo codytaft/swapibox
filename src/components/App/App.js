@@ -20,9 +20,9 @@ class App extends Component {
 
   componentDidMount = () => {
     this.playOpeningScrawl()
-    this.fetchNameData()
+    // this.fetchNameData()
   }
-  
+
   // fetchAPI = () => {
   //   const randomNumber = Math.floor(Math.random() * 6 + 1)
   //   fetch(`https://swapi.co/api/films/${randomNumber}/`)
@@ -36,14 +36,11 @@ class App extends Component {
     this.setState({ crawlingText })
   }
 
-  fetchNameData = (category) => {
-    fetch(`https://swapi.co/api/people/`)
-    .then(response => response.json())
-    .then(data => this.state.cleanData.cleanHomeworld(data.results))
-    .then(peopleData => this.state.cleanData.cleanSpecies(peopleData))
-    .then(species => this.setState({data: species}))
-    .catch((error) => console.log(error.message))
-  };
+  // fetchNameData = async (category) => {
+
+  //   .then(species => this.setState({ data: species }))
+  //     .catch((error) => console.log(error.message))
+  // };
 
 
   selectFavorite = (name) => {
@@ -58,7 +55,7 @@ class App extends Component {
   }
 
   deselectFavorite = (name) => {
-    
+
   }
 
   render() {
@@ -66,7 +63,7 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <Nav fetchNameData={this.fetchNameData}/>
+          <Nav fetchNameData={this.fetchNameData} />
           <Welcome crawlingText={crawlingText} />
           {/* <CardContainer data={data}/> */}
         </div>
