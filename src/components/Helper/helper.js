@@ -13,7 +13,8 @@ export default class CleanData {
 
   cleanHomeworld = (peopleData) => {
     const unresolvedPeopleData = peopleData.map(person => {
-      const name = person.name
+      const name = person.name;
+      
       return fetch(person.homeworld)
         .then(response => response.json())
         .then(homeWorld => ({

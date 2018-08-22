@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       crawlingText: {},
       data: [],
+      favorites: [],
       cleanData: new CleanData()
     }
   }
