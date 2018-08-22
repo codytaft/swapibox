@@ -24,4 +24,11 @@ export default class CleanData {
     })
     return worldData
   }
+
+  createCleanPeople = (people) => {
+    return people.reduce((newPerson, person) => {
+      newPerson = {name: person.name}
+      return newPerson
+    }, {})
+  }
 }
