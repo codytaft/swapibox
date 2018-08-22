@@ -37,3 +37,30 @@ export const fetchHomeWorld = async (planet) => {
     console.log(error.message)
   }
 }
+
+export const fetchPopulation = async (planet) => {
+  let population
+  try {
+    const response = await fetch(planet)
+    const data = await response.json()
+    return population = await data.population
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
+export const fetchSpecies = async (peopleData) => {
+  let species
+  try {
+    const response = await fetch(peopleData)
+    const data = await response.json()
+    return species = await data.name
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
+
+
+
+

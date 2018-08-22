@@ -1,4 +1,4 @@
-import { fetchHomeWorld } from "../../data/FetchApi";
+import { fetchHomeWorld, fetchPopulation, fetchSpecies } from "../../data/FetchApi";
 
 export const getOpeningScrawl = (data) => {
   const openingScrawl = {
@@ -16,16 +16,19 @@ export const cleanHomeworld = (peopleData) => {
 
     const response = await person.homeworld;
     const homeWorld = await fetchHomeWorld(response);
-    console.log(homeWorld);
+    const population = await fetchPopulation(response)
+    const species = await fetchSpecies(person.species)
     return wholePeople = {
       ...person,
       name,
-      Homeworld: homeWorld.name,
-      Population: homeWorld.population
+      Homeworld: homeWorld,
+      Population: population,
+      Species: species
     }
   })
   return Promise.all(unresolvedPeopleData)
 }
+
 
 export const cleanSpecies = (peopleData) => {
   const unresolvedSpeciesData = peopleData.map(person => {
@@ -43,4 +46,3 @@ export const cleanSpecies = (peopleData) => {
   })
   return Promise.all(unresolvedSpeciesData);
 }
-
