@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { MockData } from '../../data/MockData';
 import CleanData from '../Helper/Helper';
-import { fetchScrawl } from '../../data/FetchApi.js';
+import { fetchScrawl, fetchNameData } from '../../data/FetchApi.js';
 import Welcome from '../Welcome/Welcome.js'
 import Nav from '../Nav/Nav';
 import CardContainer from '../CardContainer/CardContainer';
@@ -20,9 +20,9 @@ class App extends Component {
 
   componentDidMount = () => {
     this.playOpeningScrawl()
-    this.fetchNameData()
+    this.getNameData()
   }
-  
+
   // fetchAPI = () => {
   //   const randomNumber = Math.floor(Math.random() * 6 + 1)
   //   fetch(`https://swapi.co/api/films/${randomNumber}/`)
@@ -31,18 +31,14 @@ class App extends Component {
   //   .catch((error) => console.log(error.message))
   // }
 
-  playOpeningScrawl = async (data) => {
+  playOpeningScrawl = async () => {
     const crawlingText = await fetchScrawl()
     this.setState({ crawlingText })
   }
 
-  fetchNameData = (category) => {
-    fetch(`https://swapi.co/api/people/`)
-    .then(response => response.json())
-    .then(data => this.state.cleanData.cleanHomeworld(data.results))
-    .then(peopleData => this.state.cleanData.cleanSpecies(peopleData))
-    .then(species => this.setState({data: species}))
-    .catch((error) => console.log(error.message))
+  getNameData = async () => {
+    const data = await fetchNameData()
+    this.setState({ data })
   };
 
 
@@ -58,7 +54,7 @@ class App extends Component {
   }
 
   deselectFavorite = (name) => {
-    
+
   }
 
   render() {
@@ -66,7 +62,7 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <Nav fetchNameData={this.fetchNameData}/>
+          <Nav getNameData={this.getNameData} />
           <Welcome crawlingText={crawlingText} />
           {/* <CardContainer data={data}/> */}
         </div>
