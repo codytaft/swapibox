@@ -45,8 +45,19 @@ class App extends Component {
   };
 
 
-  setFavorites = () => {
+  selectFavorite = (name) => {
+    const favorites = this.state.favorites;
+    const isFavorite = favorites.includes(name);
+    const foundCard = favorites.find(card => card.name === name);
 
+    if (isFavorite) {
+      foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected
+    }
+
+  }
+
+  deselectFavorite = (name) => {
+    
   }
 
   render() {
