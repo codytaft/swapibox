@@ -7,3 +7,7 @@
 
 .card-title {
   display: flex; }
+
+.favorites-btn {
+  height: 30px;
+  width: 30px; }
