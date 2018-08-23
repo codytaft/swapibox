@@ -1,7 +1,7 @@
-import React from 'react' 
+import React from 'react'
 import './Card.css'
 
-const Card = ({displayData, selectFavorite}) => {
+const Card = ({ displayData, selectFavorite }) => {
   return displayData.map((individualData) => {
     return (
       <div className="card">
@@ -10,9 +10,9 @@ const Card = ({displayData, selectFavorite}) => {
           <button className="favorites-btn" onClick={() => selectFavorite(individualData.name)}></button>
         </div>
         <div className="card-data">
-          <p className="species">{individualData.Species}</p>
-          <p className="homeworld">{individualData.Homeworld}</p>
-          <p className="population">{individualData.Population}</p>
+          <p className="species stat">Species: {individualData.Species}</p>
+          <p className="homeworld stat">Homeworld: {individualData.Homeworld}</p>
+          <p className="population stat">Population: {individualData.Population}</p>
         </div>
       </div>
     )
