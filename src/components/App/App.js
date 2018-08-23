@@ -20,37 +20,33 @@ class App extends Component {
 
   componentDidMount = () => {
     this.playOpeningScrawl()
-    this.getNameData()
   }
-
-  // fetchAPI = () => {
-  //   const randomNumber = Math.floor(Math.random() * 6 + 1)
-  //   fetch(`https://swapi.co/api/films/${randomNumber}/`)
-  //   .then(response => response.json())
-  //   .then(data => this.playOpeningScrawl(data))
-  //   .catch((error) => console.log(error.message))
-  // }
 
   playOpeningScrawl = async () => {
     const crawlingText = await fetchScrawl()
     this.setState({ crawlingText })
   }
 
-  getNameData = async () => {
+  getPeopleData = async () => {
     const data = await fetchNameData()
     this.setState({ data })
   };
 
-
   selectFavorite = (name) => {
-    const favorites = this.state.favorites;
-    const isFavorite = favorites.includes(name);
-    const foundCard = favorites.find(card => card.name === name);
-
+    const favoriteState = this.state.favorites;
+    const foundCard = this.state.data.find(card => card.name === name);
+    const isFavorite = favoriteState.includes(foundCard);
     if (isFavorite) {
+      const favoriteFilter = favoriteState.filter((favorite) => {
+        return favorite.name !== name
+      })
+      this.setState( { favorites: favoriteFilter } )
+      foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected
+    } else {
+      const favorites = [...favoriteState, foundCard]
+      this.setState( { favorites })
       foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected
     }
-
   }
 
   deselectFavorite = (name) => {
@@ -62,9 +58,9 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <Nav getNameData={this.getNameData} />
+          <Nav getPeopleData={this.getPeopleData} />
           <Welcome crawlingText={crawlingText} />
-          {/* <CardContainer data={data}/> */}
+          <CardContainer displayData={data} selectFavorite={this.selectFavorite}/>
         </div>
       </div>
     );
