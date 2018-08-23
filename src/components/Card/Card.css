@@ -3,6 +3,7 @@
   border: solid 2px pink;
   color: whitesmoke;
   height: 20em;
+  margin: .5em;
   width: 16em; }
 
 .card-title {
@@ -13,10 +14,12 @@
 
 .favorites-btn {
   height: 30px;
+  margin-right: .35em;
   width: 30px; }
 
 .name {
-  font-size: 1.5em; }
+  font-size: 1.35em;
+  padding-left: .5em; }
 
 .stat {
   align-items: flex-start;

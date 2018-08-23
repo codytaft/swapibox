@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`WELCOME Should match snapshot 1`] = `"<div class=\\"fade\\"><section class=\\"star-wars\\"><div class=\\"crawl\\"><div class=\\"title\\"><p></p><h1></h1></div><p></p></div></section></div>"`;

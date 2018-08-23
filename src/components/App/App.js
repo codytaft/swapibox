@@ -3,7 +3,6 @@ import './App.css';
 import { MockData } from '../../data/MockData';
 import CleanData from '../Helper/Helper';
 import { fetchScrawl, fetchNameData } from '../../data/FetchApi.js';
-import Welcome from '../Welcome/Welcome.js'
 import Nav from '../Nav/Nav';
 import CardContainer from '../CardContainer/CardContainer';
 
@@ -40,11 +39,11 @@ class App extends Component {
       const favoriteFilter = favoriteState.filter((favorite) => {
         return favorite.name !== name
       })
-      this.setState( { favorites: favoriteFilter } )
+      this.setState({ favorites: favoriteFilter })
       foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected
     } else {
       const favorites = [...favoriteState, foundCard]
-      this.setState( { favorites })
+      this.setState({ favorites })
       foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected
     }
   }
@@ -57,10 +56,9 @@ class App extends Component {
     const { data, crawlingText } = this.state
     return (
       <div className="App">
-        <div>
-          <Nav getPeopleData={this.getPeopleData} />
-          <Welcome crawlingText={crawlingText} />
-          <CardContainer displayData={data} selectFavorite={this.selectFavorite}/>
+        <Nav getPeopleData={this.getPeopleData} />
+        <div className="cotainer-wrap">
+          <CardContainer crawlingText={crawlingText} displayData={data} selectFavorite={this.selectFavorite} />
         </div>
       </div>
     );
