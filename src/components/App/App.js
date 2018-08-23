@@ -75,7 +75,8 @@ class App extends Component {
       foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
     } else {
       const favorites = [...favoriteState, foundCard];
-      this.setState({ favorites });
+      const favoriteCount = favorites.length;
+      this.setState({ favorites, favoriteCount });
       foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
     }
   };
