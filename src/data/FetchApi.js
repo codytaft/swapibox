@@ -6,11 +6,13 @@ export const fetchScrawl = async () => {
   const randomNumber = Math.floor(Math.random() * 6 + 1)
   let resolvedScrawl
   try {
-    const response = await fetch(`https://swapi.co/api/films/${randomNumber}/`)
+    const url = `https://swapi.co/api/films/${randomNumber}/`
+    const response = await fetch(url)
     const data = await response.json()
     return resolvedScrawl = await getOpeningScrawl(data)
 
   } catch (error) {
+    throw (new Error('Error fetching scrawl'))
     console.log(error.message);
   }
 }

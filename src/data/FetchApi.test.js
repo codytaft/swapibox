@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchScrawl } from './FetchApi';
+import { fetchScrawl, fetchNameData } from './FetchApi';
 import { shallow } from 'enzyme';
 import { getOpeningScrawl } from '../components/Helper/Helper.js';
 import { MockData } from './MockData';
@@ -44,11 +44,41 @@ describe('FetchApi functions', () => {
 
     it('Should invoke fetch with the correct params', async () => {
       const expected = 'https://swapi.co/api/films/1/'
-      await fetchScrawl('https://swapi.co/api/films/1/')
+      const url = `https://swapi.co/api/films/1/`
+      fetchScrawl()
 
       expect(window.fetch).toHaveBeenCalledWith(expected)
+    });
+
+    it('Should return correct object if status code is ok', async () => {
+
+    });
+
+    it('Should throw an error if status code is not ok', async () => {
+      window.fetch = jest.fn().mockImplementationOnce(() => Promise.reject(new Error('Error fetching scrawl')));
+
+
+      await expect(fetchScrawl()).rejects.toEqual(new Error('Error fetching scrawl'))
+    });
+  });
+
+  describe('fetchNameData', () => {
+    let mockEvent
+    let mockData
+    beforeEach(() => {
+      mockEvent = { preventDefault: jest.fn() };
+
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        json: () => Promise.resolve(mockData)
+      }))
     })
 
-    it('Should ')
+    it('Should invoke fetch with the correct params', () => {
+      const expected = `https://swapi.co/api/people/`
+
+      fetchNameData();
+
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
   })
 })
