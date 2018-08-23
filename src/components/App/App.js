@@ -63,16 +63,17 @@ class App extends Component {
     const favoriteState = this.state.favorites;
     const foundCard = this.state.data.find(card => card.name === name);
     const isFavorite = favoriteState.includes(foundCard);
-
     if (isFavorite) {
       const favoriteFilter = favoriteState.filter(favorite => {
         return favorite.name !== name;
       });
-      const favoriteCount = favoriteFilter.length;
-      this.setState({ favorites: favoriteFilter, favoriteCount }, () =>
-        this.removeFavorite()
-      );
-      foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
+      if (this.state.favoritesDisplaying) {
+        const favoriteCount = favoriteFilter.length;
+        this.setState({ favorites: favoriteFilter, favoriteCount }, () =>
+          this.removeFavorite()
+        );
+        foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
+      }
     } else {
       const favorites = [...favoriteState, foundCard];
       const favoriteCount = favorites.length;
