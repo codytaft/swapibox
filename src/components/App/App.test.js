@@ -30,4 +30,16 @@ describe('APP', () => {
     expect(wrapper.state().peopleData.length).toEqual(0);
     expect(wrapper.state().crawlingText).toEqual(mockData);
   });
+
+  describe('componentDidMount', () => {
+    it('Should set the state crawlingText with componentDidMount', async () => {
+      const mockPlayOpeningScrawl = jest.fn();
+      wrapper = await shallow(<App playOpeningScrawl={mockPlayOpeningScrawl} />);
+      await wrapper.update();
+
+      expect(wrapper.state().crawlingText).toEqual(mockData);
+    });
+  });
+
+
 });
