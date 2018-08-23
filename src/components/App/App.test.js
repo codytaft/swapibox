@@ -27,7 +27,7 @@ describe('APP', () => {
     wrapper.instance().playOpeningScrawl();
 
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.state().data.length).toEqual(0);
+    expect(wrapper.state().peopleData.length).toEqual(0);
     expect(wrapper.state().crawlingText).toEqual(mockData);
   });
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { fetchScrawl, fetchNameData } from './FetchApi';
 import { shallow } from 'enzyme';
-import { getOpeningScrawl } from '../components/Helper/Helper.js';
+import { getOpeningScrawl, cleanHomeworld, cleanSpecies } from '../components/Helper/Helper.js';
 import { MockData } from './MockData';
 
 describe('FetchApi functions', () => {
@@ -62,6 +62,17 @@ describe('FetchApi functions', () => {
       fetchNameData();
 
       expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
+
+    it.only('Should return correct object if status code is ok', async () => {
+      await fetchNameData()
+      
+      
+      await expect(cleanHomeworld).toHaveBeenCalled()
+    });
+
+    it('Should throw an error if status code is not ok', async () => {
+
     });
   })
 })
