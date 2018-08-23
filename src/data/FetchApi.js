@@ -11,6 +11,7 @@ export const fetchScrawl = async () => {
     return resolvedScrawl = await getOpeningScrawl(data)
 
   } catch (error) {
+    // throw (new Error('Error fetching scrawl'))
     console.log(error.message);
   }
 }

@@ -10,7 +10,7 @@ describe('APP', () => {
 
   beforeEach(() => {
     wrapper = shallow(<App />);
-    mockData = new CleanData().getOpeningScrawl(MockData);
+    mockData = {}
   });
 
   it('Should match snapshot', () => {
@@ -19,7 +19,7 @@ describe('APP', () => {
   });
 
   it('Should start state crawlingText empty object and data empty array', () => {
-    expect(wrapper.state().data.length).toEqual(0);
+    expect(wrapper.state().peopleData.length).toEqual(0);
     expect(wrapper.state().crawlingText).toEqual({});
   });
 
@@ -27,7 +27,7 @@ describe('APP', () => {
     wrapper.instance().playOpeningScrawl();
 
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.state().data.length).toEqual(0);
+    expect(wrapper.state().peopleData.length).toEqual(0);
     expect(wrapper.state().crawlingText).toEqual(mockData);
   });
 });
