@@ -18,7 +18,7 @@ class App extends Component {
       favorites: [],
       cleanData: [],
       favoritesDisplaying: false,
-      favoriteRemoved: false
+      favoriteCounter: 0
     };
   }
 
