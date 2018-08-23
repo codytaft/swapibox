@@ -8,7 +8,7 @@ import CardContainer from '../CardContainer/CardContainer';
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       crawlingText: {},
       peopleData: [],
@@ -17,85 +17,90 @@ class App extends Component {
       displayData: [],
       favorites: [],
       cleanData: [],
-      favoritesDisplaying: false
-    }
+      favoritesDisplaying: false,
+      favoriteRemoved: false
+    };
   }
 
   componentDidMount = () => {
-    this.playOpeningScrawl()
-  }
+    this.playOpeningScrawl();
+  };
 
   playOpeningScrawl = async () => {
-    const crawlingText = await fetchScrawl()
-    this.setState({ crawlingText })
-  }
+    const crawlingText = await fetchScrawl();
+    this.setState({ crawlingText });
+  };
 
   getPeopleData = async () => {
-    const data = await fetchNameData()
-    this.setState({ data })
-    this.setDisplayData(data)
-    this.setState({ favoritesDisplaying: false })
+    const data = await fetchNameData();
+    this.setState({ data });
+    this.setDisplayData(data);
+    this.setState({ favoritesDisplaying: false });
   };
 
   getVehicleData = async () => {
-    const data = await fetchNameData()
-    this.setState({ data })
-    this.setDisplayData(data)
-    this.setState({ favoritesDisplaying: false })
+    const data = await fetchNameData();
+    this.setState({ data });
+    this.setDisplayData(data);
+    this.setState({ favoritesDisplaying: false });
   };
 
   getPlanetData = async () => {
-    const data = await fetchNameData()
-    this.setState({ data })
-    this.setDisplayData(data)
-    this.setState({ favoritesDisplaying: false })
+    const data = await fetchNameData();
+    this.setState({ data });
+    this.setDisplayData(data);
+    this.setState({ favoritesDisplaying: false });
   };
 
-  setDisplayData = (selectedData) => {
-    this.setState({ displayData: selectedData})
-  }
+  setDisplayData = selectedData => {
+    if (this.favoritesDisplaying === true) {
+      this.removeFavorite();
+    }
+    this.setState({ displayData: selectedData });
+  };
 
-  selectFavorite = (name) => {
+  selectFavorite = name => {
     const favoriteState = this.state.favorites;
     const foundCard = this.state.data.find(card => card.name === name);
     const isFavorite = favoriteState.includes(foundCard);
-    if (isFavorite) {
-      const favoriteFilter = favoriteState.filter((favorite) => {
-        return favorite.name !== name
-      })
-      this.setState({ favorites: favoriteFilter })
-      foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected
-    } else if (this.state.favoritesDisplaying) {
-      foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected
-      this.removeFavorite()
-    } else {
-      const favorites = [...favoriteState, foundCard]
-      this.setState({ favorites })
-      foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected
-    }
 
-  }
+    if (isFavorite) {
+      const favoriteFilter = favoriteState.filter(favorite => {
+        return favorite.name !== name;
+      });
+      this.setState({ favorites: favoriteFilter }, () => this.removeFavorite());
+      foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
+    } else {
+      const favorites = [...favoriteState, foundCard];
+      this.setState({ favorites });
+      foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
+    }
+  };
 
   toggleFavorites = () => {
-    this.setState({ favoritesDisplaying: true })
-    this.setDisplayData(this.state.favorites)
-  }
+    this.setState({ favoritesDisplaying: true });
+    this.setDisplayData(this.state.favorites);
+  };
 
-  removeFavorite =() => {
-    this.setDisplayData(this.state.favorites)
-  }
+  removeFavorite = () => {
+    this.setDisplayData(this.state.favorites);
+  };
 
   render() {
-    const { data, crawlingText, displayData, favoritesDisplaying } = this.state
+    const { data, crawlingText, displayData, favoritesDisplaying } = this.state;
     return (
       <div className="App">
-        <Nav setDisplayData={this.setDisplayData} getPeopleData={this.getPeopleData} toggleFavorites={this.toggleFavorites} />
+        <Nav
+          setDisplayData={this.setDisplayData}
+          getPeopleData={this.getPeopleData}
+          toggleFavorites={this.toggleFavorites}
+        />
         <div className="container-wrap">
-          <CardContainer 
-            crawlingText={crawlingText} 
-            displayData={displayData} 
-            selectFavorite={this.selectFavorite} 
-            removeFavorite={this.removeFavorite} 
+          <CardContainer
+            crawlingText={crawlingText}
+            displayData={displayData}
+            selectFavorite={this.selectFavorite}
+            removeFavorite={this.removeFavorite}
             favoritesDisplaying={favoritesDisplaying}
           />
         </div>
