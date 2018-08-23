@@ -57,7 +57,7 @@ class App extends Component {
     return (
       <div className="App">
         <Nav getPeopleData={this.getPeopleData} />
-        <div className="cotainer-wrap">
+        <div className="container-wrap">
           <CardContainer crawlingText={crawlingText} displayData={data} selectFavorite={this.selectFavorite} />
         </div>
       </div>
