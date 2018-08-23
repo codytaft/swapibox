@@ -11,10 +11,13 @@ class App extends Component {
     super()
     this.state = {
       crawlingText: {},
-      data: [],
+      peopleData: [],
+      vehicleData: [],
+      planetData: [],
       displayData: [],
       favorites: [],
-      cleanData: []
+      cleanData: [],
+      favoritesDisplaying: false
     }
   }
 
@@ -29,9 +32,23 @@ class App extends Component {
 
   getPeopleData = async () => {
     const data = await fetchNameData()
-    
     this.setState({ data })
     this.setDisplayData(data)
+    this.setState({ favoritesDisplaying: false })
+  };
+
+  getVehicleData = async () => {
+    const data = await fetchNameData()
+    this.setState({ data })
+    this.setDisplayData(data)
+    this.setState({ favoritesDisplaying: false })
+  };
+
+  getPlanetData = async () => {
+    const data = await fetchNameData()
+    this.setState({ data })
+    this.setDisplayData(data)
+    this.setState({ favoritesDisplaying: false })
   };
 
   setDisplayData = (selectedData) => {
@@ -48,28 +65,39 @@ class App extends Component {
       })
       this.setState({ favorites: favoriteFilter })
       foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected
+    } else if (this.state.favoritesDisplaying) {
+      foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected
+      this.removeFavorite()
     } else {
       const favorites = [...favoriteState, foundCard]
       this.setState({ favorites })
       foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected
     }
+
   }
 
   toggleFavorites = () => {
+    this.setState({ favoritesDisplaying: true })
     this.setDisplayData(this.state.favorites)
   }
 
-  deselectFavorite = (name) => {
-
+  removeFavorite =() => {
+    this.setDisplayData(this.state.favorites)
   }
 
   render() {
-    const { data, crawlingText, displayData } = this.state
+    const { data, crawlingText, displayData, favoritesDisplaying } = this.state
     return (
       <div className="App">
         <Nav setDisplayData={this.setDisplayData} getPeopleData={this.getPeopleData} toggleFavorites={this.toggleFavorites} />
         <div className="container-wrap">
-          <CardContainer crawlingText={crawlingText} displayData={displayData} selectFavorite={this.selectFavorite} />
+          <CardContainer 
+            crawlingText={crawlingText} 
+            displayData={displayData} 
+            selectFavorite={this.selectFavorite} 
+            removeFavorite={this.removeFavorite} 
+            favoritesDisplaying={favoritesDisplaying}
+          />
         </div>
       </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Card.css'
 
-const Card = ({ displayData, selectFavorite }) => {
+const Card = ({ displayData, selectFavorite, favoritesDisplaying, removeFavorite }) => {
   return displayData.map((individualData) => {
     return (
       <div className="card">
