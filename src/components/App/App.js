@@ -19,6 +19,7 @@ class App extends Component {
       cleanData: [],
       favoritesDisplaying: false,
       favoriteCount: 0,
+      data: []
     };
   }
 
@@ -32,8 +33,11 @@ class App extends Component {
   };
 
   getPeopleData = async () => {
+    if (this.state.peopleData.length > 0) {
+      this.setDisplayData( this.state.peopleData )
+    } 
     const data = await fetchNameData();
-    this.setState({ data });
+    this.setState({ peopleData: data });
     this.setDisplayData(data);
     this.setState({ favoritesDisplaying: false });
   };
