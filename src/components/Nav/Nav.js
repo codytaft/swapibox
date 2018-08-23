@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Nav.css';
 import Button from '../Button/Button.js'
+import CardContainer from '../CardContainer/CardContainer';
 
 class Nav extends Component {
   constructor(props) {
@@ -12,8 +13,7 @@ class Nav extends Component {
 
   handleClick = (event) => {
     const { name, value } = event.target;
-    this.props.getNameData()
-    // this.setState({[name]: value})
+    this.props.getPeopleData()
   }
 
   render() {
@@ -32,6 +32,7 @@ class Nav extends Component {
           <Button onClick={this.handleClick} name='vehiclesBtn' />
           <Button onClick={this.handleClick} name='planetsBtn' />
         </div>
+
       </div>
     )
   }
