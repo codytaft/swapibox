@@ -6,7 +6,9 @@
   width: 15em; }
 
 .card-title {
-  display: flex; }
+  align-items: center;
+  display: flex;
+  justify-content: space-between; }
 
 .favorites-btn {
   height: 30px;
