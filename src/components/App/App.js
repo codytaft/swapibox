@@ -59,8 +59,8 @@ class App extends Component {
       <div className="App">
         <div>
           <Nav getPeopleData={this.getPeopleData} />
-          <Welcome crawlingText={crawlingText} />
-          <CardContainer displayData={data} selectFavorite={this.selectFavorite}/>
+          {/* <Welcome crawlingText={crawlingText} /> */}
+          <CardContainer crawlingText={crawlingText} displayData={data} selectFavorite={this.selectFavorite}/>
         </div>
       </div>
     );

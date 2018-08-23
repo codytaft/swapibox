@@ -2,7 +2,9 @@
   background-color: magenta;
   height: 10em;
   margin: auto 0;
-  width: 100%; }
+  width: 100%;
+  z-index: 1;
+  position: relative; }
 
 .header-row {
   align-items: center;
