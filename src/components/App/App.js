@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       crawlingText: {},
       data: [],
+      displayData: [],
       favorites: [],
       cleanData: []
     }
@@ -28,8 +29,14 @@ class App extends Component {
 
   getPeopleData = async () => {
     const data = await fetchNameData()
+    
     this.setState({ data })
+    this.setDisplayData(data)
   };
+
+  setDisplayData = (selectedData) => {
+    this.setState({ displayData: selectedData})
+  }
 
   selectFavorite = (name) => {
     const favoriteState = this.state.favorites;
@@ -48,17 +55,21 @@ class App extends Component {
     }
   }
 
+  toggleFavorites = () => {
+    this.setDisplayData(this.state.favorites)
+  }
+
   deselectFavorite = (name) => {
 
   }
 
   render() {
-    const { data, crawlingText } = this.state
+    const { data, crawlingText, displayData } = this.state
     return (
       <div className="App">
-        <Nav getPeopleData={this.getPeopleData} />
+        <Nav setDisplayData={this.setDisplayData} getPeopleData={this.getPeopleData} toggleFavorites={this.toggleFavorites} />
         <div className="container-wrap">
-          <CardContainer crawlingText={crawlingText} displayData={data} selectFavorite={this.selectFavorite} />
+          <CardContainer crawlingText={crawlingText} displayData={displayData} selectFavorite={this.selectFavorite} />
         </div>
       </div>
     );
