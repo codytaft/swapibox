@@ -6,9 +6,6 @@ import CardContainer from '../CardContainer/CardContainer';
 class Nav extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      favorites: []
-    }
   }
 
   handleClick = (event) => {
@@ -16,13 +13,15 @@ class Nav extends Component {
     this.props.getPeopleData()
   }
 
+
+
   render() {
     return (
       <div className="nav-wrapper">
         <div className="header-row">
           <h1 className="title-logo">SWAPI-Box</h1>
           <span className="fav-row">
-            <Button onClick={this.handleClick} favorites={this.state.favorites} />
+            <Button onClick={this.props.toggleFavorites}/>
             <div className="favorites">FAV PLACEHOLDER</div>
             <div className="fav-counter">0</div>
           </span>
