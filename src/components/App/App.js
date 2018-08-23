@@ -18,7 +18,7 @@ class App extends Component {
       favorites: [],
       cleanData: [],
       favoritesDisplaying: false,
-      favoriteCounter: 0
+      favoriteCount: 0
     };
   }
 
@@ -68,7 +68,10 @@ class App extends Component {
       const favoriteFilter = favoriteState.filter(favorite => {
         return favorite.name !== name;
       });
-      this.setState({ favorites: favoriteFilter }, () => this.removeFavorite());
+      const favoriteCount = favoriteFilter.length;
+      this.setState({ favorites: favoriteFilter, favoriteCount }, () =>
+        this.removeFavorite()
+      );
       foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
     } else {
       const favorites = [...favoriteState, foundCard];
@@ -87,13 +90,19 @@ class App extends Component {
   };
 
   render() {
-    const { crawlingText, displayData, favoritesDisplaying } = this.state;
+    const {
+      crawlingText,
+      displayData,
+      favoritesDisplaying,
+      favoriteCount
+    } = this.state;
     return (
       <div className="App">
         <Nav
           setDisplayData={this.setDisplayData}
           getPeopleData={this.getPeopleData}
           toggleFavorites={this.toggleFavorites}
+          favoriteCount={favoriteCount}
         />
         <div className="container-wrap">
           <CardContainer
