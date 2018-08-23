@@ -52,11 +52,11 @@ class App extends Component {
     this.setState({ favoritesDisplaying: false });
   };
 
-  setDisplayData = selectedData => {
-    if (this.favoritesDisplaying === true) {
+  setDisplayData = displayData => {
+    if (this.favoritesDisplaying) {
       this.removeFavorite();
     }
-    this.setState({ displayData: selectedData });
+    this.setState({ displayData });
   };
 
   selectFavorite = name => {
@@ -87,7 +87,7 @@ class App extends Component {
   };
 
   render() {
-    const { data, crawlingText, displayData, favoritesDisplaying } = this.state;
+    const { crawlingText, displayData, favoritesDisplaying } = this.state;
     return (
       <div className="App">
         <Nav
