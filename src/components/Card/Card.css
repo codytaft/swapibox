@@ -1,5 +1,9 @@
 .card {
-  color: whitesmoke; }
+  background-color: lime;
+  border: solid 2px pink;
+  color: whitesmoke;
+  height: 20em;
+  width: 15em; }
 
 .card-title {
   display: flex; }
