@@ -13,8 +13,6 @@ class Nav extends Component {
     this.props.getPeopleData()
   }
 
-
-
   render() {
     return (
       <div className="nav-wrapper">
