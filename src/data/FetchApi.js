@@ -1,6 +1,6 @@
 import React from 'react';
 import App from '../components/App/App.js'
-import { getOpeningScrawl, cleanHomeworld, cleanSpecies } from '../components/Helper/Helper.js'
+import { getOpeningScrawl, cleanHomeworld, cleanSpecies, cleanPlanetData } from '../components/Helper/Helper.js'
 
 export const fetchScrawl = async () => {
   const randomNumber = Math.floor(Math.random() * 6 + 1)
@@ -16,13 +16,13 @@ export const fetchScrawl = async () => {
   }
 }
 
-export const fetchNameData = async (category) => {
-  let species
+export const fetchPeopleData = async () => {
+  let allPeople
   try {
     const response = await fetch(`https://swapi.co/api/people/`)
     const data = await response.json()
     const peopleData = await cleanHomeworld(data)
-    return species = await cleanSpecies(peopleData)
+    return allPeople = await cleanSpecies(peopleData)
   } catch (error) {
     console.log(error.message)
   }
@@ -60,6 +60,31 @@ export const fetchSpecies = async (peopleData) => {
     console.log(error.message)
   }
 }
+
+export const fetchPlanetData = async () => {
+  let allPlanets
+  try {
+    const response = await fetch('https://swapi.co/api/planets/')
+    const data = await response.json()
+    const planetData = await cleanPlanetData(data)
+
+
+
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
+export const fetchResidents = async (residentLinks) => {
+  let fetchPlanetResidents
+  const residents = residentLinks.reduce(async (residentNames, resident) => {
+    const response = await fetch(resident)
+    const residentList = await response.json()
+    return residentNames = {'residents': residentList.name}
+  }, {})
+  console.log(residents)
+}
+
 
 
 
