@@ -14,3 +14,4 @@ export const appMockData = [
     name: "C-3PO"
   }
 ];
+

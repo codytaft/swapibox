@@ -5,12 +5,14 @@ import { appMockData } from './appMockData';
 import CleanData from '../Helper/Helper';
 
 describe('APP', () => {
+  let mockEvent;
   let wrapper;
   let mockData;
   let mockRemoveFavorite;
   let mockFetchScrawl;
 
   beforeEach(() => {
+    mockEvent = { preventDefault: jest.fn() };
     wrapper = shallow(<App removeFavorite={mockRemoveFavorite} />);
     mockData = {};
     mockFetchScrawl = jest.fn();
@@ -45,8 +47,16 @@ describe('APP', () => {
     });
   });
 
+  describe('getPlanetData', () => {
+    it('Should setState when invoked', async () => {
+      // await wrapper.instance().getPlanetData(appMockData);
+
+      await expect(wrapper.state().planetData).toEqual(appMockData);
+    })
+  });
+
   describe('setDisplayData', () => {
-    it('Should invoke removeFavorite if favoritesDisplaying is true', () => {
+    it('Should setState when invoked', () => {
       mockData = appMockData;
       wrapper.instance().setDisplayData(mockData)
 
