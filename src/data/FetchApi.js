@@ -1,10 +1,6 @@
 import React from 'react';
 import App from '../components/App/App.js';
-import {
-  getOpeningScrawl,
-  cleanHomeworld,
-  cleanSpecies
-} from '../components/Helper/Helper.js';
+import { getOpeningScrawl, cleanHomeworld, cleanSpecies, cleanVehicles } from '../components/Helper/Helper.js';
 
 export const fetchScrawl = async () => {
   const randomNumber = Math.floor(Math.random() * 6 + 1);
@@ -58,6 +54,17 @@ export const fetchSpecies = async peopleData => {
     const response = await fetch(peopleData);
     const data = await response.json();
     return (species = await data.name);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const fetchVehicleData = async category => {
+  let vehicles;
+  try {
+    const response = await fetch(`https://swapi.co/api/vehicles/`);
+    const data = await response.json();
+    const vehicleData = await cleanVehicles(data);
   } catch (error) {
     console.log(error.message);
   }
