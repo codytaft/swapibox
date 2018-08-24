@@ -6,7 +6,8 @@
   margin: .5em;
   width: 16em; }
   .card.selected {
-    background-color: aqua; }
+    background-color: aqua;
+    height: 20px; }
 
 .card-title {
   align-items: center;

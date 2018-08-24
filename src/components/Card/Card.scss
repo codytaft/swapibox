@@ -7,6 +7,7 @@
   width: 16em;
   &.selected {
     background-color: aqua;
+    height: 20px;
   }
 }
 
@@ -37,6 +38,4 @@
   display: flex;
   flex-direction: column;
   font-size: 1.1em;
-
-
 }
