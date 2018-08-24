@@ -37,22 +37,6 @@ export const cleanHomeworld = peopleData => {
   return Promise.all(unresolvedPeopleData);
 };
 
-export const cleanSpecies = peopleData => {
-  const unresolvedSpeciesData = peopleData.map(person => {
-
-    const { name, stats } = person;
-    return fetch(person.species)
-      .then(response => response.json())
-      .then(species => ({
-        name,
-        stats,
-        Species: species.name,
-        isFavoriteSelected: false
-      }));
-  });
-  return Promise.all(unresolvedSpeciesData);
-};
-
 export const cleanPlanetData = (planetData) => {
   let cleanPlanet
   const unresolvedPlanetData = planetData.results.map(async planet => {

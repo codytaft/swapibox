@@ -29,6 +29,6 @@ const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavori
       </section>
     </div>
   );
-}
+};
 
 export default CardContainer;
