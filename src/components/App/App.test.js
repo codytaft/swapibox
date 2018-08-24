@@ -1,7 +1,7 @@
 import React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
-import { MockData } from '../../data/MockData';
+import { appMockData } from './appMockData';
 import CleanData from '../Helper/Helper';
 
 describe('APP', () => {
@@ -39,6 +39,20 @@ describe('APP', () => {
 
       expect(wrapper.state().crawlingText).toEqual(mockData);
     });
+  });
+
+  describe('selectFavorite', () => {
+    it('Should update state', () => {
+      const mockFetchScrawl = jest.fn();
+      const mockRemoveFavorite = jest.fn()
+      const mockData = appMockData
+      const foundCard = appMockData[0]
+      wrapper = shallow(<App removeFavorite={mockRemoveFavorite} />);
+
+      wrapper.instance().selectFavorite(mockData);
+
+      expect(wrapper.state().favorites.length).toEqual(2);
+    })
   });
 
 
