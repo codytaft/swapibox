@@ -53,10 +53,13 @@ export const cleanSpecies = peopleData => {
 
 export const cleanVehicles = vehicleData => {
   const unresolvedVehicleData = vehicleData.results.map(vehicle => {
-    console.log(vehicle);
-    const { name, Homeworld, Population } = vehicle;
-
+    let newVehicle;
+    const { name, model, vehicle_class, passengers } = vehicle;
+    return (newVehicle = {
+      name, model, vehicle_class, passengers
+    })
 
   });
+  console.log(unresolvedVehicleData);
   return Promise.all(unresolvedVehicleData);
 };
