@@ -4,6 +4,8 @@ import { shallow } from 'enzyme';
 import { appMockData } from './appMockData';
 import CleanData from '../Helper/Helper';
 
+jest.mock('FetchApi')
+
 describe('APP', () => {
   let mockEvent;
   let wrapper;
