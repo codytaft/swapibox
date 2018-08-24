@@ -48,10 +48,10 @@ describe('APP', () => {
       const mockData = appMockData
       const foundCard = appMockData[0]
       wrapper = shallow(<App removeFavorite={mockRemoveFavorite} />);
+      wrapper.setState({displayData: mockData})
+      wrapper.instance().selectFavorite("Luke Skywalker");
 
-      wrapper.instance().selectFavorite(mockData);
-
-      expect(wrapper.state().favorites.length).toEqual(2);
+      expect(wrapper.state().favorites.length).toEqual(1);
     })
   });
 
