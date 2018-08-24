@@ -28,9 +28,12 @@ export const cleanHomeworld = peopleData => {
     return (wholePeople = {
       ...person,
       name,
-      Homeworld: homeWorld,
-      Population: population,
-      Species: species
+      stats: {
+        Homeworld: homeWorld,
+        Population: population,
+        Species: species
+      }
+
     });
   });
   return Promise.all(unresolvedPeopleData);
@@ -65,7 +68,7 @@ export const cleanPlanetData = (planetData) => {
     const residents = await fetchResidents(residentLinks)
     return cleanPlanet = {
       name,
-      terrain, 
+      terrain,
       population,
       climate,
       residents
