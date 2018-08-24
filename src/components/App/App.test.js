@@ -42,16 +42,39 @@ describe('APP', () => {
   });
 
   describe('selectFavorite', () => {
-    it('Should update state', () => {
-      const mockFetchScrawl = jest.fn();
-      const mockRemoveFavorite = jest.fn()
-      const mockData = appMockData
-      const foundCard = appMockData[0]
+    let mockFetchScrawl;
+    let mockRemoveFavorite;
+    let mockData;
+      
+    beforeEach(() => {
+      mockFetchScrawl = jest.fn();
+      mockRemoveFavorite = jest.fn()
+      mockData = appMockData
       wrapper = shallow(<App removeFavorite={mockRemoveFavorite} />);
+    });
+
+    it('Should update state when invoked', () => {
+      expect(wrapper.state().favorites.length).toEqual(0);
+      expect(wrapper.state().favoriteCount).toEqual(0);
+      
       wrapper.setState({displayData: mockData})
       wrapper.instance().selectFavorite("Luke Skywalker");
 
       expect(wrapper.state().favorites.length).toEqual(1);
+      expect(wrapper.state().favoriteCount).toEqual(1);
+    });
+    it('Should update state when card is selected twice', () => {
+      wrapper.setState({displayData: mockData})
+      wrapper.setState({favoritesDisplaying: true})
+      wrapper.instance().selectFavorite("Luke Skywalker");
+      
+      expect(wrapper.state().favorites.length).toEqual(1);
+      expect(wrapper.state().favoriteCount).toEqual(1);
+
+      wrapper.instance().selectFavorite("Luke Skywalker");
+      
+      expect(wrapper.state().favorites.length).toEqual(0);
+      expect(wrapper.state().favoriteCount).toEqual(0);
     })
   });
 
