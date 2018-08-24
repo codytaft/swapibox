@@ -20,13 +20,10 @@ export const fetchHomeWorld = async planet => {
     const response = await fetch(planet);
     const data = await response.json();
     return (homeworld = await data.name);
-<<<<<<< HEAD
-=======
   } catch (error) {
     errorStatus: 'Error fetching scrawl'
     console.log(error.message)
   }
->>>>>>> Add npm classnames
 };
 
 export const fetchPopulation = async planet => {
