@@ -48,9 +48,6 @@ class App extends Component {
   };
 
   getVehicleData = async () => {
-    if (this.state.vehicleData.length > 0) {
-      // this.setDisplayData(this.state.vehicleData);
-    }
     const data = await fetchVehicleData();
     this.setState({ vehicleData: data });
     this.setDisplayData(data);

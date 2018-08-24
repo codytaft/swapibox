@@ -20,7 +20,6 @@ export const cleanHomeworld = peopleData => {
   let wholePeople;
   const unresolvedPeopleData = peopleData.results.map(async person => {
     const name = person.name;
-
     const response = await person.homeworld;
     const homeWorld = await fetchHomeWorld(response);
     const population = await fetchPopulation(response);
@@ -33,7 +32,6 @@ export const cleanHomeworld = peopleData => {
         Population: population,
         Species: species
       }
-
     });
   });
   return Promise.all(unresolvedPeopleData);
@@ -41,14 +39,13 @@ export const cleanHomeworld = peopleData => {
 
 export const cleanSpecies = peopleData => {
   const unresolvedSpeciesData = peopleData.map(person => {
-    const { name, Homeworld, Population } = person;
 
+    const { name, stats } = person;
     return fetch(person.species)
       .then(response => response.json())
       .then(species => ({
         name,
-        Homeworld,
-        Population,
+        stats,
         Species: species.name,
         isFavoriteSelected: false
       }));
