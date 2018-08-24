@@ -4,8 +4,9 @@ import { MockData } from '../../data/MockData';
 import CleanData from '../Helper/Helper';
 import {
   fetchScrawl,
-  fetchNameData,
-  fetchVehicleData
+  fetchPeopleData,
+  fetchVehicleData,
+  fetchPlanetData
 } from '../../data/FetchApi.js';
 import Nav from '../Nav/Nav';
 import CardContainer from '../CardContainer/CardContainer';
@@ -40,7 +41,7 @@ class App extends Component {
     if (this.state.peopleData.length > 0) {
       this.setDisplayData(this.state.peopleData);
     }
-    const data = await fetchNameData();
+    const data = await fetchPeopleData();
     this.setState({ peopleData: data });
     this.setDisplayData(data);
     this.setState({ favoritesDisplaying: false });
@@ -57,7 +58,7 @@ class App extends Component {
   };
 
   getPlanetData = async () => {
-    const data = await fetchNameData();
+    const data = await fetchPlanetData();
     this.setState({ data });
     this.setDisplayData(data);
     this.setState({ favoritesDisplaying: false });

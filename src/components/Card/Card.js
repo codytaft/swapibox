@@ -1,5 +1,6 @@
 import React from 'react'
 import './Card.css'
+import classNames from 'classnames/bind';
 
 const Card = ({ displayData, selectFavorite, favoritesDisplaying, removeFavorite }) => {
   return displayData.map((individualData) => {
