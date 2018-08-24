@@ -10,7 +10,7 @@ const Card = ({ displayData, selectFavorite, favoritesDisplaying, removeFavorite
           <button className="favorites-btn" onClick={() => selectFavorite(individualData.name)}></button>
         </div>
         <div className="card-data">
-          <p className="species stat">Species: {individualData.Species}</p>
+          <p className="species stat">Species:{individualData.Species}</p>
           <p className="homeworld stat">Homeworld: {individualData.Homeworld}</p>
           <p className="population stat">Population: {individualData.Population}</p>
         </div>

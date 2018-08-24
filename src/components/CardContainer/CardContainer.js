@@ -2,16 +2,15 @@ import React from 'react'
 import './CardContainer.css';
 import Card from '../Card/Card.js'
 
-const CardContainer = ({displayData, selectFavorite, crawlingText, removeFavorite, favoritesDisplaying}) => {
-  // console.log(displayData.length > 1)
+const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavorite, favoritesDisplaying }) => {
   const { episode, title, scrawl } = crawlingText;
   if (displayData.length > 0) {
     return (
       <div className="card-container">
-        <Card displayData={displayData} 
-          selectFavorite={selectFavorite} 
-          removeFavorite={removeFavorite} 
-          favoritesDisplaying={favoritesDisplaying}/>
+        <Card displayData={displayData}
+          selectFavorite={selectFavorite}
+          removeFavorite={removeFavorite}
+          favoritesDisplaying={favoritesDisplaying} />
       </div>
     )
   } return (
@@ -23,7 +22,7 @@ const CardContainer = ({displayData, selectFavorite, crawlingText, removeFavorit
             <p>Episode {episode}</p>
             <h1>{title}</h1>
           </div>
-          <p>{scrawl}</p>     
+          <p>{scrawl}</p>
         </div>
       </section>
     </div>

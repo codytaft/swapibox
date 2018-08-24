@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import { MockData } from '../../data/MockData';
 import CleanData from '../Helper/Helper';
-import { fetchScrawl, fetchNameData } from '../../data/FetchApi.js';
+import {
+  fetchScrawl,
+  fetchNameData,
+  fetchVehicleData
+} from '../../data/FetchApi.js';
 import Nav from '../Nav/Nav';
 import CardContainer from '../CardContainer/CardContainer';
 
@@ -43,8 +47,11 @@ class App extends Component {
   };
 
   getVehicleData = async () => {
-    const data = await fetchNameData();
-    this.setState({ data });
+    if (this.state.vehicleData.length > 0) {
+      // this.setDisplayData(this.state.vehicleData);
+    }
+    const data = await fetchVehicleData();
+    this.setState({ vehicleData: data });
     this.setDisplayData(data);
     this.setState({ favoritesDisplaying: false });
   };

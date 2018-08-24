@@ -25,8 +25,7 @@ class Nav extends Component {
         <div className="header-row">
           <h1 className="title-logo">SWAPI-Box</h1>
           <span className="fav-row">
-            <Button onClick={this.props.toggleFavorites} />
-            <div className="favorites">FAV PLACEHOLDER</div>
+            <Button onClick={this.props.toggleFavorites} name="FAVORITES" />
             <div className="fav-counter">{this.props.favoriteCount}</div>
           </span>
         </div>

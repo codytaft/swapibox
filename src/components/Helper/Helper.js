@@ -1,36 +1,40 @@
-import { fetchHomeWorld, fetchPopulation, fetchSpecies } from "../../data/FetchApi";
+import {
+  fetchHomeWorld,
+  fetchPopulation,
+  fetchSpecies,
+  fetchVehicleData
+} from '../../data/FetchApi';
 
-export const getOpeningScrawl = (data) => {
+export const getOpeningScrawl = data => {
   const openingScrawl = {
     title: data.title,
     episode: data.episode_id,
     scrawl: data.opening_crawl
-  }
-  return openingScrawl
-}
+  };
+  return openingScrawl;
+};
 
-export const cleanHomeworld = (peopleData) => {
+export const cleanHomeworld = peopleData => {
   let wholePeople;
   const unresolvedPeopleData = peopleData.results.map(async person => {
     const name = person.name;
 
     const response = await person.homeworld;
     const homeWorld = await fetchHomeWorld(response);
-    const population = await fetchPopulation(response)
-    const species = await fetchSpecies(person.species)
-    return wholePeople = {
+    const population = await fetchPopulation(response);
+    const species = await fetchSpecies(person.species);
+    return (wholePeople = {
       ...person,
       name,
       Homeworld: homeWorld,
       Population: population,
       Species: species
-    }
-  })
-  return Promise.all(unresolvedPeopleData)
-}
+    });
+  });
+  return Promise.all(unresolvedPeopleData);
+};
 
-
-export const cleanSpecies = (peopleData) => {
+export const cleanSpecies = peopleData => {
   const unresolvedSpeciesData = peopleData.map(person => {
     const { name, Homeworld, Population } = person;
 
@@ -42,7 +46,18 @@ export const cleanSpecies = (peopleData) => {
         Population,
         Species: species.name,
         isFavoriteSelected: false
-      }))
-  })
+      }));
+  });
   return Promise.all(unresolvedSpeciesData);
-}
+};
+
+export const cleanVehicles = vehicleData => {
+  const unresolvedVehicleData = vehicleData.results.map(vehicle => {
+    let newVehicle;
+    const { name, model, vehicle_class, passengers } = vehicle;
+    return (newVehicle = {
+      name, model, vehicle_class, passengers
+    })
+  });
+  return Promise.all(unresolvedVehicleData);
+};
