@@ -34,8 +34,8 @@ class App extends Component {
 
   getPeopleData = async () => {
     if (this.state.peopleData.length > 0) {
-      this.setDisplayData( this.state.peopleData )
-    } 
+      this.setDisplayData(this.state.peopleData);
+    }
     const data = await fetchNameData();
     this.setState({ peopleData: data });
     this.setDisplayData(data);
@@ -71,12 +71,16 @@ class App extends Component {
       const favoriteFilter = favoriteState.filter(favorite => {
         return favorite.name !== name;
       });
+      const favoriteCount = favoriteFilter.length;
+      foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
+      this.setState({ favorites: favoriteFilter, favoriteCount });
       if (this.state.favoritesDisplaying) {
+        console.log(foundCard);
         const favoriteCount = favoriteFilter.length;
+        foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
         this.setState({ favorites: favoriteFilter, favoriteCount }, () =>
           this.removeFavorite()
         );
-        foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
       }
     } else {
       const favorites = [...favoriteState, foundCard];
