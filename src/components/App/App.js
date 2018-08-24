@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import { MockData } from '../../data/MockData';
 import CleanData from '../Helper/Helper';
-import { fetchScrawl, fetchPeopleData, fetchPlanetData } from '../../data/FetchApi.js';
+import {
+  fetchScrawl,
+  fetchPeopleData,
+  fetchVehicleData,
+  fetchPlanetData
+} from '../../data/FetchApi.js';
 import Nav from '../Nav/Nav';
 import CardContainer from '../CardContainer/CardContainer';
 
@@ -42,12 +47,15 @@ class App extends Component {
     this.setState({ favoritesDisplaying: false });
   };
 
-  // getVehicleData = async () => {
-  //   const data = await fetchData();
-  //   this.setState({ data });
-  //   this.setDisplayData(data);
-  //   this.setState({ favoritesDisplaying: false });
-  // };
+  getVehicleData = async () => {
+    if (this.state.vehicleData.length > 0) {
+      // this.setDisplayData(this.state.vehicleData);
+    }
+    const data = await fetchVehicleData();
+    this.setState({ vehicleData: data });
+    this.setDisplayData(data);
+    this.setState({ favoritesDisplaying: false });
+  };
 
   getPlanetData = async () => {
     const data = await fetchPlanetData();
@@ -75,7 +83,6 @@ class App extends Component {
       foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
       this.setState({ favorites: favoriteFilter, favoriteCount });
       if (this.state.favoritesDisplaying) {
-        console.log(foundCard);
         const favoriteCount = favoriteFilter.length;
         foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
         this.setState({ favorites: favoriteFilter, favoriteCount }, () =>
