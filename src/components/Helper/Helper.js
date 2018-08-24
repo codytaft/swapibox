@@ -69,10 +69,10 @@ export const cleanPlanetData = (planetData) => {
     return cleanPlanet = {
       name,
       stats: {
-        terrain,
-        population,
-        climate,
-        residents
+        terrain: terrain,
+        population: population,
+        climate: climate,
+        residents: residents
       }
     }
   })
@@ -84,7 +84,12 @@ export const cleanVehicles = vehicleData => {
     let newVehicle;
     const { name, model, vehicle_class, passengers } = vehicle;
     return (newVehicle = {
-      name, model, vehicle_class, passengers
+      name,
+      stats: {
+        model,
+        vehicle_class,
+        passengers
+      }
     })
   });
   return Promise.all(unresolvedVehicleData);
