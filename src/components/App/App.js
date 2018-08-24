@@ -111,6 +111,8 @@ class App extends Component {
         <Nav
           setDisplayData={this.setDisplayData}
           getPeopleData={this.getPeopleData}
+          getPlanetData={this.getPlanetData}
+          getVehicleData={this.getVehicleData}
           toggleFavorites={this.toggleFavorites}
           favoriteCount={favoriteCount}
         />

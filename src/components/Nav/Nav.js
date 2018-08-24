@@ -9,8 +9,14 @@ class Nav extends Component {
   }
 
   handleClick = event => {
-    const { name, value } = event.target;
-    this.props.getPeopleData();
+    const { value } = event.target;
+    if (value === 'peopleBtn') {
+      this.props.getPeopleData();
+    } else if (value === 'vehiclesBtn') {
+      this.props.getVehicleData();
+    } else if (value === 'planetsBtn') {
+      this.props.getPlanetData();
+    }
   };
 
   render() {
