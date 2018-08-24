@@ -66,23 +66,24 @@ export const fetchPlanetData = async () => {
   try {
     const response = await fetch('https://swapi.co/api/planets/')
     const data = await response.json()
-    const planetData = await cleanPlanetData(data)
-
-
-
+    return allPlanets = await cleanPlanetData(data)
   } catch (error) {
     console.log(error.message)
   }
+  console.log(allPlanets)
 }
 
 export const fetchResidents = async (residentLinks) => {
-  let fetchPlanetResidents
-  const residents = residentLinks.reduce(async (residentNames, resident) => {
+  let fetchPlanetResidents =[]
+  const residentNames = residentLinks.reduce(async (residentNames, resident) => {
     const response = await fetch(resident)
     const residentList = await response.json()
-    return residentNames = {'residents': residentList.name}
-  }, {})
-  console.log(residents)
+    const residentName = await residentList.name
+    residentNames = residentName
+    fetchPlanetResidents.push(residentNames)
+    return residentNames
+  }, '')
+  return fetchPlanetResidents
 }
 
 

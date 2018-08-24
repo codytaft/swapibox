@@ -57,5 +57,13 @@ export const cleanPlanetData = (planetData) => {
     const climate = await planet.climate;
     const residentLinks = await planet.residents;
     const residents = await fetchResidents(residentLinks)
+    return cleanPlanet = {
+      name,
+      terrain, 
+      population,
+      climate,
+      residents
+    }
   })
+  return Promise.all(unresolvedPlanetData)
 }
