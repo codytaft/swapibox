@@ -3,23 +3,18 @@ import './Card.css'
 import classNames from 'classnames/bind';
 
 const Card = ({ displayData, selectFavorite, favorites }) => {
-  return displayData.map((individualData) => {
-    const buttonClass = classNames({
-      card: true,
-      selected: favorites.find(card => card.name === individualData.name)
-    })
-
+  return displayData.map(individualData => {
     return (
       <div className="card">
-        <div className="card-title">
+        <span className="card-title">
           <h1 className="name">{individualData.name}</h1>
-          <button className={buttonClass} onClick={() => selectFavorite(individualData.name)}></button>
-        </div>
-        <div className="card-data">
-          <p className="species stat">Species:{individualData.Species}</p>
-          <p className="homeworld stat">Homeworld: {individualData.Homeworld}</p>
-          <p className="population stat">Population: {individualData.Population}</p>
-        </div>
+          <button>FAV</button>
+        </span>
+        <p className="stat">{Object.keys(individualData.stats).map(stat => {
+          return (
+            <p className="individual-stat">{`${stat}: ${individualData.stats[stat]}`}</p>
+          )
+        })}</p>
       </div>
     )
   })
@@ -27,8 +22,9 @@ const Card = ({ displayData, selectFavorite, favorites }) => {
 
 export default Card
 
-// {
-//   Species: 'Human'
-// }
 
-// <p>{`${key}: ${value}`}</p>
+    // const buttonClass = classNames({
+    //   card: true,
+    //   selected: favorites.find(card => card.name === displayData.name)
+    // }
+    // )

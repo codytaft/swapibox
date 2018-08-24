@@ -17,23 +17,26 @@
   margin: auto 0;
 }
 
-.favorites-btn {
-  height: 30px;
-  margin-right: .35em;
-  width: 30px;
-}
-
 .name {
   font-size: 1.35em;
   padding-left: .5em;
 }
 
 .stat {
+  // align-items: flex-start;
+  // display: flex;
+  // flex-direction: column;
+  // font-size: 1.1em;
+
+  // margin-top: 2em;
+  // padding-left: .5em;
+}
+
+.individual-stat {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  font-size: 1.3em;
-  margin-top: 2em;
-  padding-left: .5em;
-}
+  font-size: 1.1em;
 
+
+}

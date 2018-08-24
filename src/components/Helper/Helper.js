@@ -20,7 +20,6 @@ export const cleanHomeworld = peopleData => {
   let wholePeople;
   const unresolvedPeopleData = peopleData.results.map(async person => {
     const name = person.name;
-
     const response = await person.homeworld;
     const homeWorld = await fetchHomeWorld(response);
     const population = await fetchPopulation(response);
@@ -28,9 +27,11 @@ export const cleanHomeworld = peopleData => {
     return (wholePeople = {
       ...person,
       name,
-      Homeworld: homeWorld,
-      Population: population,
-      Species: species
+      stats: {
+        Homeworld: homeWorld,
+        Population: population,
+        Species: species
+      }
     });
   });
   return Promise.all(unresolvedPeopleData);
@@ -38,14 +39,13 @@ export const cleanHomeworld = peopleData => {
 
 export const cleanSpecies = peopleData => {
   const unresolvedSpeciesData = peopleData.map(person => {
-    const { name, Homeworld, Population } = person;
 
+    const { name, stats } = person;
     return fetch(person.species)
       .then(response => response.json())
       .then(species => ({
         name,
-        Homeworld,
-        Population,
+        stats,
         Species: species.name,
         isFavoriteSelected: false
       }));
@@ -65,10 +65,12 @@ export const cleanPlanetData = (planetData) => {
     const residents = await fetchResidents(residentLinks)
     return cleanPlanet = {
       name,
-      terrain, 
-      population,
-      climate,
-      residents
+      stats: {
+        terrain: terrain,
+        population: population,
+        climate: climate,
+        residents: residents
+      }
     }
   })
   return Promise.all(unresolvedPlanetData)
@@ -79,7 +81,12 @@ export const cleanVehicles = vehicleData => {
     let newVehicle;
     const { name, model, vehicle_class, passengers } = vehicle;
     return (newVehicle = {
-      name, model, vehicle_class, passengers
+      name,
+      stats: {
+        model,
+        vehicle_class,
+        passengers
+      }
     })
   });
   return Promise.all(unresolvedVehicleData);
