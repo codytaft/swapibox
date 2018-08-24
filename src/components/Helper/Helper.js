@@ -58,8 +58,6 @@ export const cleanVehicles = vehicleData => {
     return (newVehicle = {
       name, model, vehicle_class, passengers
     })
-
   });
-  console.log(unresolvedVehicleData);
   return Promise.all(unresolvedVehicleData);
 };
