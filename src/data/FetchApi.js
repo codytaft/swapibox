@@ -23,12 +23,8 @@ export const fetchHomeWorld = async planet => {
 <<<<<<< HEAD
 =======
   } catch (error) {
-<<<<<<< HEAD
-    console.log(error.message);
-=======
     errorStatus: 'Error fetching scrawl'
     console.log(error.message)
->>>>>>> Add npm classnames
   }
 >>>>>>> Add npm classnames
 };

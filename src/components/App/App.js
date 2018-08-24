@@ -77,8 +77,6 @@ class App extends Component {
 
   setDisplayData = displayData => {
     this.setState({ displayData });
-    if (this.state.favoritesDisplaying) {
-    }
   };
 
   selectFavorite = name => {

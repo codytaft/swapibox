@@ -47,10 +47,9 @@ describe('APP', () => {
 
   describe('setDisplayData', () => {
     it('Should invoke removeFavorite if favoritesDisplaying is true', () => {
+      mockData = appMockData;
       wrapper.instance().setDisplayData(mockData)
-      wrapper.setState({favoritesDisplaying: true});
 
-      // expect(mockRemoveFavorite).toHaveBeenCalled()
       expect(wrapper.state().displayData.length).toEqual(2)
     });
   });
