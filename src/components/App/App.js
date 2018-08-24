@@ -52,6 +52,7 @@ class App extends Component {
     }
     const data = await fetchVehicleData();
     this.setState({ vehicleData: data });
+
     // this.setDisplayData(data);
     this.setState({ favoritesDisplaying: false });
   };

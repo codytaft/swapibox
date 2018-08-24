@@ -65,6 +65,7 @@ export const fetchVehicleData = async category => {
     const response = await fetch(`https://swapi.co/api/vehicles/`);
     const data = await response.json();
     const vehicleData = await cleanVehicles(data);
+    return vehicleData;
   } catch (error) {
     console.log(error.message);
   }
