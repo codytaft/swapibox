@@ -2,29 +2,27 @@
   background-color: magenta;
   height: 10em;
   margin: auto 0;
-  width: 90em;
+  width: 100%;
   z-index: 1;
   position: relative; }
 
 .header-row {
   display: flex;
-  justify-content: flex-end;
-  justify-content: space-around;
-  width: 100%; }
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 39em;
+  width: 58em; }
 
 .button-row {
-  align-items: center;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-left: 35em;
   width: 25em; }
 
 .title-logo {
-  color: lime; 
   font-size: 3em;
-  padding-left: 10%;
-  width: 90%;
-}
+  color: lime; }
 
 .fav-counter {
   border: 1px solid black;
@@ -35,4 +33,4 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  width: 10%; }
+  width: 30em; }

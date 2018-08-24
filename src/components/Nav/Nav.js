@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './Nav.css';
 import Button from '../Button/Button.js';
-import CardContainer from '../CardContainer/CardContainer';
-
 class Nav extends Component {
   constructor(props) {
     super(props);

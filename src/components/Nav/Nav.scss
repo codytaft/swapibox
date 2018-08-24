@@ -1,3 +1,5 @@
+@import "../../styles/mixins.scss";
+
 .nav-wrapper {
   background-color: magenta;
   height: 10em;
@@ -7,17 +9,15 @@
 }
 
 .header-row {
+  @include flexBetween();
   align-items: center;
-  display: flex;
-  justify-content: space-between;
   margin-left: 39em;
   width: 58em;
 }
 
 .button-row {
+  @include flexBetween();
   align-items: center;
-  display: flex;
-  justify-content: space-between;
   margin-left: 35em;
   width: 25em;
 }

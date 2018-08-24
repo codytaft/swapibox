@@ -1,3 +1,6 @@
+@import '../../styles/variables.scss';
+
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -12,7 +15,7 @@
   justify-content: left;
   height: 600px;
   perspective: 800px;
-  color: #feda4a;
+  color: #FFFF82;
   font-family: 'Pathway Gothic one', sans-serif;
   font-size: 500%;
   font-weight: 600;
@@ -29,18 +32,13 @@
   position: relative;
   top: 9999px;
   transform-origin: 75% 100%;
-  animation: crawl 60s linear
+  animation: crawl 60s linear;
+  .title {
+    font-size: 90%;
+    text-align: center;
+  }
 }
 
-.crawl > .title {
-  font-size: 90%;
-  text-align: center;
-}
-
-.crawl > .title {
-  font-size: 90%;
-  text-align: center;
-}
 
 @keyframes crawl {
   0% {
