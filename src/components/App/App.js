@@ -6,6 +6,7 @@ import {
   fetchVehicleData,
   fetchPlanetData
 } from '../../data/FetchApi.js';
+import { cleanHomeworld } from '../Helper/Helper.js'
 import Nav from '../Nav/Nav';
 import CardContainer from '../CardContainer/CardContainer';
 
@@ -42,8 +43,9 @@ class App extends Component {
       this.setState({ favoritesDisplaying: false });
     }
     const data = await fetchPeopleData();
-    this.setState({ peopleData: data });
-    this.setDisplayData(data);
+    const allPeople = await cleanHomeworld(data)
+    this.setState({ peopleData: allPeople });
+    this.setDisplayData(allPeople);
     this.setState({ favoritesDisplaying: false });
   };
 
