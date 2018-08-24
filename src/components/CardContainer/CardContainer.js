@@ -2,7 +2,7 @@ import React from 'react'
 import './CardContainer.css';
 import Card from '../Card/Card.js'
 
-const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavorite, favoritesDisplaying }) => {
+const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavorite, favoritesDisplaying, isFavoriteSelected, favorites }) => {
   const { episode, title, scrawl } = crawlingText;
   if (displayData.length > 0) {
     return (
@@ -10,7 +10,9 @@ const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavori
         <Card displayData={displayData}
           selectFavorite={selectFavorite}
           removeFavorite={removeFavorite}
-          favoritesDisplaying={favoritesDisplaying} />
+          isFavoriteSelected={isFavoriteSelected}
+          favoritesDisplaying={favoritesDisplaying}
+          favorites={favorites} />
       </div>
     )
   } return (

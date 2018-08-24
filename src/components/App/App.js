@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { MockData } from '../../data/MockData';
-import CleanData from '../Helper/Helper';
 import {
   fetchScrawl,
   fetchPeopleData,
@@ -10,6 +8,7 @@ import {
 } from '../../data/FetchApi.js';
 import Nav from '../Nav/Nav';
 import CardContainer from '../CardContainer/CardContainer';
+
 
 class App extends Component {
   constructor() {
@@ -111,7 +110,8 @@ class App extends Component {
       crawlingText,
       displayData,
       favoritesDisplaying,
-      favoriteCount
+      favoriteCount,
+      favorites
     } = this.state;
     return (
       <div className="App">
@@ -130,6 +130,7 @@ class App extends Component {
             selectFavorite={this.selectFavorite}
             removeFavorite={this.removeFavorite}
             favoritesDisplaying={favoritesDisplaying}
+            favorites={favorites}
           />
         </div>
       </div>

@@ -4,6 +4,7 @@ import {
   fetchSpecies,
   fetchVehicleData,
   fetchResidents
+
 } from '../../data/FetchApi';
 
 export const getOpeningScrawl = data => {

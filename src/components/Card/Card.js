@@ -2,13 +2,18 @@ import React from 'react'
 import './Card.css'
 import classNames from 'classnames/bind';
 
-const Card = ({ displayData, selectFavorite, favoritesDisplaying, removeFavorite }) => {
+const Card = ({ displayData, selectFavorite, favorites }) => {
   return displayData.map((individualData) => {
+    const buttonClass = classNames({
+      card: true,
+      selected: favorites.find(card => card.name === individualData.name)
+    })
+
     return (
       <div className="card">
         <div className="card-title">
           <h1 className="name">{individualData.name}</h1>
-          <button className="favorites-btn" onClick={() => selectFavorite(individualData.name)}></button>
+          <button className={buttonClass} onClick={() => selectFavorite(individualData.name)}></button>
         </div>
         <div className="card-data">
           <p className="species stat">Species:{individualData.Species}</p>
@@ -21,3 +26,9 @@ const Card = ({ displayData, selectFavorite, favoritesDisplaying, removeFavorite
 }
 
 export default Card
+
+// {
+//   Species: 'Human'
+// }
+
+// <p>{`${key}: ${value}`}</p>
