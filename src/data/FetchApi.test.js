@@ -15,6 +15,7 @@ describe('FetchApi functions', () => {
       mockEvent = { preventDefault: jest.fn() };
       mockGetOpeningScrawl = jest.fn();
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
         json: () => Promise.resolve(MockData.opening_crawl)
       }));
     });

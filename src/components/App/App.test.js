@@ -7,10 +7,14 @@ import CleanData from '../Helper/Helper';
 describe('APP', () => {
   let wrapper;
   let mockData;
+  let mockRemoveFavorite;
+  let mockFetchScrawl;
 
   beforeEach(() => {
-    wrapper = shallow(<App />);
-    mockData = {}
+    wrapper = shallow(<App removeFavorite={mockRemoveFavorite} />);
+    mockData = {};
+    mockFetchScrawl = jest.fn();
+    mockRemoveFavorite = jest.fn();
   });
 
   it('Should match snapshot', () => {
@@ -41,16 +45,21 @@ describe('APP', () => {
     });
   });
 
+  describe('setDisplayData', () => {
+    it('Should invoke removeFavorite if favoritesDisplaying is true', () => {
+      wrapper.instance().setDisplayData(mockData)
+      wrapper.setState({favoritesDisplaying: true});
+
+      // expect(mockRemoveFavorite).toHaveBeenCalled()
+      expect(wrapper.state().displayData.length).toEqual(2)
+    });
+  });
+
   describe('selectFavorite', () => {
-    let mockFetchScrawl;
-    let mockRemoveFavorite;
     let mockData;
       
     beforeEach(() => {
-      mockFetchScrawl = jest.fn();
-      mockRemoveFavorite = jest.fn()
-      mockData = appMockData
-      wrapper = shallow(<App removeFavorite={mockRemoveFavorite} />);
+      mockData = appMockData;
     });
 
     it('Should update state when invoked', () => {
@@ -75,7 +84,7 @@ describe('APP', () => {
       
       expect(wrapper.state().favorites.length).toEqual(0);
       expect(wrapper.state().favoriteCount).toEqual(0);
-    })
+    });
   });
 
 

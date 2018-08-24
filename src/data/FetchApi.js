@@ -1,3 +1,4 @@
+import App from '../components/App/App.js';
 import { getOpeningScrawl, cleanHomeworld, cleanSpecies, cleanVehicles, cleanPlanetData } from '../components/Helper/Helper.js';
 
 export const fetchScrawl = async () => {
@@ -19,6 +20,17 @@ export const fetchHomeWorld = async planet => {
     const response = await fetch(planet);
     const data = await response.json();
     return (homeworld = await data.name);
+<<<<<<< HEAD
+=======
+  } catch (error) {
+<<<<<<< HEAD
+    console.log(error.message);
+=======
+    errorStatus: 'Error fetching scrawl'
+    console.log(error.message)
+>>>>>>> Add npm classnames
+  }
+>>>>>>> Add npm classnames
 };
 
 export const fetchPopulation = async planet => {
