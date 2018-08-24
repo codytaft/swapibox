@@ -75,7 +75,6 @@ class App extends Component {
       foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
       this.setState({ favorites: favoriteFilter, favoriteCount });
       if (this.state.favoritesDisplaying) {
-        console.log(foundCard);
         const favoriteCount = favoriteFilter.length;
         foundCard.isFavoriteSelected = !foundCard.isFavoriteSelected;
         this.setState({ favorites: favoriteFilter, favoriteCount }, () =>
