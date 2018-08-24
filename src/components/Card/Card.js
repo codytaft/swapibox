@@ -8,7 +8,7 @@ const Card = ({ displayData, selectFavorite, favorites }) => {
       <div className="card">
         <span className="card-title">
           <h1 className="name">{individualData.name}</h1>
-          <button>FAV</button>
+          <button onClick={() => selectFavorite(individualData.name)}>FAV</button>
         </span>
         <p className="stat">{Object.keys(individualData.stats).map(stat => {
           return (
