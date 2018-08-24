@@ -40,6 +40,7 @@ class App extends Component {
   getPeopleData = async () => {
     if (this.state.peopleData.length > 0) {
       this.setDisplayData(this.state.peopleData);
+      this.setState({ favoritesDisplaying: false });
     }
     const data = await fetchPeopleData();
     this.setState({ peopleData: data });
@@ -59,16 +60,15 @@ class App extends Component {
 
   getPlanetData = async () => {
     const data = await fetchPlanetData();
-    this.setState({ data });
+    this.setState({ planetData: data });
     this.setDisplayData(data);
     this.setState({ favoritesDisplaying: false });
   };
 
   setDisplayData = displayData => {
-    if (this.favoritesDisplaying) {
-      this.removeFavorite();
-    }
     this.setState({ displayData });
+    if (this.state.favoritesDisplaying) {
+    }
   };
 
   selectFavorite = name => {

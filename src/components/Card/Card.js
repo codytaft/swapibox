@@ -18,6 +18,6 @@ const Card = ({ displayData, selectFavorite, favoritesDisplaying, removeFavorite
       </div>
     )
   })
-}
+};
 
 export default Card

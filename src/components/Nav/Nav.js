@@ -6,7 +6,7 @@ import CardContainer from '../CardContainer/CardContainer';
 class Nav extends Component {
   constructor(props) {
     super(props);
-  }
+  };
 
   handleClick = event => {
     const { value } = event.target;
@@ -36,7 +36,7 @@ class Nav extends Component {
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 export default Nav;

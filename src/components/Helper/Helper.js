@@ -50,7 +50,7 @@ export const cleanSpecies = peopleData => {
       }));
   });
   return Promise.all(unresolvedSpeciesData);
-}
+};
 
 export const cleanPlanetData = (planetData) => {
   let cleanPlanet
