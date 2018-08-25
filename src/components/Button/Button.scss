@@ -1,10 +1,14 @@
 @import "../../styles/mixins.scss";
 @import "../../styles/variables.scss";
 
-button {
+button.People, button.Vehicles, button.Planets, button.FAVORITES {
   background-color: $color-four;
   border: 3px solid $color-gold;
   color: $color-one;
   font-family: $font-fam;
   width: 10em;
+}
+
+button.FAVORITES {
+  height: 2.2em;
 }

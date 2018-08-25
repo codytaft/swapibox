@@ -7,7 +7,6 @@ class Nav extends Component {
   };
 
   handleClick = event => {
-    console.log(event.target.value)
     const { value } = event.target;
     if (value === 'People') {
       this.props.getPeopleData();
