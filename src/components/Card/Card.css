@@ -1,15 +1,23 @@
 .card {
-  background-color: lime;
+  background-color: #1F2833;
   border: solid 2px pink;
-  color: whitesmoke;
-  height: 20em;
+  color: #66FCF1;
+  font-family: "Fjalla One", sans-serif;
+  height: 24em;
   margin: .5em;
-  width: 16em; }
-  .card.selected {
-    background-color: aqua; }
+  width: 18em; }
+
+.imgcardbtn {
+  border: none;
+  outline: transparent;
+  width: 10px; }
+  .imgcardbtn .selected {
+    width: 10px; }
 
 .card-title {
   align-items: center;
+  background-color: #45A29E;
+  border-bottom: 3px solid #C5C6C7;
   display: flex;
   justify-content: space-between;
   margin: auto 0; }
@@ -18,8 +26,20 @@
   font-size: 1.35em;
   padding-left: .5em; }
 
+.stat {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1em;
+  flex-wrap: wrap;
+  margin-top: 2em;
+  padding-left: .5em;
+  width: 100%;
+  overflow-wrap: break-word; }
+
 .individual-stat {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  font-size: 1.1em; }
+  font-size: 1.1em;
+  overflow-wrap: break-word; }

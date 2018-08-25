@@ -1,4 +1,10 @@
-button.card{
-  height: 20px;
-  width: 20px;
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+button {
+  background-color: $color-four;
+  border: 3px solid $color-gold;
+  color: $color-one;
+  font-family: $font-fam;
+  width: 10em;
 }

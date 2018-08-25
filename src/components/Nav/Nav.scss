@@ -1,7 +1,9 @@
 @import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
 
 .nav-wrapper {
-  background-color: magenta;
+  background-color: $color-four;
   height: 10em;
   margin: auto 0;
   width: 100%;
@@ -23,8 +25,12 @@
 }
 
 .title-logo {
+  border: 3px solid $color-gold;
+  color: $color-one;
+  font-family: $font-fam;
   font-size: 3em;
-  color: lime;
+  margin-top: .4em;
+  padding: 6px;
 }
 
 .fav-counter {

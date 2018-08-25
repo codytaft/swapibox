@@ -1,5 +1,5 @@
 .nav-wrapper {
-  background-color: magenta;
+  background-color: #1F2833;
   height: 10em;
   margin: auto 0;
   width: 100%;
@@ -21,8 +21,12 @@
   width: 25em; }
 
 .title-logo {
+  border: 3px solid #D7AA39;
+  color: #66FCF1;
+  font-family: "Fjalla One", sans-serif;
   font-size: 3em;
-  color: lime; }
+  margin-top: .4em;
+  padding: 6px; }
 
 .fav-counter {
   border: 1px solid black;

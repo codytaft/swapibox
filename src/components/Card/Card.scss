@@ -1,17 +1,29 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
 .card {
-  background-color: lime;
+  background-color: $color-four;
   border: solid 2px pink;
-  color: whitesmoke;
-  height: 20em;
+  color: $color-one;
+  font-family: $font-fam;
+  height: 24em;
   margin: .5em;
-  width: 16em;
-  &.selected {
-    background-color: aqua;
+  width: 18em;
+}
+
+.imgcardbtn {
+  border: none;
+  outline: transparent;
+  width: 10px;
+  .selected{
+    width: 10px;
   }
 }
 
 .card-title {
   align-items: center;
+  background-color: $color-two;
+  border-bottom: 3px solid $color-three;
   display: flex;
   justify-content: space-between;
   margin: auto 0;
@@ -23,13 +35,16 @@
 }
 
 .stat {
-  // align-items: flex-start;
-  // display: flex;
-  // flex-direction: column;
-  // font-size: 1.1em;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1em;
+  flex-wrap: wrap;
+  margin-top: 2em;
+  padding-left: .5em;
+  width: 100%;
+  overflow-wrap: break-word;
 
-  // margin-top: 2em;
-  // padding-left: .5em;
 }
 
 .individual-stat {
@@ -37,6 +52,5 @@
   display: flex;
   flex-direction: column;
   font-size: 1.1em;
-
-
+  overflow-wrap: break-word;
 }
