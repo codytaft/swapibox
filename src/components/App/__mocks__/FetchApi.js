@@ -1,3 +1,8 @@
+import { appMockData, appMockPlanet, appMockVehicle, appMockPeople } from './appMockData';
+
+export const fetchPeopleData = jest.fn().mockImplementation(() => ({
+
+}))
 export const fetchPlanetData = jest.fn().mockImplementationOnce(() => ({
   planetData: [{
       Homeworld: "Tatooine",
@@ -35,3 +40,4 @@ export const fetchPlanetData = jest.fn().mockImplementationOnce(() => ({
 .mockImplementationOnce(() => {
   errorStatus: 'Error fetching planetData'
 })
+

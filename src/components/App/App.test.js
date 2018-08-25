@@ -1,9 +1,11 @@
 import React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
-import { appMockData, appMockPlanet, appMockVehicle } from './appMockData';
+import { appMockData, appMockPlanet, appMockVehicle, appMockPeople } from './appMockData';
 import { cleanPlanetData, cleanVehicles } from '../Helper/Helper';
 import { MockData } from '../../data/MockData';
+
+jest.mock('./__mocks__/FetchApi')
 
 describe('APP', () => {
   let mockEvent;
@@ -51,6 +53,20 @@ describe('APP', () => {
     });
   });
 
+  describe.only('getPeopleData', () => {
+    it('Should update state when invoked', async () => {
+      window.fetch = jest.fn().mockImplementation(() => ({
+        json: () => Promise.resolve(appMockPeople)
+      }));
+      const expected = appMockPeople;
+      
+      await wrapper.instance().getPeopleData()
+      
+      
+      expect(wrapper.state().peopleData).toEqual(expected)
+    });
+  })
+
   describe('getVehicleData', () => {
     it('Should set state when invoked', async () => {
       const mockSetDisplayData = jest.fn();
@@ -58,7 +74,7 @@ describe('APP', () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         json: () => Promise.resolve(appMockVehicle)
       }));
-       const expected = await cleanVehicles(appMockVehicle);
+      const expected = await cleanVehicles(appMockVehicle);
       await wrapper.instance().getVehicleData();
 
       // expect(mockSetDisplayData).toHaveBeenCalled()
@@ -66,7 +82,7 @@ describe('APP', () => {
     });
   });
 
-  describe('getPlanetData', () => {
+  describe.skip('getPlanetData', () => {
     it('Should set the state planetData when invoked', async () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         json: () => Promise.resolve(appMockPlanet)
