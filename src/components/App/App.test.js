@@ -1,8 +1,8 @@
 import React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
-import { appMockData } from './appMockData';
-import CleanData from '../Helper/Helper';
+import { appMockData, appMockPlanet } from './appMockData';
+import { cleanPlanetData } from '../Helper/Helper';
 import { MockData } from '../../data/MockData';
 
 describe('APP', () => {
@@ -33,7 +33,7 @@ describe('APP', () => {
   it('Should update state of crawlingText when playOpeningScrawl is invoked', async () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       json: () => Promise.resolve(mockData)
-    }))
+    }));
     await wrapper.instance().playOpeningScrawl();
 
     expect(wrapper.html()).toMatchSnapshot();
@@ -51,7 +51,19 @@ describe('APP', () => {
     });
   });
 
-  
+  describe('getPlanetData', () => {
+    it('Should set the state planetData when invoked', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        json: () => Promise.resolve(appMockPlanet)
+      }));
+      // console.log(appMockPlanet)
+      const expected = 'gravy'
+      await wrapper.instance().getPlanetData('gravy');
+
+      expect(wrapper.state().planetData).toEqual(expected);
+      expect(wrapper.state().favoritesDisplaying).toEqual(false);
+    });
+  });
 
   describe('setDisplayData', () => {
     it('Should setState when invoked', () => {
