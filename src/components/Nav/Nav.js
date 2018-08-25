@@ -29,7 +29,7 @@ class Nav extends Component {
           </span>
         </div>
         <div className="button-row">
-          <Button className="people" onClick={this.handleClick} name="People" />
+          <Button onClick={this.handleClick} name="People" />
           <Button onClick={this.handleClick} name="Vehicles" />
           <Button onClick={this.handleClick} name="Planets" />
         </div>
