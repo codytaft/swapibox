@@ -79,7 +79,7 @@ describe('APP', () => {
   });
 
   describe('getPlanetData', () => {
-    it.only('Should set the state planetData when invoked', async () => {
+    it('Should set the state planetData when invoked', async () => {
       // window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       //   json: () => Promise.resolve(appMockPlanet)
       // }));
@@ -87,7 +87,7 @@ describe('APP', () => {
       const expected = appMockPlanet
       await wrapper.instance().getPlanetData();
 
-      expect(wrapper.state().planetData).toEqual([]);
+      expect(wrapper.state().planetData).toEqual(appMockData);
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
     });
   });
@@ -97,7 +97,7 @@ describe('APP', () => {
       mockData = appMockData;
       wrapper.instance().setDisplayData(mockData)
 
-      expect(wrapper.state().displayData.length).toEqual(2)
+      expect(wrapper.state().displayData.length).toEqual(1)
     });
   });
 
