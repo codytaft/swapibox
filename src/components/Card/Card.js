@@ -26,6 +26,3 @@ const Card = ({ displayData, selectFavorite, favorites }) => {
 };
 
 export default Card
-
-
-// favorites.find(card => card.name === displayData.name)
