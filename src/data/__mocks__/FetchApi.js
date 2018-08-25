@@ -1,12 +1,18 @@
-import { appMockData, appMockPlanet, appMockVehicle, appMockPeople } from './appMockData';
+import { appMockData, appMockPlanet, appMockVehicle, appMockPeople } 
+from '../../components/App/appMockData.js';
+import { MockData, films } from '../MockData';
 
-export const fetchPeopleData = jest.fn().mockImplementation(() => ({
-  peopleData: appMockPeople
-}))
+export const fetchScrawl = jest.fn().mockImplementation(() => (
+  films
+));
 
-export const fetchHomeWorld = jest.fn().mockImplementation(() => ({
-  homeworld: appMockData
-}))
+export const fetchPeopleData = jest.fn().mockImplementation(() => (
+  appMockPeople
+))
+
+export const fetchHomeWorld = jest.fn().mockImplementation(() => (
+  appMockData
+))
 export const fetchPopulation = jest.fn().mockImplementation(() => ({
 
 }))
@@ -15,13 +21,7 @@ export const fetchSpecies = jest.fn().mockImplementation(() => ({
 }))
 
 export const cleanPeopleData = jest.fn().mockImplementation(() => ({
-<<<<<<< HEAD
-  enresolvedPeopleData: [
-
-  ]
-=======
   unresolvedPeopleData: appMockData
->>>>>>> Pass test getpeopledata updates state when invoked
 }))
 
 export const fetchPlanetData = jest.fn().mockImplementationOnce(() => ({
