@@ -3,9 +3,9 @@ import App from './App';
 import { shallow } from 'enzyme';
 import { appMockData, appMockPlanet, appMockVehicle, appMockPeople, expectedAppMock } from './appMockData';
 import { cleanPlanetData, cleanVehicles } from '../Helper/Helper';
-import { MockData } from '../../data/MockData';
+import { MockData, films } from '../../data/MockData';
 
-// jest.mock('./__mocks__/FetchApi')
+jest.mock('../../data/FetchApi')
 
 describe('APP', () => {
   let mockEvent;
@@ -33,20 +33,15 @@ describe('APP', () => {
   });
 
   it('Should update state of crawlingText when playOpeningScrawl is invoked', async () => {
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      json: () => Promise.resolve(mockData)
-    }));
     await wrapper.instance().playOpeningScrawl();
 
     expect(wrapper.html()).toMatchSnapshot();
     expect(wrapper.state().peopleData.length).toEqual(0);
-    expect(wrapper.state().crawlingText).toEqual(mockData);
+    expect(wrapper.state().crawlingText).toEqual(films);
   });
 
   describe('componentDidMount', () => {
     it('Should set the state crawlingText with componentDidMount', async () => {
-      const mockPlayOpeningScrawl = jest.fn();
-      wrapper = await shallow(<App playOpeningScrawl={mockPlayOpeningScrawl} />);
       await wrapper.update();
 
       expect(wrapper.state().crawlingText).toEqual(mockData);
