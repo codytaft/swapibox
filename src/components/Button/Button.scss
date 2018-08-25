@@ -5,6 +5,7 @@ button.People, button.Vehicles, button.Planets, button.FAVORITES {
   background-color: $color-four;
   border: 3px solid $color-gold;
   color: $color-one;
+  cursor: pointer;
   font-family: $font-fam;
   width: 10em;
 }
