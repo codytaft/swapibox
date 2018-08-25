@@ -1,6 +1,7 @@
 import React from 'react'
 import './Card.css'
 import classNames from 'classnames/bind';
+import favorite from '../../images/mark.svg'
 
 const Card = ({ displayData, selectFavorite, favorites }) => {
   console.log(displayData);
@@ -8,14 +9,14 @@ const Card = ({ displayData, selectFavorite, favorites }) => {
 
   return displayData.map(individualData => {
     const buttonClass = classNames({
-      card: true,
+      cardbtn: true,
       selected: favorites.find(card => (card.name === individualData.name))
     })
     return (
       <div className="card">
         <span className="card-title">
           <h1 className="name">{individualData.name}</h1>
-          <button className={buttonClass} onClick={() => selectFavorite(individualData.name)}>FAV</button>
+          <button className={buttonClass} onClick={() => selectFavorite(individualData.name)}><img className={`img${buttonClass}`} src={favorite} /></button>
         </span>
         <p className="stat">{Object.keys(individualData.stats).map(stat => {
           return (
