@@ -16,6 +16,8 @@ export const getOpeningScrawl = data => {
 
 export const cleanHomeworld = peopleData => {
   let wholePeople;
+  console.log(peopleData)
+
   const unresolvedPeopleData = peopleData.results.map(async person => {
     const name = person.name;
     const response = await person.homeworld;
@@ -35,8 +37,9 @@ export const cleanHomeworld = peopleData => {
   return Promise.all(unresolvedPeopleData);
 };
 
-export const cleanPlanetData = (planetData) => {
+export const cleanPlanetData = async (planetData) => {
   let cleanPlanet
+  console.log(planetData)
   const unresolvedPlanetData = planetData.results.map(async planet => {
     const name = planet.name;
     const terrain = await planet.terrain;

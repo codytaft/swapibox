@@ -6,7 +6,7 @@ import {
   fetchVehicleData,
   fetchPlanetData
 } from '../../data/FetchApi.js';
-import { cleanHomeworld } from '../Helper/Helper.js'
+import { cleanHomeworld, cleanPlanetData } from '../Helper/Helper.js'
 import Nav from '../Nav/Nav';
 import CardContainer from '../CardContainer/CardContainer';
 
@@ -41,26 +41,38 @@ class App extends Component {
     if (this.state.peopleData.length > 0) {
       this.setDisplayData(this.state.peopleData);
       this.setState({ favoritesDisplaying: false });
+    } else {
+      const data = await fetchPeopleData();
+      const peopleData = await cleanHomeworld(data)
+      this.setState({ peopleData: peopleData });
+      this.setDisplayData(peopleData);
+      this.setState({ favoritesDisplaying: false });
     }
-    const data = await fetchPeopleData();
-    const allPeople = await cleanHomeworld(data)
-    this.setState({ peopleData: allPeople });
-    this.setDisplayData(allPeople);
-    this.setState({ favoritesDisplaying: false });
   };
 
   getVehicleData = async () => {
-    const data = await fetchVehicleData();
-    this.setState({ vehicleData: data });
-    this.setDisplayData(data);
-    this.setState({ favoritesDisplaying: false });
+    if (this.state.vehicleData.length > 0) {
+      this.setDisplayData(this.state.vehicleData);
+      this.setState({ favoritesDisplaying: false });
+    } else {
+      const vehicleData = await fetchVehicleData();
+      this.setState({ vehicleData: vehicleData });
+      this.setDisplayData(vehicleData);
+      this.setState({ favoritesDisplaying: false });
+    }
   };
 
   getPlanetData = async () => {
-    const data = await fetchPlanetData();
-    this.setState({ planetData: data });
-    this.setDisplayData(data);
-    this.setState({ favoritesDisplaying: false });
+    if (this.state.planetData.length > 0) {
+      this.setDisplayData(this.state.planetData);
+      this.setState({ favoritesDisplaying: false });
+    } else {
+      const data = await fetchPlanetData();
+      const allPlanets = await cleanPlanetData(data)
+      this.setState({ planetData: allPlanets });
+      this.setDisplayData(allPlanets);
+      this.setState({ favoritesDisplaying: false });
+    }
   };
 
   setDisplayData = displayData => {
