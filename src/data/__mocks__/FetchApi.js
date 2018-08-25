@@ -12,8 +12,8 @@ export const fetchPlanetData = jest.fn().mockImplementationOnce(() => ({
       Species: "Droid",
       isFavoriteSelected: false,
       name: "C-3PO"
-    }
-  ]
+    },
+  ],
 }))
 .mockImplementationOnce(() => ({
   planetData: [{
@@ -29,8 +29,8 @@ export const fetchPlanetData = jest.fn().mockImplementationOnce(() => ({
       Species: "Droid",
       isFavoriteSelected: false,
       name: "C-3PO"
-    }
-  ]
+    },
+  ],
 }))
 .mockImplementationOnce(() => {
   errorStatus: 'Error fetching planetData'

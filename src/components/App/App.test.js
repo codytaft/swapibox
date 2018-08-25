@@ -3,8 +3,7 @@ import App from './App';
 import { shallow } from 'enzyme';
 import { appMockData } from './appMockData';
 import CleanData from '../Helper/Helper';
-
-jest.mock('FetchApi')
+import { MockData } from '../../data/MockData';
 
 describe('APP', () => {
   let mockEvent;
@@ -31,8 +30,11 @@ describe('APP', () => {
     expect(wrapper.state().crawlingText).toEqual({});
   });
 
-  it('Should update state of crawlingText when playOpeningScrawl is invoked', () => {
-    wrapper.instance().playOpeningScrawl();
+  it('Should update state of crawlingText when playOpeningScrawl is invoked', async () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      json: () => Promise.resolve(mockData)
+    }))
+    await wrapper.instance().playOpeningScrawl();
 
     expect(wrapper.html()).toMatchSnapshot();
     expect(wrapper.state().peopleData.length).toEqual(0);
@@ -49,13 +51,7 @@ describe('APP', () => {
     });
   });
 
-  describe('getPlanetData', () => {
-    it('Should setState when invoked', async () => {
-      // await wrapper.instance().getPlanetData(appMockData);
-
-      await expect(wrapper.state().planetData).toEqual(appMockData);
-    })
-  });
+  
 
   describe('setDisplayData', () => {
     it('Should setState when invoked', () => {
