@@ -7,12 +7,13 @@ class Nav extends Component {
   };
 
   handleClick = event => {
+    console.log(event.target.value)
     const { value } = event.target;
-    if (value === 'peopleBtn') {
+    if (value === 'People') {
       this.props.getPeopleData();
-    } else if (value === 'vehiclesBtn') {
+    } else if (value === 'Vehicles') {
       this.props.getVehicleData();
-    } else if (value === 'planetsBtn') {
+    } else if (value === 'Planets') {
       this.props.getPlanetData();
     }
   };
@@ -28,7 +29,7 @@ class Nav extends Component {
           </span>
         </div>
         <div className="button-row">
-          <Button onClick={this.handleClick} name="People" />
+          <Button className="people" onClick={this.handleClick} name="People" />
           <Button onClick={this.handleClick} name="Vehicles" />
           <Button onClick={this.handleClick} name="Planets" />
         </div>

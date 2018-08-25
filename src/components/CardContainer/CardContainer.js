@@ -3,6 +3,7 @@ import './CardContainer.css';
 import Card from '../Card/Card.js'
 
 const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavorite, favoritesDisplaying, isFavoriteSelected, favorites }) => {
+  console.log(displayData);
   const { episode, title, scrawl } = crawlingText;
   if (displayData.length > 0) {
     return (
