@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Helper Method getOpeningScrawl should return correct Data 1`] = `undefined`;
+
+exports[`Helper should match the snapshot 1`] = `undefined`;

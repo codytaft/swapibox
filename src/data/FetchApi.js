@@ -9,9 +9,9 @@ export const fetchScrawl = async () => {
 };
 
 export const fetchPeopleData = async () => {
-  let data;
+  let peopleData;
     const response = await fetch(`https://swapi.co/api/people/`)
-    return data = await response.json()
+    return peopleData = await response.json()
 };
 
 export const fetchHomeWorld = async planet => {
@@ -36,26 +36,25 @@ export const fetchSpecies = async peopleData => {
 };
 
 export const fetchPlanetData = async () => {
-  let allPlanets
+  let planetData
     const response = await fetch('https://swapi.co/api/planets/')
-    const data = await response.json()
-    return allPlanets = await cleanPlanetData(data)
+    return planetData = await response.json()
 };
 
 export const fetchResidents = async (residentLinks) => {
   let fetchPlanetResidents = []
-  residentLinks.reduce(async (residentNames, resident) => {
+  await residentLinks.reduce(async (residentNames, resident) => {
     const response = await fetch(resident)
     const residentList = await response.json()
     const residentName = await residentList.name
     residentNames = residentName
-    fetchPlanetResidents.push(residentNames)
+    fetchPlanetResidents.push(residentName)
     return residentNames
   }, '')
   return fetchPlanetResidents
 };
 
-export const fetchVehicleData = async category => {
+export const fetchVehicleData = async () => {
     const response = await fetch(`https://swapi.co/api/vehicles/`);
     const data = await response.json();
     const vehicleData = await cleanVehicles(data);
