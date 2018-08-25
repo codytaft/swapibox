@@ -6,9 +6,9 @@
   border: solid 2px pink;
   color: $color-one;
   font-family: $font-fam;
-  height: 24em;
+  height: 26em;
   margin: .5em;
-  width: 18em;
+  width: 20em;
   .selected{
     background-color: $color-gold;
   }
@@ -54,7 +54,6 @@
   flex-direction: column;
   font-size: 1.1em;
   flex-wrap: wrap;
-  margin-top: 2em;
   padding-left: .5em;
   width: 100%;
   overflow-wrap: break-word;
