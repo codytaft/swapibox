@@ -1,8 +1,8 @@
 import React from 'react';
-import { fetchScrawl, fetchPeopleData } from './FetchApi';
+import { fetchScrawl, fetchPeopleData, fetchVehicleData } from './FetchApi';
 import { shallow } from 'enzyme';
 import { getOpeningScrawl, cleanPeopleData, cleanSpecies } from '../components/Helper/Helper.js';
-import { MockData } from './MockData';
+import { MockData, films, vehicles } from './MockData';
 
 describe('FetchApi functions', () => {
   describe('fetchScrawl', () => {
@@ -56,41 +56,42 @@ describe('fetchPeopleData', () => {
     }))
   })
 
-  describe('fetchNameData', () => {
-    let mockEvent
-    let mockData
-    let cleanPeopleData
-    let cleanSpecies
-    beforeEach(() => {
-      mockEvent = { preventDefault: jest.fn() };
-      mockData = MockData.people.results
-      cleanPeopleData = jest.fn()
-      cleanSpecies = jest.fn().mockImplementation(() => Promise.resolve({
-        json: () => Promise.resolve([])
-      }))
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-        json: () => Promise.resolve([])
-      }))
-    })
-
-    it('Should invoke fetch with the correct params', () => {
-      const expected = `https://swapi.co/api/people/`
+  it('Should invoke fetch with the correct params', () => {
+    const url = `https://swapi.co/api/people/`
+    fetchPeopleData();
+    expect(window.fetch).toHaveBeenCalledWith(url);
+  });
 
   it('Should return promise', async () => {
     const expected = `https://swapi.co/api/people/`
-    
+
     await expect(window.fetch).toEqual(MockData.people)
   });
 
   it('Should throw an error if status code is not ok', async () => {
 
-    it('Should return correct object if status code is ok', async () => {
-      await fetchPeopleData()
-      
-      await expect(cleanPeopleData).toHaveBeenCalled()
-    });
+  });
+})
+
+describe('fetchVehicleData', () => {
+  let cleanPeopleData
+  let cleanVehicles
+  beforeEach(() => {
+    const mockData = MockData.people.results
+    cleanVehicles = jest.fn()
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      json: () => Promise.resolve(vehicles)
+    }))
+  });
 
   it('Should invoke fetch with correct parameters', () => {
+    const url = `https://swapi.co/api/vehicles/`
+    fetchVehicleData()
+    expect(window.fetch).toHaveBeenCalledWith(url)
+  });
 
-  })
+  it('Should invoke cleanVehicles with correctParameters', async () => {
+    await fetchVehicleData()
+    expect(cleanVehicles).toHaveBeenCalledWith(vehicles)
+  });
 })
