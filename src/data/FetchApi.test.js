@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchScrawl, fetchNameData } from './FetchApi';
+import { fetchScrawl, fetchPeopleData } from './FetchApi';
 import { shallow } from 'enzyme';
 import { getOpeningScrawl, cleanHomeworld, cleanSpecies } from '../components/Helper/Helper.js';
 import { MockData } from './MockData';
@@ -8,7 +8,7 @@ describe('FetchApi functions', () => {
   describe('fetchScrawl', () => {
     let mockCards
     let mockEvent
-    let mockGetOpeningScrawl;
+    let mockGetOpeningScrawl
     let mockCard
 
     beforeEach(() => {
@@ -23,7 +23,7 @@ describe('FetchApi functions', () => {
     it('Should invoke fetch with the correct params', async () => {
       const expected = 'https://swapi.co/api/films/1/'
       const url = `https://swapi.co/api/films/1/`
-      fetchScrawl()
+      fetchScrawl(url)
 
       expect(window.fetch).toHaveBeenCalledWith(expected)
     });
@@ -65,9 +65,8 @@ describe('FetchApi functions', () => {
       expect(window.fetch).toHaveBeenCalledWith(expected);
     });
 
-    it.only('Should return correct object if status code is ok', async () => {
-      await fetchNameData()
-      
+    it('Should return correct object if status code is ok', async () => {
+      await fetchPeopleData()
       
       await expect(cleanHomeworld).toHaveBeenCalled()
     });

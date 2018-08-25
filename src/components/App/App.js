@@ -43,7 +43,7 @@ class App extends Component {
       this.setState({ favoritesDisplaying: false });
     } else {
       const data = await fetchPeopleData();
-      const peopleData = await cleanHomeworld(data)
+      const peopleData = await cleanPeopleData(data)
       this.setState({ peopleData: peopleData });
       this.setDisplayData(peopleData);
       this.setState({ favoritesDisplaying: false });
