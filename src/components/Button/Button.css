@@ -5,8 +5,6 @@ button.People, button.Vehicles, button.Planets, button.FAVORITES {
   cursor: pointer;
   font-family: "Fjalla One", sans-serif;
   width: 10em; }
-  button.People button.People, button.People button.Vehicles, button.People button.Planets, button.People button.FAVORITES:hover, button.Vehicles button.People, button.Vehicles button.Vehicles, button.Vehicles button.Planets, button.Vehicles button.FAVORITES:hover, button.Planets button.People, button.Planets button.Vehicles, button.Planets button.Planets, button.Planets button.FAVORITES:hover, button.FAVORITES button.People, button.FAVORITES button.Vehicles, button.FAVORITES button.Planets, button.FAVORITES button.FAVORITES:hover {
-    color: pink; }
 
 button.FAVORITES {
   height: 2.2em; }

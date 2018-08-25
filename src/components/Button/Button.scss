@@ -8,9 +8,6 @@ button.People, button.Vehicles, button.Planets, button.FAVORITES {
   cursor: pointer;
   font-family: $font-fam;
   width: 10em;
-  button.People, button.Vehicles, button.Planets, button.FAVORITES:hover{
-    color: pink;
-  }
 }
 
 button.FAVORITES {
