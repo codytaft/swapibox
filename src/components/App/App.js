@@ -6,7 +6,7 @@ import {
   fetchVehicleData,
   fetchPlanetData
 } from '../../data/FetchApi.js';
-import { cleanPlanetData, cleanPeopleData } from '../Helper/Helper.js'
+import { cleanPeopleData, cleanPlanetData } from '../Helper/Helper.js'
 import Nav from '../Nav/Nav';
 import CardContainer from '../CardContainer/CardContainer';
 

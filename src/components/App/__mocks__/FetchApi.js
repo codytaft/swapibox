@@ -15,9 +15,13 @@ export const fetchSpecies = jest.fn().mockImplementation(() => ({
 }))
 
 export const cleanPeopleData = jest.fn().mockImplementation(() => ({
+<<<<<<< HEAD
   enresolvedPeopleData: [
 
   ]
+=======
+  unresolvedPeopleData: appMockData
+>>>>>>> Pass test getpeopledata updates state when invoked
 }))
 
 export const fetchPlanetData = jest.fn().mockImplementationOnce(() => ({

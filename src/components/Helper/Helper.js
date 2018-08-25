@@ -16,6 +16,7 @@ export const getOpeningScrawl = data => {
 
 export const cleanPeopleData = peopleData => {
   let wholePeople;
+
   const unresolvedPeopleData = peopleData.results.map(async person => {
     const name = person.name;
     const response = await person.homeworld;
