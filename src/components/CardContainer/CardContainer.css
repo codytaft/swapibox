@@ -47,3 +47,20 @@
   top: 0px;
   background-image: linear-gradient(0deg, transparent, black 75%);
   z-index: 1; }
+
+.empty-greeting {
+  align-items: center;
+  background-color: #1F2833;
+  border: solid 3px #C5C6C7;
+  color: #66FCF1;
+  display: flex;
+  font-family: "Fjalla One", sans-serif;
+  height: 20em;
+  justify-content: center;
+  margin-top: 8em;
+  width: 30em; }
+
+.empty-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center; }
