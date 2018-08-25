@@ -1,11 +1,11 @@
 import React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
-import { appMockData, appMockPlanet, appMockVehicle, appMockPeople } from './appMockData';
+import { appMockData, appMockPlanet, appMockVehicle, appMockPeople, expectedAppMock } from './appMockData';
 import { cleanPlanetData, cleanVehicles } from '../Helper/Helper';
 import { MockData } from '../../data/MockData';
 
-jest.mock('./__mocks__/FetchApi')
+// jest.mock('./__mocks__/FetchApi')
 
 describe('APP', () => {
   let mockEvent;
@@ -53,17 +53,20 @@ describe('APP', () => {
     });
   });
 
-  describe.only('getPeopleData', () => {
+  describe('getPeopleData', () => {
     it('Should update state when invoked', async () => {
+      const mockSetDisplayData = jest.fn();
+      wrapper = await shallow(<App setDisplayData={mockSetDisplayData} />);
       window.fetch = jest.fn().mockImplementation(() => ({
         json: () => Promise.resolve(appMockPeople)
       }));
-      const expected = appMockPeople;
+      const expected = expectedAppMock;
       
-      await wrapper.instance().getPeopleData()
+      await wrapper.instance().getPeopleData();
       
-      
-      expect(wrapper.state().peopleData).toEqual(expected)
+      expect(wrapper.state().favoritesDisplaying).toEqual(false);
+      expect(wrapper.state().peopleData).toEqual(expected);
+      // await expect(mockSetDisplayData).toHaveBeenCalled()
     });
   })
 
@@ -82,7 +85,7 @@ describe('APP', () => {
     });
   });
 
-  describe.skip('getPlanetData', () => {
+  describe('getPlanetData', () => {
     it('Should set the state planetData when invoked', async () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         json: () => Promise.resolve(appMockPlanet)

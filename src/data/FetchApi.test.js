@@ -2,20 +2,31 @@ import React from 'react';
 import { fetchScrawl, fetchPeopleData } from './FetchApi';
 import { shallow } from 'enzyme';
 import { getOpeningScrawl, cleanPeopleData, cleanSpecies } from '../components/Helper/Helper.js';
-import { MockData, films } from './MockData';
+import { MockData } from './MockData';
 
-describe('fetchScrawl', () => {
-  let mockEvent
-  let mockGetOpeningScrawl
+describe('FetchApi functions', () => {
+  describe('fetchScrawl', () => {
+    let mockCards
+    let mockEvent
+    let mockGetOpeningScrawl
+    let mockCard
 
-  beforeEach(() => {
-    mockEvent = { preventDefault: jest.fn() };
-    mockGetOpeningScrawl = jest.fn();
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      status: 200,
-      json: () => Promise.resolve(films)
-    }));
-  });
+    beforeEach(() => {
+      mockEvent = { preventDefault: jest.fn() };
+      mockGetOpeningScrawl = jest.fn();
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(MockData.opening_crawl)
+      }));
+    });
+
+    it('Should invoke fetch with the correct params', async () => {
+      const expected = 'https://swapi.co/api/films/1/'
+      const url = `https://swapi.co/api/films/1/`
+      fetchScrawl(url)
+
+      expect(window.fetch).toHaveBeenCalledWith(expected)
+    });
 
   it.skip('Should invoke fetch with the correct params', async () => {
     const expected = 'https://swapi.co/api/films/1/'
@@ -45,11 +56,25 @@ describe('fetchPeopleData', () => {
     }))
   })
 
-  it('Should invoke fetch with the correct params', () => {
-    const expected = `https://swapi.co/api/people/`
-    fetchPeopleData();
-    expect(window.fetch).toHaveBeenCalledWith(expected);
-  });
+  describe('fetchNameData', () => {
+    let mockEvent
+    let mockData
+    let cleanPeopleData
+    let cleanSpecies
+    beforeEach(() => {
+      mockEvent = { preventDefault: jest.fn() };
+      mockData = MockData.people.results
+      cleanPeopleData = jest.fn()
+      cleanSpecies = jest.fn().mockImplementation(() => Promise.resolve({
+        json: () => Promise.resolve([])
+      }))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        json: () => Promise.resolve([])
+      }))
+    })
+
+    it('Should invoke fetch with the correct params', () => {
+      const expected = `https://swapi.co/api/people/`
 
   it('Should return promise', async () => {
     const expected = `https://swapi.co/api/people/`
@@ -59,20 +84,11 @@ describe('fetchPeopleData', () => {
 
   it('Should throw an error if status code is not ok', async () => {
 
-  });
-})
-
-describe('fetchVehicleData', () => {
-  let mockEvent
-  let cleanPeopleData
-  beforeEach(() => {
-    const mockEvent = { preventDefault: jest.fn() };
-    const mockData = MockData.people.results
-    cleanVehicles = jest.fn()
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      json: () => Promise.resolve(MockData.people)
-    }))
-  })
+    it('Should return correct object if status code is ok', async () => {
+      await fetchPeopleData()
+      
+      await expect(cleanPeopleData).toHaveBeenCalled()
+    });
 
   it('Should invoke fetch with correct parameters', () => {
 
