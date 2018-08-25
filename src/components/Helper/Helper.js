@@ -2,9 +2,7 @@ import {
   fetchHomeWorld,
   fetchPopulation,
   fetchSpecies,
-  fetchVehicleData,
   fetchResidents
-
 } from '../../data/FetchApi';
 
 export const getOpeningScrawl = data => {
@@ -41,7 +39,6 @@ export const cleanPlanetData = (planetData) => {
   let cleanPlanet
   const unresolvedPlanetData = planetData.results.map(async planet => {
     const name = planet.name;
-
     const terrain = await planet.terrain;
     const population = await planet.population;
     const climate = await planet.climate;

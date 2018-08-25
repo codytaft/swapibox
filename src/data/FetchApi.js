@@ -55,7 +55,7 @@ export const fetchResidents = async (residentLinks) => {
   return fetchPlanetResidents
 };
 
-export const fetchVehicleData = async category => {
+export const fetchVehicleData = async () => {
     const response = await fetch(`https://swapi.co/api/vehicles/`);
     const data = await response.json();
     const vehicleData = await cleanVehicles(data);

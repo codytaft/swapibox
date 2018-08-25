@@ -70,7 +70,6 @@ class App extends Component {
   };
 
   selectFavorite = name => {
-    console.log(name);
     const favoriteState = this.state.favorites;
     const foundCard = this.state.displayData.find(card => card.name === name);
     const isFavorite = favoriteState.includes(foundCard);
