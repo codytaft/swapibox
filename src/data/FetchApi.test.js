@@ -2,7 +2,7 @@ import React from 'react';
 import { fetchScrawl, fetchPeopleData, fetchVehicleData, fetchResidents } from './FetchApi';
 import { shallow } from 'enzyme';
 import { getOpeningScrawl, cleanPeopleData, cleanSpecies, cleanVehicles } from '../components/Helper/Helper.js';
-import { MockData, mockFilms, mockVehicles, mockResidentLinks, residentLinks } from './MockData';
+import { MockData, mockFilms, mockVehicles, mockResidentLinks, mockResidentNames } from './MockData';
 // jest.mock('./FetchApi.js')
 
 describe('fetchScrawl', () => {
@@ -36,19 +36,10 @@ describe('fetchPeopleData', () => {
 })
 
 describe('fetchResidents', () => {
-  beforeEach(() => {
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      json: () => Promise.resolve()
-    }))
-  })
 
-  it('Should invoke fetch with the correct params', () => {
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      json: () => Promise.resolve(MockData.people)
-    }))
-    const url = `https://swapi.co/api/people/`
-    fetchResidents(residentLinks);
-    expect(window.fetch).toHaveBeenCalledWith(url);
+  it('Should return an array', async () => {
+    const result = await fetchResidents(mockResidentLinks)
+    expect(result).toEqual(mockResidentNames)
   });
 })
 
@@ -64,9 +55,6 @@ describe('fetchVehicleData', () => {
   });
 
   it('Should return an object of vehicle data', async () => {
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      json: () => Promise.resolve(mockVehicles)
-    }))
     const expected = await cleanVehicles(mockVehicles)
     const result = await fetchVehicleData()
     expect(result).toEqual(expected)

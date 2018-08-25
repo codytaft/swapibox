@@ -43,6 +43,7 @@ export const fetchPlanetData = async () => {
 };
 
 export const fetchResidents = async (residentLinks) => {
+  console.log(residentLinks)
   let fetchPlanetResidents = []
   await residentLinks.reduce(async (residentNames, resident) => {
     const response = await fetch(resident)
