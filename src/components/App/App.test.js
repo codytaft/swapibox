@@ -69,10 +69,8 @@ describe('APP', () => {
     it('Should set state when invoked', async () => {
       const mockSetDisplayData = jest.fn();
       wrapper = shallow(<App setDisplayData={mockSetDisplayData} />)
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-        json: () => Promise.resolve(appMockVehicle)
-      }));
-      const expected = await cleanVehicles(appMockVehicle);
+    
+      const expected = appMockVehicle;
       await wrapper.instance().getVehicleData();
 
       // expect(mockSetDisplayData).toHaveBeenCalled()
