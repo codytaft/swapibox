@@ -9,6 +9,9 @@
   height: 24em;
   margin: .5em;
   width: 18em;
+  .selected{
+    background-color: $color-gold;
+  }
 }
 
 .cardbtn {

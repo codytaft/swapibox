@@ -6,6 +6,8 @@
   height: 24em;
   margin: .5em;
   width: 18em; }
+  .card .selected {
+    background-color: #D7AA39; }
 
 .cardbtn {
   background-color: #45A29E;
