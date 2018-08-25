@@ -4,6 +4,7 @@ button.People, button.Vehicles, button.Planets, button.FAVORITES {
   color: #66FCF1;
   cursor: pointer;
   font-family: "Fjalla One", sans-serif;
+  outline: none;
   width: 10em; }
 
 button.FAVORITES {
