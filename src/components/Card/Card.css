@@ -26,6 +26,7 @@
   align-items: center;
   background-color: #45A29E;
   border-bottom: 3px solid #C5C6C7;
+  text-shadow: 1px 1px black;
   display: flex;
   justify-content: space-between;
   margin: auto 0; }
