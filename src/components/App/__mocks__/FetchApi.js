@@ -1,8 +1,25 @@
 import { appMockData, appMockPlanet, appMockVehicle, appMockPeople } from './appMockData';
 
 export const fetchPeopleData = jest.fn().mockImplementation(() => ({
+  peopleData: appMockPeople
+}))
+
+export const fetchHomeWorld = jest.fn().mockImplementation(() => ({
+  homeworld: appMockData
+}))
+export const fetchPopulation = jest.fn().mockImplementation(() => ({
 
 }))
+export const fetchSpecies = jest.fn().mockImplementation(() => ({
+
+}))
+
+export const cleanHomeworld = jest.fn().mockImplementation(() => ({
+  enresolvedPeopleData: [
+
+  ]
+}))
+
 export const fetchPlanetData = jest.fn().mockImplementationOnce(() => ({
   planetData: [{
       Homeworld: "Tatooine",
