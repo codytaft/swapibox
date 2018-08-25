@@ -14,7 +14,7 @@ export const fetchSpecies = jest.fn().mockImplementation(() => ({
 
 }))
 
-export const cleanHomeworld = jest.fn().mockImplementation(() => ({
+export const cleanPeopleData = jest.fn().mockImplementation(() => ({
   enresolvedPeopleData: [
 
   ]
