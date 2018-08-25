@@ -6,7 +6,7 @@
   border: solid 2px pink;
   color: $color-one;
   font-family: $font-fam;
-  height: 20em;
+  height: 22em;
   margin: .5em;
   width: 15em;
 }
@@ -22,6 +22,8 @@
 
 .card-title {
   align-items: center;
+  background-color: $color-two;
+  border-bottom: 3px solid $color-three;
   display: flex;
   justify-content: space-between;
   margin: auto 0;

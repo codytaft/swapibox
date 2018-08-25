@@ -3,7 +3,7 @@
   border: solid 2px pink;
   color: #66FCF1;
   font-family: "Fjalla One", sans-serif;
-  height: 20em;
+  height: 22em;
   margin: .5em;
   width: 15em; }
 
@@ -16,6 +16,8 @@
 
 .card-title {
   align-items: center;
+  background-color: #45A29E;
+  border-bottom: 3px solid #C5C6C7;
   display: flex;
   justify-content: space-between;
   margin: auto 0; }
