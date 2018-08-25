@@ -1,16 +1,25 @@
 import React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
-import { appMockData } from './appMockData';
-import CleanData from '../Helper/Helper';
+import { appMockData, appMockPlanet, appMockVehicle, appMockPeople } from './appMockData';
+import { cleanPlanetData, cleanVehicles } from '../Helper/Helper';
+import { MockData } from '../../data/MockData';
+
+jest.mock('./__mocks__/FetchApi')
 
 describe('APP', () => {
+  let mockEvent;
   let wrapper;
   let mockData;
+  let mockRemoveFavorite;
+  let mockFetchScrawl;
 
   beforeEach(() => {
-    wrapper = shallow(<App />);
-    mockData = {}
+    mockEvent = { preventDefault: jest.fn() };
+    wrapper = shallow(<App removeFavorite={mockRemoveFavorite} />);
+    mockData = {};
+    mockFetchScrawl = jest.fn();
+    mockRemoveFavorite = jest.fn();
   });
 
   it('Should match snapshot', () => {
@@ -23,8 +32,11 @@ describe('APP', () => {
     expect(wrapper.state().crawlingText).toEqual({});
   });
 
-  it('Should update state of crawlingText when playOpeningScrawl is invoked', () => {
-    wrapper.instance().playOpeningScrawl();
+  it('Should update state of crawlingText when playOpeningScrawl is invoked', async () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      json: () => Promise.resolve(mockData)
+    }));
+    await wrapper.instance().playOpeningScrawl();
 
     expect(wrapper.html()).toMatchSnapshot();
     expect(wrapper.state().peopleData.length).toEqual(0);
@@ -41,16 +53,62 @@ describe('APP', () => {
     });
   });
 
+  describe.only('getPeopleData', () => {
+    it('Should update state when invoked', async () => {
+      window.fetch = jest.fn().mockImplementation(() => ({
+        json: () => Promise.resolve(appMockPeople)
+      }));
+      const expected = appMockPeople;
+      
+      await wrapper.instance().getPeopleData()
+      
+      
+      expect(wrapper.state().peopleData).toEqual(expected)
+    });
+  })
+
+  describe('getVehicleData', () => {
+    it('Should set state when invoked', async () => {
+      const mockSetDisplayData = jest.fn();
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />)
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        json: () => Promise.resolve(appMockVehicle)
+      }));
+      const expected = await cleanVehicles(appMockVehicle);
+      await wrapper.instance().getVehicleData();
+
+      // expect(mockSetDisplayData).toHaveBeenCalled()
+      expect(wrapper.state().vehicleData).toEqual(expected)
+    });
+  });
+
+  describe.skip('getPlanetData', () => {
+    it('Should set the state planetData when invoked', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        json: () => Promise.resolve(appMockPlanet)
+      }));
+      const expected = await cleanPlanetData(appMockData)
+      await wrapper.instance().getPlanetData();
+
+      expect(wrapper.state().planetData).toEqual(expected);
+      expect(wrapper.state().favoritesDisplaying).toEqual(false);
+    });
+  });
+
+  describe('setDisplayData', () => {
+    it('Should setState when invoked', () => {
+      mockData = appMockData;
+      wrapper.instance().setDisplayData(mockData)
+
+      expect(wrapper.state().displayData.length).toEqual(2)
+    });
+  });
+
   describe('selectFavorite', () => {
-    let mockFetchScrawl;
-    let mockRemoveFavorite;
     let mockData;
       
     beforeEach(() => {
-      mockFetchScrawl = jest.fn();
-      mockRemoveFavorite = jest.fn()
-      mockData = appMockData
-      wrapper = shallow(<App removeFavorite={mockRemoveFavorite} />);
+      mockData = appMockData;
     });
 
     it('Should update state when invoked', () => {
@@ -75,7 +133,7 @@ describe('APP', () => {
       
       expect(wrapper.state().favorites.length).toEqual(0);
       expect(wrapper.state().favoriteCount).toEqual(0);
-    })
+    });
   });
 
 

@@ -1,3 +1,4 @@
+import App from '../components/App/App.js';
 import { getOpeningScrawl, cleanHomeworld, cleanSpecies, cleanVehicles, cleanPlanetData } from '../components/Helper/Helper.js';
 
 export const fetchScrawl = async () => {
