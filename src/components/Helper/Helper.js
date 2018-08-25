@@ -14,10 +14,8 @@ export const getOpeningScrawl = data => {
   return openingScrawl;
 };
 
-export const cleanHomeworld = peopleData => {
+export const cleanPeopleData = peopleData => {
   let wholePeople;
-  console.log(peopleData)
-
   const unresolvedPeopleData = peopleData.results.map(async person => {
     const name = person.name;
     const response = await person.homeworld;
@@ -39,7 +37,6 @@ export const cleanHomeworld = peopleData => {
 
 export const cleanPlanetData = async (planetData) => {
   let cleanPlanet
-  console.log(planetData)
   const unresolvedPlanetData = planetData.results.map(async planet => {
     const name = planet.name;
     const terrain = await planet.terrain;
@@ -55,8 +52,8 @@ export const cleanPlanetData = async (planetData) => {
         climate: climate,
         residents: residents
       }
-    }
-  })
+    };
+  });
   return Promise.all(unresolvedPlanetData)
 };
 
@@ -71,7 +68,7 @@ export const cleanVehicles = vehicleData => {
         vehicle_class,
         passengers
       }
-    })
+    });
   });
   return Promise.all(unresolvedVehicleData);
 };
