@@ -1,4 +1,4 @@
-import { appMockData, appMockPlanet, appMockVehicle, appMockPeople, appMockHomeworld, appMockSpecies } 
+import { appMockData, appMockPlanet, appMockVehicle, appMockPeople, appMockHomeworld, appMockSpecies, appMockResidents } 
 from '../../components/App/appMockData.js';
 import { MockData, films } from '../MockData';
 
@@ -26,47 +26,15 @@ export const fetchVehicleData = jest.fn().mockImplementation(() => (
   appMockVehicle
 ));
 
+export const fetchPlanetData = jest.fn().mockImplementation(() => (
+  appMockPlanet
+));
+
+export const fetchResidents = jest.fn().mockImplementation(() => (
+  appMockResidents
+));
 
 
-// export const cleanPeopleData = jest.fn().mockImplementation(() => (
-//   appMockData
-// ))
 
-export const fetchPlanetData = jest.fn().mockImplementationOnce(() => ({
-  planetData: [{
-      Homeworld: "Tatooine",
-      Population: "200000",
-      Species: "Human",
-      isFavoriteSelected: false,
-      name: "Luke Skywalker"
-    },
-    {
-      Homeworld: "Tatooine",
-      Population: "200000",
-      Species: "Droid",
-      isFavoriteSelected: false,
-      name: "C-3PO"
-    },
-  ],
-}))
-.mockImplementationOnce(() => ({
-  planetData: [{
-      Homeworld: "Tatooine",
-      Population: "200000",
-      Species: "Human",
-      isFavoriteSelected: false,
-      name: "Luke Skywalker"
-    },
-    {
-      Homeworld: "Tatooine",
-      Population: "200000",
-      Species: "Droid",
-      isFavoriteSelected: false,
-      name: "C-3PO"
-    },
-  ],
-}))
-.mockImplementationOnce(() => {
-  errorStatus: 'Error fetching planetData'
-})
+
 
