@@ -28,9 +28,9 @@ class Nav extends Component {
           </span>
         </div>
         <div className="button-row">
-          <Button onClick={this.handleClick} name="peopleBtn" />
-          <Button onClick={this.handleClick} name="vehiclesBtn" />
-          <Button onClick={this.handleClick} name="planetsBtn" />
+          <Button onClick={this.handleClick} name="People" />
+          <Button onClick={this.handleClick} name="Vehicles" />
+          <Button onClick={this.handleClick} name="Planets" />
         </div>
       </div>
     );
