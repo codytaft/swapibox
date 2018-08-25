@@ -2,7 +2,9 @@ button.People, button.Vehicles, button.Planets, button.FAVORITES {
   background-color: #1F2833;
   border: 3px solid #D7AA39;
   color: #66FCF1;
+  cursor: pointer;
   font-family: "Fjalla One", sans-serif;
+  outline: none;
   width: 10em; }
 
 button.FAVORITES {

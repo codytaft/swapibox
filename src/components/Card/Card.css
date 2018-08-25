@@ -3,13 +3,23 @@
   border: solid 2px pink;
   color: #66FCF1;
   font-family: "Fjalla One", sans-serif;
-  height: 24em;
+  height: 26em;
   margin: .5em;
-  width: 18em; }
+  width: 20em; }
+  .card .selected {
+    background-color: #D7AA39; }
+
+.cardbtn {
+  background-color: #45A29E;
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 25px;
+  margin-right: .75em;
+  outline: none; }
 
 .imgcardbtn {
   border: none;
-  outline: transparent;
+  cursor: pointer;
   width: 10px; }
   .imgcardbtn .selected {
     width: 10px; }
@@ -18,6 +28,7 @@
   align-items: center;
   background-color: #45A29E;
   border-bottom: 3px solid #C5C6C7;
+  text-shadow: 1px 1px black;
   display: flex;
   justify-content: space-between;
   margin: auto 0; }
@@ -33,7 +44,6 @@
   flex-direction: column;
   font-size: 1.1em;
   flex-wrap: wrap;
-  margin-top: 2em;
   padding-left: .5em;
   width: 100%;
   overflow-wrap: break-word; }

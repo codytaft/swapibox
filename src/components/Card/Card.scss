@@ -6,14 +6,26 @@
   border: solid 2px pink;
   color: $color-one;
   font-family: $font-fam;
-  height: 24em;
+  height: 26em;
   margin: .5em;
-  width: 18em;
+  width: 20em;
+  .selected{
+    background-color: $color-gold;
+  }
+}
+
+.cardbtn {
+  background-color: $color-two;
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 25px;
+  margin-right: .75em;
+  outline: none;
 }
 
 .imgcardbtn {
   border: none;
-  outline: transparent;
+  cursor: pointer;
   width: 10px;
   .selected{
     width: 10px;
@@ -24,6 +36,7 @@
   align-items: center;
   background-color: $color-two;
   border-bottom: 3px solid $color-three;
+  text-shadow: 1px 1px black;
   display: flex;
   justify-content: space-between;
   margin: auto 0;
@@ -41,7 +54,6 @@
   flex-direction: column;
   font-size: 1.1em;
   flex-wrap: wrap;
-  margin-top: 2em;
   padding-left: .5em;
   width: 100%;
   overflow-wrap: break-word;
