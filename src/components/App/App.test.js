@@ -1,8 +1,8 @@
 import React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
-import { appMockData, appMockPlanet } from './appMockData';
-import { cleanPlanetData } from '../Helper/Helper';
+import { appMockData, appMockPlanet, appMockVehicle } from './appMockData';
+import { cleanPlanetData, cleanVehicles } from '../Helper/Helper';
 import { MockData } from '../../data/MockData';
 
 describe('APP', () => {
@@ -51,14 +51,28 @@ describe('APP', () => {
     });
   });
 
+  describe('getVehicleData', () => {
+    it('Should set state when invoked', async () => {
+      const mockSetDisplayData = jest.fn();
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />)
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        json: () => Promise.resolve(appMockVehicle)
+      }));
+       const expected = await cleanVehicles(appMockVehicle);
+      await wrapper.instance().getVehicleData();
+
+      // expect(mockSetDisplayData).toHaveBeenCalled()
+      expect(wrapper.state().vehicleData).toEqual(expected)
+    });
+  });
+
   describe('getPlanetData', () => {
     it('Should set the state planetData when invoked', async () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         json: () => Promise.resolve(appMockPlanet)
       }));
-      // console.log(appMockPlanet)
-      const expected = 'gravy'
-      await wrapper.instance().getPlanetData('gravy');
+      const expected = await cleanPlanetData(appMockData)
+      await wrapper.instance().getPlanetData();
 
       expect(wrapper.state().planetData).toEqual(expected);
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
