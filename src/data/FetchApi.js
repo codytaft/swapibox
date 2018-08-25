@@ -1,5 +1,5 @@
 import App from '../components/App/App.js';
-import { getOpeningScrawl, cleanHomeworld, cleanSpecies, cleanVehicles, cleanPlanetData } from '../components/Helper/Helper.js';
+import { getOpeningScrawl, cleanPeopleData, cleanSpecies, cleanVehicles, cleanPlanetData } from '../components/Helper/Helper.js';
 
 export const fetchScrawl = async () => {
   const randomNumber = Math.floor(Math.random() * 6 + 1);

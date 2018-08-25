@@ -1,5 +1,5 @@
 import React from 'react'
-import {cleanHomeworld, cleanPlanetData, getOpeningScrawl} from './Helper'
+import {cleanPeopleData, cleanPlanetData, getOpeningScrawl} from './Helper'
 import { shallow } from 'enzyme'
 import {films} from '../../data/MockData.js'
 
