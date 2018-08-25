@@ -7,6 +7,7 @@ button.People, button.Vehicles, button.Planets, button.FAVORITES {
   color: $color-one;
   cursor: pointer;
   font-family: $font-fam;
+  outline: none;
   width: 10em;
 }
 

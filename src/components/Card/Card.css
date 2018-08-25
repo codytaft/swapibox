@@ -14,12 +14,12 @@
   border: 1px solid black;
   border-radius: 50%;
   height: 25px;
-  margin-right: .75em; }
+  margin-right: .75em;
+  outline: none; }
 
 .imgcardbtn {
   border: none;
   cursor: pointer;
-  outline: transparent;
   width: 10px; }
   .imgcardbtn .selected {
     width: 10px; }
