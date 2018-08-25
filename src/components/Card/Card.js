@@ -4,9 +4,6 @@ import classNames from 'classnames/bind';
 import favorite from '../../images/mark.svg'
 
 const Card = ({ displayData, selectFavorite, favorites }) => {
-  console.log(displayData);
-
-
   return displayData.map(individualData => {
     const buttonClass = classNames({
       cardbtn: true,

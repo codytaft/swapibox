@@ -21,8 +21,9 @@
   width: 25em; }
 
 .title-logo {
-  font-size: 3em;
-  color: #66FCF1; }
+  color: #66FCF1;
+  font-family: "Fjalla One", sans-serif;
+  font-size: 3em; }
 
 .fav-counter {
   border: 1px solid black;
