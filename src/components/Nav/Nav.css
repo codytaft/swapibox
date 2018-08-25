@@ -29,12 +29,14 @@
   padding: 6px; }
 
 .fav-counter {
-  border: 1px solid black;
-  margin-left: .5em;
-  width: 1em; }
+  border: 3px solid #D7AA39;
+  color: #66FCF1;
+  width: 1.5em; }
 
 .fav-row {
   align-items: center;
   display: flex;
   justify-content: center;
+  margin: auto 0;
+  padding: 0;
   width: 30em; }

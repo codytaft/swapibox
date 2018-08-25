@@ -1,6 +1,9 @@
-button.Planets,button.Vehicles,button.People,button.FAVORITES {
+button.People, button.Vehicles, button.Planets, button.FAVORITES {
   background-color: #1F2833;
   border: 3px solid #D7AA39;
   color: #66FCF1;
   font-family: "Fjalla One", sans-serif;
   width: 10em; }
+
+button.FAVORITES {
+  height: 2.2em; }
