@@ -7,8 +7,16 @@
   margin: .5em;
   width: 18em; }
 
+.cardbtn {
+  background-color: #45A29E;
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 25px;
+  margin-right: .75em; }
+
 .imgcardbtn {
   border: none;
+  cursor: pointer;
   outline: transparent;
   width: 10px; }
   .imgcardbtn .selected {
