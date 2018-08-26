@@ -322,7 +322,6 @@ export const appMockPlanet = {
   ]
 };
 
-<<<<<<< HEAD
 export const appMockResidents =
 {
   "name": "Leia Organa",
@@ -353,10 +352,8 @@ export const appMockResidents =
   "url": "https://swapi.co/api/people/5/"
 }
 
+
 export const appMockVehicle =
-=======
-export const appMockVehicle =
->>>>>>> Correct linting errors
 {
   "count": 39,
   "next": "https://swapi.co/api/vehicles/?page=2",
