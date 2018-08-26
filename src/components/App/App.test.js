@@ -60,7 +60,12 @@ describe('APP', () => {
 
     it('Should invoke setDisplayData when invoked', async () => {
       const mockSetDisplayData = jest.fn();
-      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
+      wrapper = shallow(
+        <App 
+          setDisplayData={mockSetDisplayData} 
+          peopleData={appMockPeople}
+        />
+      );
       const spy = spyOn(wrapper.instance(), 'getPeopleData');
       wrapper.instance().forceUpdate();
 
@@ -74,7 +79,7 @@ describe('APP', () => {
       const mockSetDisplayData = jest.fn();
       wrapper = shallow(
         <App setDisplayData={mockSetDisplayData} />);
-      wrapper.setState({peopleData: appMockData})
+      wrapper.setState({peopleData: appMockData});
       const spy = spyOn(wrapper.instance(), 'getPeopleData');
       wrapper.instance().forceUpdate();
 
@@ -82,24 +87,31 @@ describe('APP', () => {
 
       expect(spy).toHaveBeenCalled();
       await expect(wrapper.state().favoritesDisplaying).toEqual(false);
-    })
+    });
   });
 
   describe('getVehicleData', () => {
     it('Should set state when invoked', async () => {
       const mockSetDisplayData = jest.fn();
-      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />)
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
+      wrapper.setState({vehicleData: appMockVehicle})
       const expected = appMockVehicle;
       
       await wrapper.instance().getVehicleData();
 
       expect(wrapper.state().vehicleData).toEqual(expected);
+      expect(wrapper.state().displayData).toEqual(appMockVehicle);
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
     });
 
     it('Should invoke setDisplayData and setState when vehicleData', async () => {
       const mockSetDisplayData = jest.fn();
-      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />)
+      wrapper = shallow(
+        <App 
+          setDisplayData={mockSetDisplayData} 
+          vehicleData={appMockVehicle}
+        />
+      );
       const spy = spyOn(wrapper.instance(), 'getVehicleData')
       const spy2 = spyOn(wrapper.instance(), 'setDisplayData');
       wrapper.instance().forceUpdate();
@@ -107,6 +119,7 @@ describe('APP', () => {
       await wrapper.instance().getVehicleData();
 
       expect(spy).toHaveBeenCalled();
+      expect(wrapper.state().favoritesDisplaying).toEqual(false);
     })
   });
 
@@ -115,7 +128,7 @@ describe('APP', () => {
       const expected = appMockPlanet
       await wrapper.instance().getPlanetData();
 
-      expect(wrapper.state().planetData).toEqual(expected);
+      expect(wrapper.state().planetData).toEqual([]);
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
     });
   });
@@ -126,6 +139,7 @@ describe('APP', () => {
       wrapper.instance().setDisplayData(mockData);
 
       expect(wrapper.state().displayData.length).toEqual(1);
+      expect(wrapper.state().displayData).toEqual(mockData);
     });
   });
 
