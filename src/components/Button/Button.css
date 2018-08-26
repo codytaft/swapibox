@@ -5,6 +5,7 @@
   cursor: pointer;
   font-family: "Fjalla One", sans-serif;
   outline: none;
+  padding-top: .3em;
   width: 6em; }
 
 button.FAVORITES {
