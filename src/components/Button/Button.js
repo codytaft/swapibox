@@ -2,28 +2,27 @@ import React, { Component } from 'react';
 import classNames from 'classnames/bind';
 import './Button.css';
 
-// const Button = ({ onClick, name, favorites }) => {
-
-// const buttonClass = classNames({ [`${name}`]: true });
-
-//   return (
-//     <button className={buttonClass} onClick={onClick} value={name}>
-//       {name}
-//     </button>
-//   );
-// };
-
 class Button extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      active: false
+    }
+  }
+
+  handleClick = (event) => {
+    this.props.onClick(event);
+    let currentState = this.state.active;
+    currentState = !currentState
+    this.setState({ active: currentState });
   }
 
 
   render() {
-    const buttonClass = classNames({ [`${this.props.name}`]: true });
+    const buttonClass = classNames({ [`${this.props.name}`]: true, selected: this.state.active });
     return (
       <div>
-        <button className={buttonClass} onClick={this.props.onClick} value={this.props.name}>
+        <button className={buttonClass} onClick={this.handleClick} value={this.props.name}>
           {this.props.name}
         </button>
       </div>)
