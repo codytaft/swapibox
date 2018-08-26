@@ -38,7 +38,6 @@ class Nav extends Component {
     );
   }
 }
-<<<<<<< HEAD
 
 Nav.propTypes = {
   getPeopleData: PropTypes.func,
@@ -47,7 +46,5 @@ Nav.propTypes = {
   toggleFavorites: PropTypes.func,
   favoriteCount: PropTypes.number
 };
-=======
->>>>>>> Linting errors
 
 export default Nav;
