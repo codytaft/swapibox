@@ -63,7 +63,7 @@ ShallowWrapper {
   },
   Symbol(enzyme.__node__): Object {
     "instance": null,
-    "key": undefined,
+    "key": "card0",
     "nodeType": "host",
     "props": Object {
       "children": Array [
@@ -85,25 +85,25 @@ ShallowWrapper {
                     />
           </button>
 </span>,
-        <p
+        <ul
           className="stat"
 >
-          <p
+          <li
                     className="individual-stat"
           >
                     Homeworld: function Object() { [native code] }
-          </p>
-          <p
+          </li>
+          <li
                     className="individual-stat"
           >
                     Population: function Object() { [native code] }
-          </p>
-          <p
+          </li>
+          <li
                     className="individual-stat"
           >
                     Species: function Object() { [native code] }
-          </p>
-</p>,
+          </li>
+</ul>,
       ],
       "className": "card",
     },
@@ -111,7 +111,7 @@ ShallowWrapper {
     "rendered": Array [
       Object {
         "instance": null,
-        "key": undefined,
+        "key": "tite0",
         "nodeType": "host",
         "props": Object {
           "children": Array [
@@ -182,21 +182,21 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <p
+            <li
               className="individual-stat"
 >
               Homeworld: function Object() { [native code] }
-</p>,
-            <p
+</li>,
+            <li
               className="individual-stat"
 >
               Population: function Object() { [native code] }
-</p>,
-            <p
+</li>,
+            <li
               className="individual-stat"
 >
               Species: function Object() { [native code] }
-</p>,
+</li>,
           ],
           "className": "stat",
         },
@@ -204,7 +204,7 @@ ShallowWrapper {
         "rendered": Array [
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "Homeworld0",
             "nodeType": "host",
             "props": Object {
               "children": "Homeworld: function Object() { [native code] }",
@@ -212,11 +212,11 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": "Homeworld: function Object() { [native code] }",
-            "type": "p",
+            "type": "li",
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "Population1",
             "nodeType": "host",
             "props": Object {
               "children": "Population: function Object() { [native code] }",
@@ -224,11 +224,11 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": "Population: function Object() { [native code] }",
-            "type": "p",
+            "type": "li",
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "Species2",
             "nodeType": "host",
             "props": Object {
               "children": "Species: function Object() { [native code] }",
@@ -236,10 +236,10 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": "Species: function Object() { [native code] }",
-            "type": "p",
+            "type": "li",
           },
         ],
-        "type": "p",
+        "type": "ul",
       },
     ],
     "type": "div",
@@ -247,7 +247,7 @@ ShallowWrapper {
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
-      "key": undefined,
+      "key": "card0",
       "nodeType": "host",
       "props": Object {
         "children": Array [
@@ -269,25 +269,25 @@ ShallowWrapper {
                         />
             </button>
 </span>,
-          <p
+          <ul
             className="stat"
 >
-            <p
+            <li
                         className="individual-stat"
             >
                         Homeworld: function Object() { [native code] }
-            </p>
-            <p
+            </li>
+            <li
                         className="individual-stat"
             >
                         Population: function Object() { [native code] }
-            </p>
-            <p
+            </li>
+            <li
                         className="individual-stat"
             >
                         Species: function Object() { [native code] }
-            </p>
-</p>,
+            </li>
+</ul>,
         ],
         "className": "card",
       },
@@ -295,7 +295,7 @@ ShallowWrapper {
       "rendered": Array [
         Object {
           "instance": null,
-          "key": undefined,
+          "key": "tite0",
           "nodeType": "host",
           "props": Object {
             "children": Array [
@@ -366,21 +366,21 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <p
+              <li
                 className="individual-stat"
 >
                 Homeworld: function Object() { [native code] }
-</p>,
-              <p
+</li>,
+              <li
                 className="individual-stat"
 >
                 Population: function Object() { [native code] }
-</p>,
-              <p
+</li>,
+              <li
                 className="individual-stat"
 >
                 Species: function Object() { [native code] }
-</p>,
+</li>,
             ],
             "className": "stat",
           },
@@ -388,7 +388,7 @@ ShallowWrapper {
           "rendered": Array [
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "Homeworld0",
               "nodeType": "host",
               "props": Object {
                 "children": "Homeworld: function Object() { [native code] }",
@@ -396,11 +396,11 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": "Homeworld: function Object() { [native code] }",
-              "type": "p",
+              "type": "li",
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "Population1",
               "nodeType": "host",
               "props": Object {
                 "children": "Population: function Object() { [native code] }",
@@ -408,11 +408,11 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": "Population: function Object() { [native code] }",
-              "type": "p",
+              "type": "li",
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "Species2",
               "nodeType": "host",
               "props": Object {
                 "children": "Species: function Object() { [native code] }",
@@ -420,10 +420,10 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": "Species: function Object() { [native code] }",
-              "type": "p",
+              "type": "li",
             },
           ],
-          "type": "p",
+          "type": "ul",
         },
       ],
       "type": "div",
