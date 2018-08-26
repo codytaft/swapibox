@@ -79,7 +79,7 @@ describe('APP', () => {
       const mockSetDisplayData = jest.fn();
       wrapper = shallow(
         <App setDisplayData={mockSetDisplayData} />);
-      wrapper.setState({peopleData: appMockData})
+      wrapper.setState({peopleData: appMockData});
       const spy = spyOn(wrapper.instance(), 'getPeopleData');
       wrapper.instance().forceUpdate();
 
@@ -87,18 +87,20 @@ describe('APP', () => {
 
       expect(spy).toHaveBeenCalled();
       await expect(wrapper.state().favoritesDisplaying).toEqual(false);
-    })
+    });
   });
 
   describe('getVehicleData', () => {
     it('Should set state when invoked', async () => {
       const mockSetDisplayData = jest.fn();
-      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />)
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
+      wrapper.setState({vehicleData: appMockVehicle})
       const expected = appMockVehicle;
       
       await wrapper.instance().getVehicleData();
 
       expect(wrapper.state().vehicleData).toEqual(expected);
+      expect(wrapper.state().displayData).toEqual(appMockVehicle);
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
     });
 
@@ -137,6 +139,7 @@ describe('APP', () => {
       wrapper.instance().setDisplayData(mockData);
 
       expect(wrapper.state().displayData.length).toEqual(1);
+      expect(wrapper.state().displayData).toEqual(mockData);
     });
   });
 
