@@ -1,6 +1,6 @@
-import { appMockData, appMockPlanet, appMockVehicle, appMockPeople, appMockHomeworld, appMockSpecies, appMockResidents } 
-from '../../components/App/appMockData.js';
-import { MockData, films } from '../MockData';
+import { appMockPlanet, appMockVehicle, appMockPeople,        appMockHomeworld, appMockSpecies, appMockResidents } 
+  from '../../components/App/appMockData.js';
+import { films } from '../MockData';
 
 export const fetchScrawl = jest.fn().mockImplementation(() => (
   films
@@ -8,7 +8,7 @@ export const fetchScrawl = jest.fn().mockImplementation(() => (
 
 export const fetchPeopleData = jest.fn().mockImplementation(() => (
   appMockPeople
-))
+));
 
 export const fetchHomeWorld = jest.fn().mockImplementation(() => (
   appMockHomeworld
