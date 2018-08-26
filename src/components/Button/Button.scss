@@ -1,16 +1,21 @@
 @import "../../styles/mixins.scss";
 @import "../../styles/variables.scss";
 
-button.People, button.Vehicles, button.Planets, button.FAVORITES {
+.PEOPLE, .VEHICLES, .PLANETS, .FAVORITES {
   background-color: $color-four;
   border: 3px solid $color-gold;
-  color: $color-one;
+  color: $color-two;
   cursor: pointer;
   font-family: $font-fam;
   outline: none;
-  width: 10em;
+  width: 6em;
 }
 
 button.FAVORITES {
   height: 2.2em;
 }
+
+.active {
+  color: $color-one;
+}
+

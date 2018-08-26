@@ -46,7 +46,7 @@ describe('APP', () => {
   describe('getPeopleData', () => {
     it('Should update state when invoked', async () => {
       const expected = expectedAppMock;
-      
+
       await wrapper.instance().getPeopleData();
 
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
@@ -56,8 +56,8 @@ describe('APP', () => {
     it('Should invoke setDisplayData when invoked', async () => {
       const mockSetDisplayData = jest.fn();
       wrapper = shallow(
-        <App 
-          setDisplayData={mockSetDisplayData} 
+        <App
+          setDisplayData={mockSetDisplayData}
           peopleData={appMockPeople}
         />
       );
@@ -74,7 +74,7 @@ describe('APP', () => {
       const mockSetDisplayData = jest.fn();
       wrapper = shallow(
         <App setDisplayData={mockSetDisplayData} />);
-      wrapper.setState({peopleData: appMockData});
+      wrapper.setState({ peopleData: appMockData });
       const spy = spyOn(wrapper.instance(), 'getPeopleData');
       wrapper.instance().forceUpdate();
 
@@ -89,9 +89,9 @@ describe('APP', () => {
     it('Should set state when invoked', async () => {
       const mockSetDisplayData = jest.fn();
       wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
-      wrapper.setState({vehicleData: appMockVehicle});
+      wrapper.setState({ vehicleData: appMockVehicle });
       const expected = appMockVehicle;
-      
+
       await wrapper.instance().getVehicleData();
 
       expect(wrapper.state().vehicleData).toEqual(expected);
@@ -102,14 +102,14 @@ describe('APP', () => {
     it('Should invoke setDisplayData and setState when vehicleData', async () => {
       const mockSetDisplayData = jest.fn();
       wrapper = shallow(
-        <App 
-          setDisplayData={mockSetDisplayData} 
+        <App
+          setDisplayData={mockSetDisplayData}
           vehicleData={appMockVehicle}
         />
       );
       const spy = spyOn(wrapper.instance(), 'getVehicleData');
       wrapper.instance().forceUpdate();
-      
+
       await wrapper.instance().getVehicleData();
 
       expect(spy).toHaveBeenCalled();

@@ -10,12 +10,18 @@ class Nav extends Component {
 
   handleClick = event => {
     const { value } = event.target;
-    if (value === 'People') {
+    if (value === 'PEOPLE') {
       this.props.getPeopleData();
-    } else if (value === 'Vehicles') {
+      this.props.toggleButton(value);
+    } else if (value === 'VEHICLES') {
       this.props.getVehicleData();
-    } else if (value === 'Planets') {
+      this.props.toggleButton(value);
+    } else if (value === 'PLANETS') {
       this.props.getPlanetData();
+      this.props.toggleButton(value);
+    } else if (value === 'FAVORITES') {
+      this.props.toggleButton(value);
+      this.props.toggleFavorites();
     }
   };
 
@@ -25,14 +31,14 @@ class Nav extends Component {
         <div className="header-row">
           <h1 className="title-logo">SWAPI-Box</h1>
           <span className="fav-row">
-            <Button onClick={this.props.toggleFavorites} name="FAVORITES" />
+            <Button onClick={this.handleClick} activateButton={this.props.activateButton} activeButton={this.props.activeButton} name="FAVORITES" />
             <div className="fav-counter">{this.props.favoriteCount}</div>
           </span>
         </div>
         <div className="button-row">
-          <Button onClick={this.handleClick} name="People" />
-          <Button onClick={this.handleClick} name="Vehicles" />
-          <Button onClick={this.handleClick} name="Planets" />
+          <Button onClick={this.handleClick} activateButton={this.props.activateButton} activeButton={this.props.activeButton} name="PEOPLE" />
+          <Button onClick={this.handleClick} activateButton={this.props.activateButton} activeButton={this.props.activeButton} name="VEHICLES" />
+          <Button onClick={this.handleClick} activateButton={this.props.activateButton} activeButton={this.props.activeButton} name="PLANETS" />
         </div>
       </div>
     );

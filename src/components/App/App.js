@@ -24,7 +24,8 @@ class App extends Component {
       cleanData: [],
       favoritesDisplaying: false,
       favoriteCount: 0,
-      data: []
+      data: [],
+      activeButton: null
     };
   }
 
@@ -114,6 +115,17 @@ class App extends Component {
     this.setDisplayData(this.state.favorites);
   };
 
+  toggleButton = (value) => {
+    let activeButton = value;
+    if (!this.state.activeButton) {
+      this.setState({ activeButton });
+    } else {
+      this.setState({ activeButton });
+    }
+  }
+
+
+
   render() {
     const {
       crawlingText,
@@ -131,6 +143,8 @@ class App extends Component {
           getVehicleData={this.getVehicleData}
           toggleFavorites={this.toggleFavorites}
           favoriteCount={favoriteCount}
+          toggleButton={this.toggleButton}
+          activeButton={this.state.activeButton}
         />
         <div className="container-wrap">
           <CardContainer
