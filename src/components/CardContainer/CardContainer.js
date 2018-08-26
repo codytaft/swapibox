@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import './CardContainer.css';
-import Card from '../Card/Card.js'
+import Card from '../Card/Card.js';
 
 const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavorite, favoritesDisplaying, isFavoriteSelected, favorites }) => {
   console.log(favorites);
@@ -15,7 +15,7 @@ const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavori
           favoritesDisplaying={favoritesDisplaying}
           favorites={favorites} />
       </div>
-    )
+    );
   }
 
   if (favorites.length === 0 && favoritesDisplaying === true) {
@@ -25,7 +25,7 @@ const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavori
           <h1>No Favorites Selected</h1>
         </div>
       </div>
-    )
+    );
   }
 
 

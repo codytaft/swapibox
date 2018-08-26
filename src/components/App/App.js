@@ -6,7 +6,7 @@ import {
   fetchVehicleData,
   fetchPlanetData
 } from '../../data/FetchApi.js';
-import { cleanPeopleData, cleanPlanetData } from '../Helper/Helper.js'
+import { cleanPeopleData, cleanPlanetData } from '../Helper/Helper.js';
 import Nav from '../Nav/Nav';
 import CardContainer from '../CardContainer/CardContainer';
 
@@ -43,7 +43,7 @@ class App extends Component {
       this.setState({ favoritesDisplaying: false });
     } else {
       const data = await fetchPeopleData();
-      const peopleData = await cleanPeopleData(data)
+      const peopleData = await cleanPeopleData(data);
       this.setState({ peopleData });
       this.setDisplayData(peopleData);
       this.setState({ favoritesDisplaying: false });
@@ -68,7 +68,7 @@ class App extends Component {
       this.setState({ favoritesDisplaying: false });
     } else {
       const data = await fetchPlanetData();
-      const allPlanets = await cleanPlanetData(data)
+      const allPlanets = await cleanPlanetData(data);
       this.setState({ allPlanets });
       this.setDisplayData(allPlanets);
       this.setState({ favoritesDisplaying: false });

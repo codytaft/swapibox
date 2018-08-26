@@ -5,7 +5,7 @@ import { appMockData, appMockPlanet, appMockVehicle, appMockPeople, expectedAppM
 import { cleanPlanetData, cleanVehicles } from '../Helper/Helper';
 import { MockData, films } from '../../data/MockData';
 
-jest.mock('../../data/FetchApi')
+jest.mock('../../data/FetchApi');
 
 describe('APP', () => {
   let mockEvent;
@@ -63,18 +63,18 @@ describe('APP', () => {
       expect(wrapper.state().peopleData).toEqual(expected);
       // await expect(mockSetDisplayData).toHaveBeenCalled()
     });
-  })
+  });
 
   describe('getVehicleData', () => {
     it('Should set state when invoked', async () => {
       const mockSetDisplayData = jest.fn();
-      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />)
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
     
       const expected = appMockVehicle;
       await wrapper.instance().getVehicleData();
 
       // expect(mockSetDisplayData).toHaveBeenCalled()
-      expect(wrapper.state().vehicleData).toEqual(expected)
+      expect(wrapper.state().vehicleData).toEqual(expected);
     });
   });
 
@@ -84,7 +84,7 @@ describe('APP', () => {
       //   json: () => Promise.resolve(appMockPlanet)
       // }));
       // const expected = await cleanPlanetData(appMockData)
-      const expected = appMockPlanet
+      const expected = appMockPlanet;
       await wrapper.instance().getPlanetData();
 
       expect(wrapper.state().planetData).toEqual(appMockData);
@@ -95,9 +95,9 @@ describe('APP', () => {
   describe('setDisplayData', () => {
     it('Should setState when invoked', () => {
       mockData = appMockData;
-      wrapper.instance().setDisplayData(mockData)
+      wrapper.instance().setDisplayData(mockData);
 
-      expect(wrapper.state().displayData.length).toEqual(1)
+      expect(wrapper.state().displayData.length).toEqual(1);
     });
   });
 
@@ -112,15 +112,15 @@ describe('APP', () => {
       expect(wrapper.state().favorites.length).toEqual(0);
       expect(wrapper.state().favoriteCount).toEqual(0);
       
-      wrapper.setState({displayData: mockData})
+      wrapper.setState({displayData: mockData});
       wrapper.instance().selectFavorite("Luke Skywalker");
 
       expect(wrapper.state().favorites.length).toEqual(1);
       expect(wrapper.state().favoriteCount).toEqual(1);
     });
     it('Should update state when card is selected twice', () => {
-      wrapper.setState({displayData: mockData})
-      wrapper.setState({favoritesDisplaying: true})
+      wrapper.setState({displayData: mockData});
+      wrapper.setState({favoritesDisplaying: true});
       wrapper.instance().selectFavorite("Luke Skywalker");
       
       expect(wrapper.state().favorites.length).toEqual(1);
