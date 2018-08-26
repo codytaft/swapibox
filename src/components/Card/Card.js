@@ -10,16 +10,16 @@ const Card = ({ displayData, selectFavorite, favorites }) => {
       selected: favorites.find(card => (card.name === individualData.name))
     });
     return (
-      <div className="card" key={index}>
-        <span className="card-title">
+      <div className="card" key={'card' + index}>
+        <span className="card-title" key={'tite' + index}>
           <h1 className="name">{individualData.name}</h1>
           <button className={buttonClass} onClick={() => selectFavorite(individualData.name)}><img className={`img${buttonClass}`} src={favorite} /></button>
         </span>
-        <p className="stat">{Object.keys(individualData.stats).map((stat, index) => {
+        <ul className="stat">{Object.keys(individualData.stats).map((stat, index) => {
           return (
-            <p className="individual-stat" key={stat + index}>{`${stat}: ${individualData.stats[stat]}`}</p>
+            <li className="individual-stat" key={stat + index}>{`${stat}: ${individualData.stats[stat]}`}</li>
           );
-        })}</p>
+        })}</ul>
       </div>
     );
   });
