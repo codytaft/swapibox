@@ -4,7 +4,7 @@
 .PEOPLE, .VEHICLES, .PLANETS, .FAVORITES {
   background-color: $color-four;
   border: 3px solid $color-gold;
-  color: $color-one;
+  color: $color-two;
   cursor: pointer;
   font-family: $font-fam;
   outline: none;
@@ -16,6 +16,6 @@ button.FAVORITES {
 }
 
 .active {
-  background-color: $color-one;
+  color: $color-one;
 }
 

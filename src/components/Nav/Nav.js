@@ -8,26 +8,22 @@ class Nav extends Component {
     super(props);
   }
 
-  changeActiveButton = (value) => {
-    console.log(value);
-  }
-
   handleClick = event => {
     const { value } = event.target;
     if (value === 'PEOPLE') {
       this.props.getPeopleData();
       this.props.toggleButton(value);
-
     } else if (value === 'VEHICLES') {
       this.props.getVehicleData();
       this.props.toggleButton(value);
     } else if (value === 'PLANETS') {
       this.props.getPlanetData();
       this.props.toggleButton(value);
+    } else if (value === 'FAVORITES') {
+      this.props.toggleButton(value);
+      this.props.toggleFavorites();
     }
   };
-
-
 
   render() {
     return (
@@ -35,7 +31,7 @@ class Nav extends Component {
         <div className="header-row">
           <h1 className="title-logo">SWAPI-Box</h1>
           <span className="fav-row">
-            <Button onClick={this.props.toggleFavorites} activateButton={this.props.activateButton} activeButton={this.props.activeButton} name="FAVORITES" />
+            <Button onClick={this.handleClick} activateButton={this.props.activateButton} activeButton={this.props.activeButton} name="FAVORITES" />
             <div className="fav-counter">{this.props.favoriteCount}</div>
           </span>
         </div>
