@@ -1,24 +1,19 @@
 import React from 'react';
 import App from './App';
-import { shallow, mount } from 'enzyme';
-import { appMockData, appMockPlanet, appMockVehicle, appMockPeople, expectedAppMock } from './appMockData';
-import { cleanPlanetData, cleanVehicles } from '../Helper/Helper';
-import { MockData, films } from '../../data/MockData';
+import { shallow } from 'enzyme';
+import { appMockData, appMockVehicle, appMockPeople, expectedAppMock } from './appMockData';
+import { films } from '../../data/MockData';
 
 jest.mock('../../data/FetchApi');
 
 describe('APP', () => {
-  let mockEvent;
   let wrapper;
   let mockData;
   let mockRemoveFavorite;
-  let mockFetchScrawl;
 
   beforeEach(() => {
-    mockEvent = { preventDefault: jest.fn() };
     wrapper = shallow(<App removeFavorite={mockRemoveFavorite} />);
     mockData = {};
-    mockFetchScrawl = jest.fn();
     mockRemoveFavorite = jest.fn();
   });
 
@@ -94,7 +89,7 @@ describe('APP', () => {
     it('Should set state when invoked', async () => {
       const mockSetDisplayData = jest.fn();
       wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
-      wrapper.setState({vehicleData: appMockVehicle})
+      wrapper.setState({vehicleData: appMockVehicle});
       const expected = appMockVehicle;
       
       await wrapper.instance().getVehicleData();
@@ -112,20 +107,18 @@ describe('APP', () => {
           vehicleData={appMockVehicle}
         />
       );
-      const spy = spyOn(wrapper.instance(), 'getVehicleData')
-      const spy2 = spyOn(wrapper.instance(), 'setDisplayData');
+      const spy = spyOn(wrapper.instance(), 'getVehicleData');
       wrapper.instance().forceUpdate();
       
       await wrapper.instance().getVehicleData();
 
       expect(spy).toHaveBeenCalled();
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
-    })
+    });
   });
 
   describe('getPlanetData', () => {
     it('Should set the state planetData when invoked', async () => {
-      const expected = appMockPlanet
       await wrapper.instance().getPlanetData();
 
       expect(wrapper.state().planetData).toEqual([]);
