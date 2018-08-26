@@ -4,7 +4,8 @@ import { fetchScrawl,
         fetchVehicleData, 
         fetchResidents, 
         fetchPlanetData,
-        fetchSpecies } from './FetchApi';
+        fetchSpecies, 
+        fetchHomeWorld} from './FetchApi';
 import { shallow } from 'enzyme';
 import { cleanVehicles } from '../components/Helper/Helper.js';
 import { MockData, 
@@ -43,6 +44,16 @@ describe('fetchPeopleData', () => {
     const result = await fetchPeopleData()
     expect(result).toEqual(MockData.people)
   });
+})
+
+describe('fetchHomeWorld', () => {
+  it('Should invoke fetch with the correct params', () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      json: () => Promise.resolve(mockPlanets)
+    }))
+    fetchHomeWorld(mockPlanets)
+    expect(window.fetch).toHaveBeenCalledWith(mockPlanets)
+  })
 })
 
 // describe('fetchResidents', () => {
