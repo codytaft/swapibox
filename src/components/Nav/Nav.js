@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './Nav.css';
 import Button from '../Button/Button.js';
+import PropTypes from 'prop-types';
+
 class Nav extends Component {
   constructor(props) {
     super(props);
-  };
+  }
 
   handleClick = event => {
     const { value } = event.target;
@@ -34,7 +36,15 @@ class Nav extends Component {
         </div>
       </div>
     );
-  };
+  }
+}
+
+Nav.propTypes = {
+  getPeopleData: PropTypes.func,
+  getPlanetData: PropTypes.func,
+  getVehicleData: PropTypes.func,
+  toggleFavorites: PropTypes.func,
+  favoriteCount: PropTypes.number
 };
 
 export default Nav;
