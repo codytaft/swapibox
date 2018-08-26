@@ -70,7 +70,7 @@ describe('APP', () => {
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
     });
 
-    it.only('Should invoke setDisplayData and setState when there is peopleData', async () => {
+    it('Should invoke setDisplayData and setState when there is peopleData', async () => {
       const mockSetDisplayData = jest.fn();
       wrapper = shallow(
         <App setDisplayData={mockSetDisplayData} />);
@@ -88,26 +88,34 @@ describe('APP', () => {
   describe('getVehicleData', () => {
     it('Should set state when invoked', async () => {
       const mockSetDisplayData = jest.fn();
-      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
-
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />)
       const expected = appMockVehicle;
+      
       await wrapper.instance().getVehicleData();
 
-      // expect(mockSetDisplayData).toHaveBeenCalled()
       expect(wrapper.state().vehicleData).toEqual(expected);
+      expect(wrapper.state().favoritesDisplaying).toEqual(false);
     });
+
+    it('Should invoke setDisplayData and setState when vehicleData', async () => {
+      const mockSetDisplayData = jest.fn();
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />)
+      const spy = spyOn(wrapper.instance(), 'getVehicleData')
+      const spy2 = spyOn(wrapper.instance(), 'setDisplayData');
+      wrapper.instance().forceUpdate();
+      
+      await wrapper.instance().getVehicleData();
+
+      expect(spy).toHaveBeenCalled();
+    })
   });
 
   describe('getPlanetData', () => {
     it('Should set the state planetData when invoked', async () => {
-      // window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      //   json: () => Promise.resolve(appMockPlanet)
-      // }));
-      // const expected = await cleanPlanetData(appMockData)
-      const expected = appMockPlanet;
+      const expected = appMockPlanet
       await wrapper.instance().getPlanetData();
 
-      expect(wrapper.state().planetData).toEqual(appMockData);
+      expect(wrapper.state().planetData).toEqual(expected);
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
     });
   });
