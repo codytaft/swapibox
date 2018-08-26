@@ -1,0 +1,449 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    displayData={
+        Array [
+            Object {
+              "birth_year": "19BBY",
+              "created": "2014-12-09T13:50:51.644000Z",
+              "edited": "2014-12-20T21:17:56.891000Z",
+              "eye_color": "blue",
+              "films": Array [
+                "https://swapi.co/api/films/2/",
+                "https://swapi.co/api/films/6/",
+                "https://swapi.co/api/films/3/",
+                "https://swapi.co/api/films/1/",
+                "https://swapi.co/api/films/7/",
+              ],
+              "gender": "male",
+              "hair_color": "blond",
+              "height": "172",
+              "homeworld": "https://swapi.co/api/planets/1/",
+              "mass": "77",
+              "name": "Luke Skywalker",
+              "skin_color": "fair",
+              "species": Array [
+                "https://swapi.co/api/species/1/",
+              ],
+              "starships": Array [
+                "https://swapi.co/api/starships/12/",
+                "https://swapi.co/api/starships/22/",
+              ],
+              "stats": Object {
+                "Homeworld": Array [
+                  [Function],
+                ],
+                "Population": Array [
+                  [Function],
+                ],
+                "Species": Array [
+                  [Function],
+                ],
+              },
+              "url": "https://swapi.co/api/people/1/",
+              "vehicles": Array [
+                "https://swapi.co/api/vehicles/14/",
+                "https://swapi.co/api/vehicles/30/",
+              ],
+            },
+          ]
+    }
+    favorites={Array []}
+    selectFavorite={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <span
+          className="card-title"
+>
+          <h1
+                    className="name"
+          >
+                    Luke Skywalker
+          </h1>
+          <button
+                    className="cardbtn"
+                    onClick={[Function]}
+          >
+                    <img
+                              className="imgcardbtn"
+                              src="mark.svg"
+                    />
+          </button>
+</span>,
+        <p
+          className="stat"
+>
+          <p
+                    className="individual-stat"
+          >
+                    Homeworld: function Object() { [native code] }
+          </p>
+          <p
+                    className="individual-stat"
+          >
+                    Population: function Object() { [native code] }
+          </p>
+          <p
+                    className="individual-stat"
+          >
+                    Species: function Object() { [native code] }
+          </p>
+</p>,
+      ],
+      "className": "card",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1
+              className="name"
+>
+              Luke Skywalker
+</h1>,
+            <button
+              className="cardbtn"
+              onClick={[Function]}
+>
+              <img
+                            className="imgcardbtn"
+                            src="mark.svg"
+              />
+</button>,
+          ],
+          "className": "card-title",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Luke Skywalker",
+              "className": "name",
+            },
+            "ref": null,
+            "rendered": "Luke Skywalker",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <img
+                className="imgcardbtn"
+                src="mark.svg"
+/>,
+              "className": "cardbtn",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "imgcardbtn",
+                "src": "mark.svg",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": "button",
+          },
+        ],
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="individual-stat"
+>
+              Homeworld: function Object() { [native code] }
+</p>,
+            <p
+              className="individual-stat"
+>
+              Population: function Object() { [native code] }
+</p>,
+            <p
+              className="individual-stat"
+>
+              Species: function Object() { [native code] }
+</p>,
+          ],
+          "className": "stat",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Homeworld: function Object() { [native code] }",
+              "className": "individual-stat",
+            },
+            "ref": null,
+            "rendered": "Homeworld: function Object() { [native code] }",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Population: function Object() { [native code] }",
+              "className": "individual-stat",
+            },
+            "ref": null,
+            "rendered": "Population: function Object() { [native code] }",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Species: function Object() { [native code] }",
+              "className": "individual-stat",
+            },
+            "ref": null,
+            "rendered": "Species: function Object() { [native code] }",
+            "type": "p",
+          },
+        ],
+        "type": "p",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <span
+            className="card-title"
+>
+            <h1
+                        className="name"
+            >
+                        Luke Skywalker
+            </h1>
+            <button
+                        className="cardbtn"
+                        onClick={[Function]}
+            >
+                        <img
+                                    className="imgcardbtn"
+                                    src="mark.svg"
+                        />
+            </button>
+</span>,
+          <p
+            className="stat"
+>
+            <p
+                        className="individual-stat"
+            >
+                        Homeworld: function Object() { [native code] }
+            </p>
+            <p
+                        className="individual-stat"
+            >
+                        Population: function Object() { [native code] }
+            </p>
+            <p
+                        className="individual-stat"
+            >
+                        Species: function Object() { [native code] }
+            </p>
+</p>,
+        ],
+        "className": "card",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1
+                className="name"
+>
+                Luke Skywalker
+</h1>,
+              <button
+                className="cardbtn"
+                onClick={[Function]}
+>
+                <img
+                                className="imgcardbtn"
+                                src="mark.svg"
+                />
+</button>,
+            ],
+            "className": "card-title",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Luke Skywalker",
+                "className": "name",
+              },
+              "ref": null,
+              "rendered": "Luke Skywalker",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  className="imgcardbtn"
+                  src="mark.svg"
+/>,
+                "className": "cardbtn",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "imgcardbtn",
+                  "src": "mark.svg",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              "type": "button",
+            },
+          ],
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="individual-stat"
+>
+                Homeworld: function Object() { [native code] }
+</p>,
+              <p
+                className="individual-stat"
+>
+                Population: function Object() { [native code] }
+</p>,
+              <p
+                className="individual-stat"
+>
+                Species: function Object() { [native code] }
+</p>,
+            ],
+            "className": "stat",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Homeworld: function Object() { [native code] }",
+                "className": "individual-stat",
+              },
+              "ref": null,
+              "rendered": "Homeworld: function Object() { [native code] }",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Population: function Object() { [native code] }",
+                "className": "individual-stat",
+              },
+              "ref": null,
+              "rendered": "Population: function Object() { [native code] }",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Species: function Object() { [native code] }",
+                "className": "individual-stat",
+              },
+              "ref": null,
+              "rendered": "Species: function Object() { [native code] }",
+              "type": "p",
+            },
+          ],
+          "type": "p",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getSnapshotBeforeUpdate": true,
+        },
+      },
+    },
+    "attachTo": undefined,
+    "disableLifecycleMethods": true,
+    "hydrateIn": undefined,
+  },
+}
+`;
