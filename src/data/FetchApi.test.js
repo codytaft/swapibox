@@ -54,6 +54,11 @@ describe('fetchHomeWorld', () => {
     fetchHomeWorld(mockPlanets)
     expect(window.fetch).toHaveBeenCalledWith(mockPlanets)
   })
+
+  it('Should return homeworld name as a string', async () => {
+    const result = await fetchHomeWorld(mockPlanets)
+    expect(result).toEqual(mockPlanets.name)
+  })
 })
 
 // describe('fetchResidents', () => {
