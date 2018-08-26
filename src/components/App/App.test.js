@@ -133,5 +133,11 @@ describe('APP', () => {
     });
   });
 
+  describe('toggleFavorites', () => {
+    it.only('Should setState when invoked', () => {
+      wrapper.instance().toggleFavorites();
 
+      expect(wrapper.state().favoritesDisplaying).toEqual(true)
+    });
+  });
 });
