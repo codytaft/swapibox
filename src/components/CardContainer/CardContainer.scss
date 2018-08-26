@@ -5,18 +5,17 @@
   flex-wrap: wrap;
   justify-content: center;
   height: 100%;
-  margin-top: 5em;
   width: 100%;
 }
 
 .star-wars {
   display: flex;
   justify-content: left;
-  height: 600px;
+  height: 100%;
   perspective: 800px;
   color: #D7AA39;
   font-family: 'Pathway Gothic one', sans-serif;
-  font-size: 500%;
+  font-size: 800%;
   font-weight: 600;
   letter-spacing: 6px;
   line-height: 150%;
@@ -24,6 +23,7 @@
   text-align: justify;
   width: 100%;
   z-index: -1; position:relative;
+
 }
 
 .crawl {
@@ -40,8 +40,8 @@
 
 @keyframes crawl {
   0% {
-    top: 700px;
-    transform: rotateX(20deg) translateZ(0);
+    top: 1000px;
+    transform: rotateX(25deg) translateZ(0);
   }
   100% {
     top: -6000px;
@@ -51,9 +51,9 @@
 
 .fade {
   position: relative;
-  width: .1%;
+  // width: %;
   min-height: 10vh;
-  top: 0px;
+  top: px;
   background-image: linear-gradient(0deg, transparent, black 75%);
   z-index: 1;
 }

@@ -77,13 +77,13 @@ describe('fetchPopulation', () => {
   })
 })
 
-// describe('fetchResidents', () => {
+describe('fetchResidents', () => {
 
-//   it('Should return an array', async () => {
-//     const result = await fetchResidents(mockResidentLinks)
-//     expect(result).toEqual(mockResidentNames)
-//   });
-// })
+  it('Should return an array', async () => {
+    const result = await fetchResidents(mockResidentLinks)
+    expect(result).toEqual(mockResidentNames)
+  });
+})
 
 describe('fetchPlanetData', () => {
   it('should invoke fetch with correct parameters', () => {
