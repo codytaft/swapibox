@@ -77,7 +77,7 @@ describe('fetchPopulation', () => {
 
 describe('fetchResidents', () => {
 
-  it('Should return an array', async () => {
+  it.skip('Should return an array', async () => {
     const result = await fetchResidents(mockResidentLinks);
     expect(result).toEqual(mockResidentNames);
   });
