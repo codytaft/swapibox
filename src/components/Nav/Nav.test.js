@@ -57,5 +57,14 @@ describe('Nav', () => {
 
       expect(spy).toHaveBeenCalled();
     });
+
+    it('Should invoke getPlanetData when value is Vehicles', () => {
+      const event = {target: {value: 'Planets'}};
+      const spy = jest.spyOn(wrapper.instance(), "handleClick");
+      wrapper.instance().forceUpdate();
+      wrapper.find('[name="Planets"]').simulate('click', event);
+
+      expect(spy).toHaveBeenCalled();
+    });
   });
 });
