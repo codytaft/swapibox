@@ -134,10 +134,20 @@ describe('APP', () => {
   });
 
   describe('toggleFavorites', () => {
-    it.only('Should setState when invoked', () => {
+    it('Should setState when invoked', () => {
       wrapper.instance().toggleFavorites();
 
-      expect(wrapper.state().favoritesDisplaying).toEqual(true)
+      expect(wrapper.state().favoritesDisplaying).toEqual(true);
     });
+
+    it.only('Should invoke setDisplayData when invoked', () => {
+      const mockSetDisplayData = jest.fn()
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
+      const spy = spyOn(wrapper.instance(), 'toggleFavorites');
+      wrapper.instance().forceUpdate();
+      wrapper.instance().toggleFavorites()
+
+      expect(spy).toHaveBeenCalled();
+    })
   });
 });
