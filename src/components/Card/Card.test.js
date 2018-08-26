@@ -23,5 +23,5 @@ describe('Card', () => {
   it('should display the card catergory with the corresponding data', () => {
     // wrapper = mount(<Card displayData={mockDisplayData} selectFavorite={selectFavorite} mockFavorites={mockFavorites} />);
     // console.log(wrapper.results.length);
-  })
-})
+  });
+});

@@ -180,7 +180,7 @@ export const appMockSpecies = {
   "created": "2014-12-10T13:52:11.567000Z",
   "edited": "2015-04-17T06:59:55.850671Z",
   "url": "https://swapi.co/api/species/1/"
-}
+};
 
 export const appMockHomeworld = {
   "name": "Tatooine",
@@ -214,7 +214,7 @@ export const appMockHomeworld = {
   "created": "2014-12-09T13:50:49.641000Z",
   "edited": "2014-12-21T20:48:04.175778Z",
   "url": "https://swapi.co/api/planets/1/"
-}
+};
 
 export const appMockPlanet = {
   "count": 61,
@@ -350,7 +350,7 @@ export const appMockResidents =
   "created": "2014-12-10T15:20:09.791000Z",
   "edited": "2014-12-20T21:17:50.315000Z",
   "url": "https://swapi.co/api/people/5/"
-}
+};
 
 
 export const appMockVehicle =
