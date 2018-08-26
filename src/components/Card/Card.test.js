@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import { shallow, mount } from 'enzyme';
 import Card from '../Card/Card';
@@ -26,4 +27,21 @@ describe('Card', () => {
     // wrapper = mount(<Card displayData={mockDisplayData} selectFavorite={selectFavorite} mockFavorites={mockFavorites} />);
     // console.log(wrapper.results.length);
   })
+=======
+import React from 'react';
+import { shallow } from 'enzyme';
+import Button from '../Card/Card';
+import Card from '../Card/Card';
+
+describe('Card', () => {
+  let wrapper;
+  let displayData = jest.fn();
+  let selectFavorite = jest.fn();
+  let mockFavorites = []
+
+  it('should match the snapshot', () => {
+    wrapper = <Card displayData={displayData} selectFavorite={selectFavorite} mockFavorites={mockFavorites} />
+    expect(wrapper).toMatchSnapshot();
+  });
+>>>>>>> Add Card snapshot test
 })
