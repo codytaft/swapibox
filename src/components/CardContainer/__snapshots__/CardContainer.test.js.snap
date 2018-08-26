@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardContainer Should match the snapshot when displayData has length 1`] = `"<div class=\\"card-container\\"><div class=\\"card\\"><span class=\\"card-title\\"><h1 class=\\"name\\">Luke Skywalker</h1><button class=\\"cardbtn\\"><img class=\\"imgcardbtn\\" src=\\"mark.svg\\"/></button></span><p class=\\"stat\\"><p class=\\"individual-stat\\">Homeworld: [object Object]</p><p class=\\"individual-stat\\">Population: [object Object]</p><p class=\\"individual-stat\\">Species: [object Object]</p></p></div></div>"`;
+
+exports[`CardContainer Should match the snapshot when favorites is displaying and has no length 1`] = `"<div class=\\"card-container\\"><div class=\\"card\\"><span class=\\"card-title\\"><h1 class=\\"name\\">Luke Skywalker</h1><button class=\\"cardbtn\\"><img class=\\"imgcardbtn\\" src=\\"mark.svg\\"/></button></span><p class=\\"stat\\"><p class=\\"individual-stat\\">Homeworld: [object Object]</p><p class=\\"individual-stat\\">Population: [object Object]</p><p class=\\"individual-stat\\">Species: [object Object]</p></p></div></div>"`;
+
+exports[`CardContainer Should match the snapshot when only crawlingText has length 1`] = `
+"<div class=\\"card-container\\"><div class=\\"fade\\"></div><section class=\\"star-wars\\"><div class=\\"crawl\\"><div class=\\"title\\"><p>Episode 4</p><h1>A New Hope</h1></div><p>It is a period of civil war.
+Rebel spaceships, striking
+from a hidden base, have won
+their first victory against
+the evil Galactic Empire.
+
+During the battle, Rebel
+spies managed to steal secret
+plans to the Empire&#x27;s
+ultimate weapon, the DEATH
+STAR, an armored space
+station with enough power
+to destroy an entire planet.
+
+Pursued by the Empire&#x27;s
+sinister agents, Princess
+Leia races home aboard her
+starship, custodian of the
+stolen plans that can save her
+people and restore
+freedom to the galaxy....</p></div></section></div>"
+`;

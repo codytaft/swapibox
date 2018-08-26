@@ -1,6 +1,6 @@
 import React from 'react';
 import './CardContainer.css';
-import Card from '../Card/Card.js'
+import Card from '../Card/Card.js';
 import PropTypes from 'prop-types';
 
 const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavorite, favoritesDisplaying, isFavoriteSelected, favorites }) => {
@@ -53,6 +53,6 @@ CardContainer.propTypes = {
   favoritesDisplaying: PropTypes.bool,
   isFavoriteSelected: PropTypes.bool,
   favorites: PropTypes.array
-}
+};
 
 export default CardContainer;
