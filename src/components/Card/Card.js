@@ -13,7 +13,7 @@ const Card = ({ displayData, selectFavorite, favorites }) => {
       <div className="card" key={'card' + index}>
         <span className="card-title" key={'tite' + index}>
           <h1 className="name">{individualData.name}</h1>
-          <button className={buttonClass} onClick={() => selectFavorite(individualData.name)}><img className={`img${buttonClass}`} src={favorite} /></button>
+          <button className={buttonClass} onClick={() => selectFavorite(individualData.name)}><img className={`img${buttonClass}`} src={favorite} alt="button" /></button>
         </span>
         <ul className="stat">{Object.keys(individualData.stats).map((stat, index) => {
           return (
