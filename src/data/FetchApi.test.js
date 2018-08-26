@@ -70,6 +70,11 @@ describe('fetchPopulation', () => {
     fetchPopulation(mockPlanets)
     expect(window.fetch).toHaveBeenCalledWith(mockPlanets)
   })
+
+  it('Should return Population number as an integer', async () => {
+    const result = await fetchPopulation(mockPlanets)
+    expect(result).toEqual(mockPlanets.population)
+  })
 })
 
 // describe('fetchResidents', () => {
