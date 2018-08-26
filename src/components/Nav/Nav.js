@@ -6,18 +6,30 @@ import PropTypes from 'prop-types';
 class Nav extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      activeButton: false
+    }
   }
 
   handleClick = event => {
     const { value } = event.target;
-    if (value === 'People') {
+    if (value === 'PEOPLE') {
       this.props.getPeopleData();
-    } else if (value === 'Vehicles') {
+      this.activateButton(event);
+    } else if (value === 'VEHICLES') {
       this.props.getVehicleData();
-    } else if (value === 'Planets') {
+      this.activateButton(event);
+    } else if (value === 'PLANETS') {
       this.props.getPlanetData();
+      this.activateButton(event)
     }
   };
+
+  activateButton = (event) => {
+    console.log(event.target.value);
+  }
+
+
 
   render() {
     return (
@@ -30,9 +42,9 @@ class Nav extends Component {
           </span>
         </div>
         <div className="button-row">
-          <Button onClick={this.handleClick} name="People" />
-          <Button onClick={this.handleClick} name="Vehicles" />
-          <Button onClick={this.handleClick} name="Planets" />
+          <Button onClick={this.handleClick} name="PEOPLE" />
+          <Button onClick={this.handleClick} name="VEHICLES" />
+          <Button onClick={this.handleClick} name="PLANETS" />
         </div>
       </div>
     );

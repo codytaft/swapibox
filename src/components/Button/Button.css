@@ -1,4 +1,4 @@
-button.People, button.Vehicles, button.Planets, button.FAVORITES {
+.PEOPLE, .VEHICLES, .PLANETS, .FAVORITES {
   background-color: #1F2833;
   border: 3px solid #D7AA39;
   color: #66FCF1;
@@ -9,3 +9,6 @@ button.People, button.Vehicles, button.Planets, button.FAVORITES {
 
 button.FAVORITES {
   height: 2.2em; }
+
+.selected {
+  background-color: white; }

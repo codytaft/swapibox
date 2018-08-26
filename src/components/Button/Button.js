@@ -22,7 +22,7 @@ class Button extends Component {
     const buttonClass = classNames({ [`${this.props.name}`]: true, selected: this.state.active });
     return (
       <div>
-        <button className={buttonClass} onClick={this.handleClick} value={this.props.name}>
+        <button className={buttonClass} onClick={this.props.onClick} value={this.props.name}>
           {this.props.name}
         </button>
       </div>)
