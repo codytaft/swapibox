@@ -11,10 +11,7 @@ class Button extends Component {
   }
 
   handleClick = (event) => {
-    this.props.onClick(event);
-    let currentState = this.state.active;
-    currentState = !currentState
-    this.setState({ active: currentState });
+    this.props.activeButton(event.target.value);
   }
 
 

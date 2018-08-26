@@ -6,30 +6,18 @@ import PropTypes from 'prop-types';
 class Nav extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      activeButton: false
-    }
   }
 
   handleClick = event => {
     const { value } = event.target;
     if (value === 'PEOPLE') {
       this.props.getPeopleData();
-      this.activateButton(event);
     } else if (value === 'VEHICLES') {
       this.props.getVehicleData();
-      this.activateButton(event);
     } else if (value === 'PLANETS') {
       this.props.getPlanetData();
-      this.activateButton(event)
     }
   };
-
-  activateButton = (event) => {
-    console.log(event.target.value);
-  }
-
-
 
   render() {
     return (
@@ -37,14 +25,14 @@ class Nav extends Component {
         <div className="header-row">
           <h1 className="title-logo">SWAPI-Box</h1>
           <span className="fav-row">
-            <Button onClick={this.props.toggleFavorites} name="FAVORITES" />
+            <Button onClick={this.props.toggleFavorites} activateButton={this.activateButton} name="FAVORITES" />
             <div className="fav-counter">{this.props.favoriteCount}</div>
           </span>
         </div>
         <div className="button-row">
-          <Button onClick={this.handleClick} name="PEOPLE" />
-          <Button onClick={this.handleClick} name="VEHICLES" />
-          <Button onClick={this.handleClick} name="PLANETS" />
+          <Button onClick={this.handleClick} activateButton={this.activateButton} name="PEOPLE" />
+          <Button onClick={this.handleClick} activateButton={this.activateButton} name="VEHICLES" />
+          <Button onClick={this.handleClick} activateButton={this.activateButton} name="PLANETS" />
         </div>
       </div>
     );

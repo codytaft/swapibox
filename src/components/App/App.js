@@ -114,6 +114,10 @@ class App extends Component {
     this.setDisplayData(this.state.favorites);
   };
 
+  activateButton = (value) => {
+    console.log(value);
+  }
+
   render() {
     const {
       crawlingText,
@@ -131,6 +135,7 @@ class App extends Component {
           getVehicleData={this.getVehicleData}
           toggleFavorites={this.toggleFavorites}
           favoriteCount={favoriteCount}
+          activateButton={this.activateButton}
         />
         <div className="container-wrap">
           <CardContainer

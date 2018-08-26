@@ -4,20 +4,20 @@ import classNames from 'classnames/bind';
 import favorite from '../../images/mark.svg';
 
 const Card = ({ displayData, selectFavorite, favorites }) => {
-  return displayData.map(individualData => {
+  return displayData.map((individualData, index) => {
     const buttonClass = classNames({
       cardbtn: true,
       selected: favorites.find(card => (card.name === individualData.name))
     });
     return (
-      <div className="card">
+      <div className="card" key={index}>
         <span className="card-title">
           <h1 className="name">{individualData.name}</h1>
           <button className={buttonClass} onClick={() => selectFavorite(individualData.name)}><img className={`img${buttonClass}`} src={favorite} /></button>
         </span>
-        <p className="stat">{Object.keys(individualData.stats).map(stat => {
+        <p className="stat">{Object.keys(individualData.stats).map((stat, index) => {
           return (
-            <p className="individual-stat">{`${stat}: ${individualData.stats[stat]}`}</p>
+            <p className="individual-stat" key={stat + index}>{`${stat}: ${individualData.stats[stat]}`}</p>
           );
         })}</p>
       </div>
