@@ -8,11 +8,16 @@ class Nav extends Component {
     super(props);
   }
 
+  changeActiveButton = (value) => {
+    console.log(value);
+  }
+
   handleClick = event => {
     const { value } = event.target;
     if (value === 'PEOPLE') {
       this.props.getPeopleData();
       this.props.toggleButton(value);
+
     } else if (value === 'VEHICLES') {
       this.props.getVehicleData();
       this.props.toggleButton(value);

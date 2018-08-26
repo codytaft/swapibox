@@ -144,7 +144,7 @@ class App extends Component {
           toggleFavorites={this.toggleFavorites}
           favoriteCount={favoriteCount}
           toggleButton={this.toggleButton}
-          activeButton={this.activeButton}
+          activeButton={this.state.activeButton}
         />
         <div className="container-wrap">
           <CardContainer

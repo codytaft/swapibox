@@ -8,14 +8,14 @@
   cursor: pointer;
   font-family: $font-fam;
   outline: none;
-  width: 10em;
+  width: 6em;
 }
 
 button.FAVORITES {
   height: 2.2em;
 }
 
-.selected {
-  background-color: white;
+.active {
+  background-color: $color-one;
 }
 

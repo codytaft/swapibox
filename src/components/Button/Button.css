@@ -5,10 +5,10 @@
   cursor: pointer;
   font-family: "Fjalla One", sans-serif;
   outline: none;
-  width: 10em; }
+  width: 6em; }
 
 button.FAVORITES {
   height: 2.2em; }
 
-.selected {
-  background-color: white; }
+.active {
+  background-color: #66FCF1; }
