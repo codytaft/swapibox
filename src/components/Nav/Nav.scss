@@ -13,14 +13,14 @@
 .header-row {
   @include flexBetween();
   align-items: center;
-  margin-left: 39em;
-  max-width: 51em;
+  margin-left: 45%;
+  // max-width: 51em;
 }
 
 .button-row {
   @include flexBetween();
   align-items: center;
-  margin-left: 35em;
+  margin-left: 39%;
   width: 25em;
 }
 

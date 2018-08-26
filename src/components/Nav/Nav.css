@@ -10,14 +10,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 39em;
-  max-width: 51em; }
+  margin-left: 45%; }
 
 .button-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 35em;
+  margin-left: 39%;
   width: 25em; }
 
 .title-logo {
