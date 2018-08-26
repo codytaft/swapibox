@@ -48,5 +48,14 @@ describe('Nav', () => {
 
       expect(spy).toHaveBeenCalled();
     });
+
+    it('Should invoke getVehicleData when value is Vehicles', () => {
+      const event = {target: {value: 'Vehicles'}};
+      const spy = jest.spyOn(wrapper.instance(), "handleClick");
+      wrapper.instance().forceUpdate();
+      wrapper.find('[name="Vehicles"]').simulate('click', event);
+
+      expect(spy).toHaveBeenCalled();
+    });
   });
 });
