@@ -56,9 +56,9 @@ describe('APP', () => {
       //   json: () => Promise.resolve(appMockPeople)
       // }));
       const expected = appMockVehicle;
-      
+
       await wrapper.instance().getPeopleData();
-      
+
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
       expect(wrapper.state().peopleData).toEqual(expected);
       // await expect(mockSetDisplayData).toHaveBeenCalled()
@@ -69,7 +69,7 @@ describe('APP', () => {
     it('Should set state when invoked', async () => {
       const mockSetDisplayData = jest.fn();
       wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
-    
+
       const expected = appMockVehicle;
       await wrapper.instance().getVehicleData();
 
@@ -103,7 +103,7 @@ describe('APP', () => {
 
   describe('selectFavorite', () => {
     let mockData;
-      
+
     beforeEach(() => {
       mockData = appMockData;
     });
@@ -111,23 +111,23 @@ describe('APP', () => {
     it('Should update state when invoked', () => {
       expect(wrapper.state().favorites.length).toEqual(0);
       expect(wrapper.state().favoriteCount).toEqual(0);
-      
-      wrapper.setState({displayData: mockData});
+
+      wrapper.setState({ displayData: mockData });
       wrapper.instance().selectFavorite("Luke Skywalker");
 
       expect(wrapper.state().favorites.length).toEqual(1);
       expect(wrapper.state().favoriteCount).toEqual(1);
     });
     it('Should update state when card is selected twice', () => {
-      wrapper.setState({displayData: mockData});
-      wrapper.setState({favoritesDisplaying: true});
+      wrapper.setState({ displayData: mockData });
+      wrapper.setState({ favoritesDisplaying: true });
       wrapper.instance().selectFavorite("Luke Skywalker");
-      
+
       expect(wrapper.state().favorites.length).toEqual(1);
       expect(wrapper.state().favoriteCount).toEqual(1);
 
       wrapper.instance().selectFavorite("Luke Skywalker");
-      
+
       expect(wrapper.state().favorites.length).toEqual(0);
       expect(wrapper.state().favoriteCount).toEqual(0);
     });

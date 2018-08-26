@@ -17,7 +17,7 @@ const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavori
     );
   }
 
-  if (favorites.length === 0 && favoritesDisplaying === true) {
+  if (!favorites.length && favoritesDisplaying) {
     return (
       <div className="empty-wrapper">
         <div className="empty-greeting">
