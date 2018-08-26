@@ -140,14 +140,26 @@ describe('APP', () => {
       expect(wrapper.state().favoritesDisplaying).toEqual(true);
     });
 
-    it.only('Should invoke setDisplayData when invoked', () => {
-      const mockSetDisplayData = jest.fn()
+    it('Should invoke setDisplayData when invoked', () => {
+      const mockSetDisplayData = jest.fn();
       wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
       const spy = spyOn(wrapper.instance(), 'toggleFavorites');
       wrapper.instance().forceUpdate();
-      wrapper.instance().toggleFavorites()
+      wrapper.instance().toggleFavorites();
 
       expect(spy).toHaveBeenCalled();
-    })
+    });
+  });
+
+  describe('removeFavorite', () => {
+    it.only('Should invoke setDisplayData when invoked', () => {
+      const mockSetDisplayData = jest.fn();
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
+      const spy = spyOn(wrapper.instance(), 'removeFavorite');
+      wrapper.instance().forceUpdate();
+      wrapper.instance().removeFavorite();
+
+      expect(spy).toHaveBeenCalled();
+    });
   });
 });
