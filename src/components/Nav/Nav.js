@@ -50,7 +50,9 @@ Nav.propTypes = {
   getPlanetData: PropTypes.func,
   getVehicleData: PropTypes.func,
   toggleFavorites: PropTypes.func,
-  favoriteCount: PropTypes.number
+  favoriteCount: PropTypes.number, 
+  activateButton: PropTypes.func,
+  activeButton: PropTypes.bool
 };
 
 export default Nav;

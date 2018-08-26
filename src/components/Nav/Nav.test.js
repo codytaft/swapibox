@@ -7,6 +7,7 @@ describe('Nav', () => {
   let mockGetPeopleData;
   let mockGetVehicleData;
   let mockGetPlanetData;
+  let mockToggleButton;
 
   beforeEach(() => {
     wrapper = shallow(
@@ -14,12 +15,14 @@ describe('Nav', () => {
         getPeopleData={mockGetPeopleData}
         getVehicleData={mockGetVehicleData}
         getPlanetData={mockGetPlanetData}
+        toggleButton={mockToggleButton}
       />
     );
     
     mockGetPeopleData = jest.fn();
     mockGetVehicleData = jest.fn();
     mockGetPlanetData = jest.fn();
+    mockToggleButton = jest.fn();
   });
 
   it('Should match snapshot', () => {
@@ -29,38 +32,50 @@ describe('Nav', () => {
 
   it('Should invoke toggleFavorites on click favorites', () => {
     const mockToggleFavorites = jest.fn();
-    wrapper = shallow(<Nav toggleFavorites={mockToggleFavorites} />);
+    const event = {target: {value: 'FAVORITES'}};
+    wrapper = shallow(
+      <Nav  
+        toggleFavorites={mockToggleFavorites}
+        toggleButton={mockToggleButton}
+      />
+    );
    
     wrapper.instance().forceUpdate();
-    wrapper.find('[name="FAVORITES"]').simulate('click');
+    wrapper.find('[name="FAVORITES"]').simulate('click', event);
 
     expect(mockToggleFavorites).toHaveBeenCalled();
   });
 
   describe('handleClick', () => {
     it('Should invoke getPeopleData when value is people', () => {
-      const event = {target: {value: 'People'}};
+      wrapper = shallow(
+        <Nav  
+          getPeopleData={mockGetPeopleData} 
+          toggleButton={mockToggleButton}
+        />
+      );
+      const event = {target: {value: 'PEOPLE'}};
       const spy = jest.spyOn(wrapper.instance(), "handleClick");
       wrapper.instance().forceUpdate();
-      wrapper.find('[name="People"]').simulate('click', event);
+      wrapper.find('[name="PEOPLE"]').simulate('click', event);
 
       expect(spy).toHaveBeenCalled();
     });
 
     it('Should invoke getVehicleData when value is Vehicles', () => {
-      const event = {target: {value: 'Vehicles'}};
+      const event = {target: {value: 'VEHICLES'}};
       const spy = jest.spyOn(wrapper.instance(), "handleClick");
       wrapper.instance().forceUpdate();
-      wrapper.find('[name="Vehicles"]').simulate('click', event);
+      wrapper.find('[name="VEHICLES"]').simulate('click', event);
 
       expect(spy).toHaveBeenCalled();
     });
 
     it('Should invoke getPlanetData when value is Planets', () => {
-      const event = {target: {value: 'Planets'}};
+      const event = {target: {value: 'PLANETS'}};
       const spy = jest.spyOn(wrapper.instance(), "handleClick");
       wrapper.instance().forceUpdate();
-      wrapper.find('[name="Planets"]').simulate('click', event);
+      wrapper.find('[name="PLANETS"]').simulate('click', event);
 
       expect(spy).toHaveBeenCalled();
     });
