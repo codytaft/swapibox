@@ -1,7 +1,7 @@
-import React from 'react'
-import {cleanPeopleData, cleanPlanetData, getOpeningScrawl} from './Helper'
-import { shallow } from 'enzyme'
-import {films} from '../../data/MockData.js'
+import React from 'react';
+import {cleanPeopleData, cleanPlanetData, getOpeningScrawl} from './Helper';
+import { shallow } from 'enzyme';
+import {films} from '../../data/MockData.js';
 
 describe('getOpeningScrawl', () => {
 
@@ -10,8 +10,8 @@ describe('getOpeningScrawl', () => {
       title: films.title,
       episode: films.episode_id,
       scrawl: films.opening_crawl
-    }
-    expect(getOpeningScrawl(films)).toEqual(expected)
-  })
-})
+    };
+    expect(getOpeningScrawl(films)).toEqual(expected);
+  });
+});
 

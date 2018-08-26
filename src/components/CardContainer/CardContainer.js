@@ -1,10 +1,9 @@
-import React from 'react'
+import React from 'react';
 import './CardContainer.css';
-import Card from '../Card/Card.js'
+import Card from '../Card/Card.js';
 
 const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavorite, favoritesDisplaying, isFavoriteSelected, favorites }) => {
-  console.log(favorites);
-  const { episode, title, scrawl } = crawlingText;
+  const { episode, title, scrawl, date } = crawlingText;
   if (displayData.length > 0) {
     return (
       <div className="card-container">
@@ -15,20 +14,18 @@ const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavori
           favoritesDisplaying={favoritesDisplaying}
           favorites={favorites} />
       </div>
-    )
+    );
   }
 
-  if (favorites.length === 0 && favoritesDisplaying === true) {
+  if (!favorites.length && favoritesDisplaying) {
     return (
       <div className="empty-wrapper">
         <div className="empty-greeting">
           <h1>No Favorites Selected</h1>
         </div>
       </div>
-    )
+    );
   }
-
-
 
   return (
     <div className="card-container">
@@ -40,6 +37,7 @@ const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavori
             <h1>{title}</h1>
           </div>
           <p>{scrawl}</p>
+          <p>Release Date: {date}</p>
         </div>
       </section>
     </div>
