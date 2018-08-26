@@ -1,6 +1,6 @@
 import React from 'react';
 import App from './App';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { appMockData, appMockPlanet, appMockVehicle, appMockPeople, expectedAppMock } from './appMockData';
 import { cleanPlanetData, cleanVehicles } from '../Helper/Helper';
 import { MockData, films } from '../../data/MockData';
@@ -48,46 +48,74 @@ describe('APP', () => {
     });
   });
 
-  describe.skip('getPeopleData', () => {
+  describe('getPeopleData', () => {
     it('Should update state when invoked', async () => {
-      // const mockSetDisplayData = jest.fn();
-      // wrapper = await shallow(<App setDisplayData={mockSetDisplayData} />);
-      // window.fetch = jest.fn().mockImplementation(() => ({
-      //   json: () => Promise.resolve(appMockPeople)
-      // }));
-      const expected = appMockVehicle;
-
+      const expected = expectedAppMock;
+      
       await wrapper.instance().getPeopleData();
 
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
       expect(wrapper.state().peopleData).toEqual(expected);
-      // await expect(mockSetDisplayData).toHaveBeenCalled()
     });
+
+    it('Should invoke setDisplayData when invoked', async () => {
+      const mockSetDisplayData = jest.fn();
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
+      const spy = spyOn(wrapper.instance(), 'getPeopleData');
+      wrapper.instance().forceUpdate();
+
+      await wrapper.instance().getPeopleData();
+
+      expect(spy).toHaveBeenCalled();
+      expect(wrapper.state().favoritesDisplaying).toEqual(false);
+    });
+
+    it('Should invoke setDisplayData and setState when there is peopleData', async () => {
+      const mockSetDisplayData = jest.fn();
+      wrapper = shallow(
+        <App setDisplayData={mockSetDisplayData} />);
+      wrapper.setState({peopleData: appMockData})
+      const spy = spyOn(wrapper.instance(), 'getPeopleData');
+      wrapper.instance().forceUpdate();
+
+      await wrapper.instance().getPeopleData();
+
+      expect(spy).toHaveBeenCalled();
+      await expect(wrapper.state().favoritesDisplaying).toEqual(false);
+    })
   });
 
   describe('getVehicleData', () => {
     it('Should set state when invoked', async () => {
       const mockSetDisplayData = jest.fn();
-      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
-
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />)
       const expected = appMockVehicle;
+      
       await wrapper.instance().getVehicleData();
 
-      // expect(mockSetDisplayData).toHaveBeenCalled()
       expect(wrapper.state().vehicleData).toEqual(expected);
+      expect(wrapper.state().favoritesDisplaying).toEqual(false);
     });
+
+    it('Should invoke setDisplayData and setState when vehicleData', async () => {
+      const mockSetDisplayData = jest.fn();
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />)
+      const spy = spyOn(wrapper.instance(), 'getVehicleData')
+      const spy2 = spyOn(wrapper.instance(), 'setDisplayData');
+      wrapper.instance().forceUpdate();
+      
+      await wrapper.instance().getVehicleData();
+
+      expect(spy).toHaveBeenCalled();
+    })
   });
 
   describe('getPlanetData', () => {
     it('Should set the state planetData when invoked', async () => {
-      // window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      //   json: () => Promise.resolve(appMockPlanet)
-      // }));
-      // const expected = await cleanPlanetData(appMockData)
-      const expected = appMockPlanet;
+      const expected = appMockPlanet
       await wrapper.instance().getPlanetData();
 
-      expect(wrapper.state().planetData).toEqual(appMockData);
+      expect(wrapper.state().planetData).toEqual(expected);
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
     });
   });
@@ -133,5 +161,33 @@ describe('APP', () => {
     });
   });
 
+  describe('toggleFavorites', () => {
+    it('Should setState when invoked', () => {
+      wrapper.instance().toggleFavorites();
 
+      expect(wrapper.state().favoritesDisplaying).toEqual(true);
+    });
+
+    it('Should invoke setDisplayData when invoked', () => {
+      const mockSetDisplayData = jest.fn();
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
+      const spy = spyOn(wrapper.instance(), 'toggleFavorites');
+      wrapper.instance().forceUpdate();
+      wrapper.instance().toggleFavorites();
+
+      expect(spy).toHaveBeenCalled();
+    });
+  });
+
+  describe('removeFavorite', () => {
+    it('Should invoke setDisplayData when invoked', () => {
+      const mockSetDisplayData = jest.fn();
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
+      const spy = spyOn(wrapper.instance(), 'removeFavorite');
+      wrapper.instance().forceUpdate();
+      wrapper.instance().removeFavorite();
+
+      expect(spy).toHaveBeenCalled();
+    });
+  });
 });
