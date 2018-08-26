@@ -46,7 +46,7 @@ const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavori
 };
 
 CardContainer.propTypes = {
-  displayData: PropTypes.func,
+  displayData: PropTypes.array,
   selectFavorite: PropTypes.func,
   crawlingText: PropTypes.object,
   removeFavorite: PropTypes.func,
