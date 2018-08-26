@@ -14,8 +14,6 @@ import { MockData,
         mockResidentNames,
         mockPlanets, } 
         from './MockData';
-import { fetchSpecies } from '../components/App/__mocks__/FetchApi';
-// import { fetchPlanetData } from '../components/App/__mocks__/FetchApi';
 
 describe('fetchScrawl', () => {
 
@@ -76,8 +74,12 @@ describe('fetchSpecies', () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       json: () => Promise.resolve(MockData.people)
     }))
-    fetchSpecies()
-
+    fetchSpecies(MockData.people)
+    expect(window.fetch).toHaveBeenCalledWith(MockData.people)
+  })
+  it('Should return species name in a string', async() => {
+    const result = await fetchSpecies(MockData.people)
+    expect(result).toEqual(MockData.people.name)
   })
 })
 
