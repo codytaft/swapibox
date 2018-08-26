@@ -49,10 +49,10 @@ export const cleanPlanetData = async (planetData) => {
     return cleanPlanet = {
       name,
       stats: {
-        terrain: terrain,
-        population: population,
-        climate: climate,
-        residents: residents
+        Terrain: terrain,
+        Population: population,
+        Climate: climate,
+        Residents: residents
       }
     };
   });
@@ -62,13 +62,14 @@ export const cleanPlanetData = async (planetData) => {
 export const cleanVehicles = vehicleData => {
   const unresolvedVehicleData = vehicleData.results.map(vehicle => {
     let newVehicle;
+    console.log(vehicle)
     const { name, model, vehicle_class, passengers } = vehicle;
     return (newVehicle = {
       name,
       stats: {
-        model,
-        vehicle_class,
-        passengers
+        Model: model,
+        Class: vehicle_class,
+        Passengers: passengers
       }
     });
   });

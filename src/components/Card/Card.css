@@ -53,4 +53,6 @@
   display: flex;
   flex-direction: column;
   font-size: 1.1em;
-  overflow-wrap: break-word; }
+  overflow-wrap: break-word;
+  text-align: left;
+  padding-bottom: 1rem; }
