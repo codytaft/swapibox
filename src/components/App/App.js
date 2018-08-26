@@ -114,6 +114,10 @@ class App extends Component {
     this.setDisplayData(this.state.favorites);
   };
 
+  covertToRomanNumeral = () => {
+    console.log(this.state.crawlingText)
+  }
+
   render() {
     const {
       crawlingText,

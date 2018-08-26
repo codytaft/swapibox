@@ -4,46 +4,45 @@ import { getOpeningScrawl, cleanPeopleData, cleanSpecies, cleanVehicles, cleanPl
 export const fetchScrawl = async () => {
   const randomNumber = Math.floor(Math.random() * 6 + 1);
   let resolvedScrawl;
-    const response = await fetch(`https://swapi.co/api/films/${randomNumber}/`);
-    const data = await response.json();
-    return (resolvedScrawl = await getOpeningScrawl(data));
+  const response = await fetch(`https://swapi.co/api/films/${randomNumber}/`);
+  const data = await response.json();
+  return (resolvedScrawl = await getOpeningScrawl(data));
 };
 
 export const fetchPeopleData = async () => {
   let peopleData;
-    const response = await fetch(`https://swapi.co/api/people/`)
-    return peopleData = await response.json()
+  const response = await fetch(`https://swapi.co/api/people/`)
+  return peopleData = await response.json()
 };
 
 export const fetchHomeWorld = async planet => {
   let homeworld;
-    const response = await fetch(planet);
-    const data = await response.json();
-    return (homeworld = await data.name);
+  const response = await fetch(planet);
+  const data = await response.json();
+  return (homeworld = await data.name);
 };
 
 export const fetchPopulation = async planet => {
   let population;
-    const response = await fetch(planet);
-    const data = await response.json();
-    return (population = await data.population);
+  const response = await fetch(planet);
+  const data = await response.json();
+  return (population = await data.population);
 };
 
 export const fetchSpecies = async peopleData => {
   let species;
-    const response = await fetch(peopleData);
-    const data = await response.json();
-    return (species = await data.name);
+  const response = await fetch(peopleData);
+  const data = await response.json();
+  return (species = await data.name);
 };
 
 export const fetchPlanetData = async () => {
   let planetData
-    const response = await fetch('https://swapi.co/api/planets/')
-    return planetData = await response.json()
+  const response = await fetch('https://swapi.co/api/planets/')
+  return planetData = await response.json()
 };
 
 export const fetchResidents = async (residentLinks) => {
-  console.log(residentLinks)
   let fetchPlanetResidents = []
   await residentLinks.reduce(async (residentNames, resident) => {
     const response = await fetch(resident)
@@ -57,8 +56,8 @@ export const fetchResidents = async (residentLinks) => {
 };
 
 export const fetchVehicleData = async () => {
-    const response = await fetch(`https://swapi.co/api/vehicles/`);
-    const data = await response.json();
-    const vehicleData = await cleanVehicles(data);
-    return vehicleData;
+  const response = await fetch(`https://swapi.co/api/vehicles/`);
+  const data = await response.json();
+  const vehicleData = await cleanVehicles(data);
+  return vehicleData;
 };

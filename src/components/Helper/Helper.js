@@ -9,7 +9,8 @@ export const getOpeningScrawl = data => {
   const openingScrawl = {
     title: data.title,
     episode: data.episode_id,
-    scrawl: data.opening_crawl
+    scrawl: data.opening_crawl,
+    date: data.release_date,
   };
   return openingScrawl;
 };
