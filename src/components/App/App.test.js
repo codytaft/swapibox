@@ -1,6 +1,6 @@
 import React from 'react';
 import App from './App';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { appMockData, appMockPlanet, appMockVehicle, appMockPeople, expectedAppMock } from './appMockData';
 import { cleanPlanetData, cleanVehicles } from '../Helper/Helper';
 import { MockData, films } from '../../data/MockData';
@@ -48,7 +48,7 @@ describe('APP', () => {
     });
   });
 
-  describe.only('getPeopleData', () => {
+  describe('getPeopleData', () => {
     it('Should update state when invoked', async () => {
       const expected = expectedAppMock;
       
@@ -67,7 +67,22 @@ describe('APP', () => {
       await wrapper.instance().getPeopleData();
 
       expect(spy).toHaveBeenCalled();
+      expect(wrapper.state().favoritesDisplaying).toEqual(false);
     });
+
+    it.only('Should invoke setDisplayData and setState when there is peopleData', async () => {
+      const mockSetDisplayData = jest.fn();
+      wrapper = shallow(
+        <App setDisplayData={mockSetDisplayData} />);
+      wrapper.setState({peopleData: appMockData})
+      const spy = spyOn(wrapper.instance(), 'getPeopleData');
+      wrapper.instance().forceUpdate();
+
+      await wrapper.instance().getPeopleData();
+
+      expect(spy).toHaveBeenCalled();
+      await expect(wrapper.state().favoritesDisplaying).toEqual(false);
+    })
   });
 
   describe('getVehicleData', () => {
