@@ -15,10 +15,10 @@
   perspective: 800px;
   color: #D7AA39;
   font-family: 'Pathway Gothic one', sans-serif;
-  font-size: 800%;
-  font-weight: 600;
-  letter-spacing: 6px;
-  line-height: 150%;
+  font-size: 5rem;
+  // font-weight: 600;
+  // letter-spacing: 6px;
+  // line-height: 150%;
   overflow: hidden;
   text-align: justify;
   width: 100%;
@@ -36,7 +36,6 @@
     text-align: center;
   }
 }
-
 
 @keyframes crawl {
   0% {
