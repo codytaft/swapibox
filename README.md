@@ -17,9 +17,11 @@ Collaborators include [Chris Boyen](https://github.com/chrisboylen "Chris Boyen"
 
 ![on-page-load](src/images/screen1.png)  
 
-![display-compare](src/images/screen2.png)  
+![planets](src/images/screen3.png)  
 
-![display-compare](src/images/screen3.png)  
+![favorites](src/images/screen2.png)  
+
+
 
 
 
