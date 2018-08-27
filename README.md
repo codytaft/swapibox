@@ -15,4 +15,11 @@ Collaborators include [Chris Boyen](https://github.com/chrisboylen "Chris Boyen"
 
 ## Screenshots
 
+![on-page-load](src/images/screenshot1.png)  
+
+![display-compare](src/images/screenshot2.png)  
+
+![display-compare](src/images/screenshot3.png)  
+
+
 
