@@ -8,10 +8,10 @@ Collaborators include [Chris Boyen](https://github.com/chrisboylen "Chris Boyen"
 
 ## Steps to run App
 
-$ git clone https://github.com/codytaft/swapibox.git
-$ cd headcount2.0
-$ npm i
-$ npm start
+* $ git clone https://github.com/codytaft/swapibox.git
+* $ cd headcount2.0
+* $ npm i
+* $ npm start
 
 ## Screenshots
 
