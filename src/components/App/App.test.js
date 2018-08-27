@@ -1,7 +1,7 @@
 import React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
-import { appMockData, appMockVehicle, appMockPeople, expectedAppMock } from './appMockData';
+import { appMockData, appMockVehicle, appMockPeople, expectedAppMock, appMockPlanet } from './appMockData';
 import { films } from '../../data/MockData';
 
 jest.mock('../../data/FetchApi');
@@ -124,7 +124,20 @@ describe('APP', () => {
       expect(wrapper.state().planetData).toEqual([]);
       expect(wrapper.state().favoritesDisplaying).toEqual(false);
     });
-  });
+
+    it('Should set state with planetData when invoked', async () => {
+      const mockSetDisplayData = jest.fn();
+      const spy = spyOn(wrapper.instance(), 'getPlanetData');
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
+      wrapper.setState({ planetData: appMockPlanet });
+      const expected = appMockPlanet;
+
+      await wrapper.instance().getPlanetData();
+
+      expect(wrapper.state().planetData).toEqual(expected);
+      expect(wrapper.state().favoritesDisplaying).toEqual(false);
+    });
+  })
 
   describe('setDisplayData', () => {
     it('Should setState when invoked', () => {
@@ -197,4 +210,27 @@ describe('APP', () => {
       expect(spy).toHaveBeenCalled();
     });
   });
-});
+
+  describe('activeButton', () => {
+    it('should update the state of activeButton on click', () => {
+      let mockString = "PEOPLE"
+      const mockSetDisplayData = jest.fn();
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
+      wrapper.instance().toggleButton(mockString);
+
+      expect(wrapper.state().activeButton).toEqual(mockString);
+    })
+
+    it('should change activeButton when a new button is selected', () => {
+      let mockString = "PEOPLE"
+      let mockChange = "VEHICLES"
+      const mockSetDisplayData = jest.fn();
+      wrapper = shallow(<App setDisplayData={mockSetDisplayData} />);
+      wrapper.instance().toggleButton(mockString);
+      wrapper.instance().toggleButton(mockChange);
+
+      expect(wrapper.state().activeButton).toEqual(mockChange);
+    })
+
+  })
+})

@@ -80,6 +80,7 @@ ShallowWrapper {
                     onClick={[Function]}
           >
                     <img
+                              alt="button"
                               className="imgcardbtn"
                               src="mark.svg"
                     />
@@ -125,6 +126,7 @@ ShallowWrapper {
               onClick={[Function]}
 >
               <img
+                            alt="button"
                             className="imgcardbtn"
                             src="mark.svg"
               />
@@ -152,6 +154,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": <img
+                alt="button"
                 className="imgcardbtn"
                 src="mark.svg"
 />,
@@ -164,6 +167,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "alt": "button",
                 "className": "imgcardbtn",
                 "src": "mark.svg",
               },
@@ -264,6 +268,7 @@ ShallowWrapper {
                         onClick={[Function]}
             >
                         <img
+                                    alt="button"
                                     className="imgcardbtn"
                                     src="mark.svg"
                         />
@@ -309,6 +314,7 @@ ShallowWrapper {
                 onClick={[Function]}
 >
                 <img
+                                alt="button"
                                 className="imgcardbtn"
                                 src="mark.svg"
                 />
@@ -336,6 +342,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <img
+                  alt="button"
                   className="imgcardbtn"
                   src="mark.svg"
 />,
@@ -348,6 +355,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
+                  "alt": "button",
                   "className": "imgcardbtn",
                   "src": "mark.svg",
                 },
