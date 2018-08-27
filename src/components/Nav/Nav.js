@@ -52,7 +52,7 @@ Nav.propTypes = {
   toggleFavorites: PropTypes.func,
   favoriteCount: PropTypes.number, 
   activateButton: PropTypes.func,
-  activeButton: PropTypes.bool
+  activeButton: PropTypes.string
 };
 
 export default Nav;
