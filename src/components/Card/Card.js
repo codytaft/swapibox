@@ -2,6 +2,7 @@ import React from 'react';
 import './Card.css';
 import classNames from 'classnames/bind';
 import favorite from '../../images/mark.svg';
+import PropTypes from 'prop-types';
 
 const Card = ({ displayData, selectFavorite, favorites }) => {
   return displayData.map((individualData, index) => {
@@ -23,6 +24,12 @@ const Card = ({ displayData, selectFavorite, favorites }) => {
       </div>
     );
   });
+};
+
+Card.propTypes = {
+  displayData: PropTypes.array,
+  selectFavorite: PropTypes.func,
+  favorites: PropTypes.array
 };
 
 export default Card;

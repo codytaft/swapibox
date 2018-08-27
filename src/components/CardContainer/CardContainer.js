@@ -7,7 +7,6 @@ import logo from '../../images/Star_Wars_Logo.svg';
 
 const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavorite, favoritesDisplaying, isFavoriteSelected, favorites }) => {
   const { episode, title, scrawl, date } = crawlingText;
-  console.log(episode)
   if (displayData.length > 0) {
     return (
       <div className="card-container">
@@ -49,8 +48,8 @@ const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavori
     );
   } else {
     return (
-      <div className="logo"> 
-        <img src={logo} alt="Star-Wars-Logo" className="star-wars-logo"/>
+      <div className="logo">
+        <img src={logo} alt="Star-Wars-Logo" className="star-wars-logo" />
       </div>
     )
   }
