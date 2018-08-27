@@ -6,6 +6,12 @@ On page load an opening text scroll is chosen at random to display on the page. 
 
 Collaborators include [Chris Boyen](https://github.com/chrisboylen "Chris Boyen"), [Tim Fischer](https://github.com/TFisch "Tim Fischer") and [Cody Taft](https://github.com/codytaft "Cody Taft").
 
+## Steps to run App
+
+$ git clone https://github.com/codytaft/swapibox.git
+$ cd headcount2.0
+$ npm i
+$ npm start
 
 ## Screenshots
 
