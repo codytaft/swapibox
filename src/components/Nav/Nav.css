@@ -1,6 +1,7 @@
 .nav-wrapper {
   background-color: #1F2833;
-  height: 11em;
+  border-bottom: 2px solid #D7AA39;
+  height: 13em;
   margin: auto 0;
   width: 100%;
   z-index: 1;
@@ -29,9 +30,13 @@
   text-shadow: 2px 2px #C5C6C7; }
 
 .fav-counter {
+  align-items: center;
   border: 3px solid #D7AA39;
   color: #66FCF1;
-  width: 1.5em; }
+  display: flex;
+  justify-content: center;
+  height: 2.6em;
+  width: 1.9em; }
 
 .fav-row {
   align-items: center;

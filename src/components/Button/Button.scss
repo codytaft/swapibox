@@ -7,6 +7,8 @@
   color: $color-two;
   cursor: pointer;
   font-family: $font-fam;
+  font-size: .75em;
+  height: 4em;
   outline: none;
   padding-top: .3em;
   width: 6em;
@@ -16,9 +18,6 @@
   color: $color-one;
 }
 
-button.FAVORITES {
-  height: 2.2em;
-}
 
 .active {
   color: $color-one;
