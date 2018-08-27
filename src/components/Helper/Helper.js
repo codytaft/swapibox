@@ -5,14 +5,14 @@ import {
   fetchResidents
 } from '../../data/FetchApi';
 
-export const getOpeningScrawl = data => {
+export const getOpeningScrawl = async data => {
   const openingScrawl = {
     title: data.title,
     episode: data.episode_id,
     scrawl: data.opening_crawl,
     date: data.release_date
   };
-  return openingScrawl;
+  return await openingScrawl;
 };
 
 export const cleanPeopleData = peopleData => {
