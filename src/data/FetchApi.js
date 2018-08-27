@@ -47,8 +47,8 @@ export const fetchResidents = async (residentLinks) => {
     const response = await fetch(resident);
     const residentList = await response.json();
     const residentName = await residentList.name;
-    residentNames = residentName;
-    fetchPlanetResidents.push(residentName);
+    residentNames = ` ${residentName}`;
+    fetchPlanetResidents.push(residentNames);
     return residentNames;
   }, '');
   return fetchPlanetResidents;
