@@ -18,7 +18,6 @@ describe('APP', () => {
   });
 
   it('Should match snapshot', () => {
-
     expect(wrapper.html()).toMatchSnapshot();
   });
 
