@@ -12,6 +12,10 @@
   width: 6em;
 }
 
+.PEOPLE:hover, .VEHICLES:hover, .PLANETS:hover, .FAVORITES:hover{
+  color: $color-one;
+}
+
 button.FAVORITES {
   height: 2.2em;
 }

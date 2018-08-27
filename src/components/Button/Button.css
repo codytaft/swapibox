@@ -8,6 +8,9 @@
   padding-top: .3em;
   width: 6em; }
 
+.PEOPLE:hover, .VEHICLES:hover, .PLANETS:hover, .FAVORITES:hover {
+  color: #66FCF1; }
+
 button.FAVORITES {
   height: 2.2em; }
 
