@@ -2,7 +2,7 @@ import React from 'react';
 import './CardContainer.css';
 import Card from '../Card/Card.js';
 import PropTypes from 'prop-types';
-import logo from '../../images/Star_Wars_Logo.svg';
+import logo from '../../images/loading.gif';
 
 
 const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavorite, favoritesDisplaying, isFavoriteSelected, favorites }) => {
