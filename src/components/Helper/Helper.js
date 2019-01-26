@@ -9,8 +9,7 @@ export const getOpeningScrawl = async data => {
   const openingScrawl = {
     title: data.title,
     episode: data.episode_id,
-    scrawl: data.opening_crawl,
-    date: data.release_date
+    scrawl: data.opening_crawl
   };
   return await openingScrawl;
 };

@@ -4,18 +4,27 @@ import Card from '../Card/Card.js';
 import PropTypes from 'prop-types';
 import logo from '../../images/loading.gif';
 
-
-const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavorite, favoritesDisplaying, isFavoriteSelected, favorites }) => {
-  const { episode, title, scrawl, date } = crawlingText;
+const CardContainer = ({
+  displayData,
+  selectFavorite,
+  crawlingText,
+  removeFavorite,
+  favoritesDisplaying,
+  isFavoriteSelected,
+  favorites
+}) => {
+  const { episode, title, scrawl } = crawlingText;
   if (displayData.length > 0) {
     return (
       <div className="card-container">
-        <Card displayData={displayData}
+        <Card
+          displayData={displayData}
           selectFavorite={selectFavorite}
           removeFavorite={removeFavorite}
           isFavoriteSelected={isFavoriteSelected}
           favoritesDisplaying={favoritesDisplaying}
-          favorites={favorites} />
+          favorites={favorites}
+        />
       </div>
     );
   }
@@ -28,12 +37,12 @@ const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavori
         </div>
       </div>
     );
-  };
+  }
 
   if (episode) {
     return (
       <div className="card-container">
-        <div className="fade"></div>
+        <div className="fade" />
         <section className="star-wars">
           <div className="crawl">
             <div className="title">
@@ -41,7 +50,6 @@ const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavori
               <h1>{title}</h1>
             </div>
             <p>{scrawl}</p>
-            <p>Release Date: {date}</p>
           </div>
         </section>
       </div>
@@ -51,7 +59,7 @@ const CardContainer = ({ displayData, selectFavorite, crawlingText, removeFavori
       <div className="logo">
         <img src={logo} alt="Star-Wars-Logo" className="star-wars-logo" />
       </div>
-    )
+    );
   }
 };
 
